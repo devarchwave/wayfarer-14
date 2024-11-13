@@ -10,10 +10,13 @@
   - type: Rotatable
   - type: Sprite
     noRot: true
-    sprite: _Impstation/Structures/cryostorage.rsi # Impstation
+    sprite: _Impstation/Structures/cryostorage.rsi # imp
     layers:
     - state: sleeper_0
       map: ["base"]
+    - state: sleeper_0-overlay # imp
+      shader: unshaded
+      map: ["overlay"]
   - type: UserInterface
     interfaces:
       enum.CryostorageUIKey.Key:
