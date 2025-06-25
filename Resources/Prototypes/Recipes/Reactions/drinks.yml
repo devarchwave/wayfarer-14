@@ -1157,6 +1157,7 @@
 
 - type: reaction
   id: Tea
+  minTemp: 369.15 # Mono Edit: 96C
   reactants:
     TeaPowder:
       amount: 1
