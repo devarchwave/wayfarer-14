@@ -43,13 +43,9 @@ using Timer = Robust.Shared.Timing.Timer;
 using Content.Server.Power.EntitySystems; // Frontier
 using Content.Server._NF.Bank; // Frontier
 using Content.Server._NF.Mail.Components; // Frontier
-using Content.Server._NF.SectorServices; // Frontier
-using Content.Shared.SSDIndicator; // Frontier
-using Content.Shared.Station.Components; // Frontier
-using Content.Shared._NF.Bank.BUI; // Frontier
-using Content.Shared._NF.Bank.Components; // Frontier
-using Robust.Server.Player; // Frontier
-using Robust.Shared.Enums; // Frontier
+
+using Robust.Server.Player; // Delta V
+using Robust.Shared.Timing; // Delta V
 
 namespace Content.Server._DV.Mail.EntitySystems
 {
@@ -78,6 +74,7 @@ namespace Content.Server._DV.Mail.EntitySystems
         [Dependency] private readonly BankSystem _bank = default!; // Frontier
         [Dependency] private readonly PowerReceiverSystem _powerReceiver = default!; // Frontier
         [Dependency] private readonly IPlayerManager _player = default!; // Frontier
+        [Dependency] private readonly IGameTiming _gameTiming = default!;
 
         private ISawmill _sawmill = default!;
         private static readonly ProtoId<TagPrototype> MailTag = "Mail"; // Frontier
@@ -252,16 +249,35 @@ namespace Content.Server._DV.Mail.EntitySystems
                 return;
             }
 
-            args.PushMarkup(Loc.GetString(mailEntityStrings.DescClose,
-                ("name", component.Recipient),
-                ("job", component.RecipientJob),
-                ("station", component.RecipientStation))); // Frontier: add station
+            args.PushMarkup(
+                Loc.GetString(
+                    mailEntityStrings.DescClose,
+                    ("name", component.Recipient),
+                    ("job", component.RecipientJob),
+                    ("station", component.RecipientStation))); // Frontier: add station
 
             if (component.IsFragile)
                 args.PushMarkup(Loc.GetString("mail-desc-fragile"));
 
             if (component.IsPriority)
                 args.PushMarkup(Loc.GetString(component.IsProfitable ? "mail-desc-priority" : "mail-desc-priority-inactive"));
+
+            if (component.TrashTime > TimeSpan.Zero)
+            {
+                var timeLeft = component.TrashTime - _gameTiming.CurTime;
+                if (timeLeft.TotalSeconds > 0)
+                {
+                    var timeString = timeLeft.ToString("d\\:hh\\:mm\\:ss");
+                    args.PushMarkup(
+                        Loc.GetString(
+                            "mail-desc-trash-time",
+                            ("time", timeString)));
+                }
+                else
+                {
+                    args.PushMarkup(Loc.GetString("mail-desc-trash-imminent"));
+                }
+            }
         }
 
 
@@ -298,6 +314,17 @@ namespace Content.Server._DV.Mail.EntitySystems
         {
             if (component.IsLocked)
             {
+                if (component.TrashTime < _gameTiming.CurTime) // Frontier: dont penalize if trash time is up
+                {
+                    _popupSystem.PopupEntity(
+                        Loc.GetString("mail-penalty-trash"),
+                        uid);
+                    if (component.IsEnabled)
+                    {
+                        OpenMail(uid, component);
+                    }
+                    return;
+                }
                 // DeltaV - Tampered mail recorded to logistic stats
                 if (component.IsProfitable) // Frontier: update only when profitable
                 {
@@ -340,6 +367,17 @@ namespace Content.Server._DV.Mail.EntitySystems
 
             if (component.IsFragile || !component.IsProfitable) // Frontier: update only when profitable
                 return;
+            if (component.TrashTime < _gameTiming.CurTime) // Frontier: dont penalize if trash time is up
+            {
+                _popupSystem.PopupEntity(
+                    Loc.GetString("mail-penalty-trash"),
+                    uid);
+                if (component.IsEnabled)
+                {
+                    OpenMail(uid, component);
+                }
+                return;
+            }
             // DeltaV - Broken mail recorded to logistic stats
             ExecuteForEachLogisticsStats((logisticStats) => // Frontier: no station
             {
@@ -536,6 +574,8 @@ namespace Content.Server._DV.Mail.EntitySystems
                     },
                     mailComp.PriorityCancelToken.Token);
             }
+
+            mailComp.TrashTime = _gameTiming.CurTime + mailComp.TrashDuration;
 
             _appearanceSystem.SetData(uid, MailVisuals.JobIcon, recipient.JobIcon);
 
