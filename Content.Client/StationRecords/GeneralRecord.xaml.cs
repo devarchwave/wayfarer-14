@@ -58,7 +58,7 @@ public sealed partial class GeneralRecord : Control
         if (_removeButtonResetOn is null)
         {
             _removeButtonResetOn = _gameTiming.CurTime.Add(TimeSpan.FromSeconds(3));
-            RemoveCrewButton.AddStyleClass(StyleBase.ButtonCaution);
+            RemoveCrewButton.AddStyleClass(StyleClass.Negative);
             RemoveCrewButton.Text = Loc.GetString("register-crew-confirm");
             return;
         }
@@ -71,7 +71,7 @@ public sealed partial class GeneralRecord : Control
     private void ResetRemoveButton()
     {
         _removeButtonResetOn = null;
-        RemoveCrewButton.RemoveStyleClass(StyleBase.ButtonCaution);
+        RemoveCrewButton.RemoveStyleClass(StyleClass.Negative);
         RemoveCrewButton.Text = Loc.GetString("register-crew-remove");
     }
 

@@ -74,7 +74,7 @@ public sealed partial class BountyContractUiFragmentListEntry : Control
             >= 2 and < 90 => Loc.GetString("bounty-contracts-ui-list-time-min", ("mins", (int)timeSinceCreated.TotalMinutes)),
             _ => Loc.GetString("bounty-contracts-ui-list-time-hr", ("hrs", (int)timeSinceCreated.TotalHours))
         };
-        BountyTime.AddStyleClass(StyleBase.StyleClassItalic);
+        BountyTime.AddStyleClass(StyleClass.Italic);
 
         // author
         string author = contract.Author ?? "";

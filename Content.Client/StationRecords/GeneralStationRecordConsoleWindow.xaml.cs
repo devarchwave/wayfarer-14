@@ -131,7 +131,7 @@ public sealed partial class GeneralStationRecordConsoleWindow : DefaultWindow
         if (_registerButtonResetOn is null)
         {
             _registerButtonResetOn = _gameTiming.CurTime.Add(TimeSpan.FromSeconds(3));
-            RegisterButton.AddStyleClass(StyleBase.ButtonCaution);
+            RegisterButton.AddStyleClass(StyleClass.Negative);
             RegisterButton.Text = Loc.GetString("register-crew-confirm");
             return;
         }
@@ -143,7 +143,7 @@ public sealed partial class GeneralStationRecordConsoleWindow : DefaultWindow
     private void ResetRegisterButton()
     {
         _registerButtonResetOn = null;
-        RegisterButton.RemoveStyleClass(StyleBase.ButtonCaution);
+        RegisterButton.RemoveStyleClass(StyleClass.Negative);
         RegisterButton.Text = Loc.GetString("register-crew-button");
     }
 
