@@ -233,7 +233,8 @@
     - base:
         nuclear_waste: "" # Allows for multiple debris sprites... even though there's just one
   - type: RadiationSource
-    intensity: 1.6
+    intensity: 4
+    slope: 0.2
 
 # Arrows to indicate flow
 - type: entity
