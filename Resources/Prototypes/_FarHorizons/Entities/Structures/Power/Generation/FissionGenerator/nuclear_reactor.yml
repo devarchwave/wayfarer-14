@@ -161,7 +161,7 @@
   components:
   - type: NuclearReactor
     melted: true
-    meltdownRadiation: 3.5
+    meltdownRadiation: 8
 
 - type: entity
   id: NuclearReactorSmall
@@ -211,7 +211,7 @@
   - type: NuclearReactor
     prefab: empty
     melted: true
-    meltdownRadiation: 2.5
+    meltdownRadiation: 5
 
 # Nuclear debris resultant from a meltdown
 - type: entity
@@ -233,8 +233,8 @@
     - base:
         nuclear_waste: "" # Allows for multiple debris sprites... even though there's just one
   - type: RadiationSource
-    intensity: 4
-    slope: 0.2
+    intensity: 15
+    slope: 0.1
 
 # Arrows to indicate flow
 - type: entity
