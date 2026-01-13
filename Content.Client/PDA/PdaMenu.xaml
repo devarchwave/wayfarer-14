@@ -45,8 +45,9 @@
                 <RichTextLabel Name="StationTimeLabel" Access="Public"/>
             </ContainerButton>
             <!-- Frontier -->
-            <ContainerButton Name="RemainingTimeButton">
-                <RichTextLabel Name="RemainingTimeLabel" Access="Public"/>
+            <!-- Wayfarer: Renamed RemainingTimeButton and Label to ShiftEndTimeButton and Label -->
+            <ContainerButton Name="ShiftEndTimeButton">
+                <RichTextLabel Name="ShiftEndTimeLabel" Access="Public"/>
             </ContainerButton>
             <!-- End Frontier -->
             <!-- Begin DeltaV changes -->
