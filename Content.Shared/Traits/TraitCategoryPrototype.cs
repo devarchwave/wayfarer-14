@@ -1,3 +1,4 @@
+/* // DeltaV Start: Entirely commented in favor of DeltaV's Trait System
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Traits;
@@ -26,3 +27,4 @@ public sealed partial class TraitCategoryPrototype : IPrototype
     [DataField]
     public int? MaxTraitPoints;
 }
+*/ // Delta V End

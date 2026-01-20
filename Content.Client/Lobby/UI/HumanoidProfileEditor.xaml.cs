@@ -36,6 +36,10 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using Direction = Robust.Shared.Maths.Direction;
 
+
+using Content.Shared._DV.Traits; // DV - Traits
+
+
 namespace Content.Client.Lobby.UI
 {
     [GenerateTypedNameReferences]
@@ -167,6 +171,8 @@ namespace Content.Client.Lobby.UI
             {
                 Save?.Invoke();
             };
+
+            Traits.OnTraitsChanged += OnTraitsSelectionChanged; // DeltaV
 
             #region Left
 
@@ -438,7 +444,7 @@ namespace Content.Client.Lobby.UI
 
             //TabContainer.SetTabTitle(2, Loc.GetString("humanoid-profile-editor-antags-tab")); // Frontier
 
-            RefreshTraits();
+            // RefreshTraits(); // DeltaV
 
             #region Markings
 
@@ -486,6 +492,57 @@ namespace Content.Client.Lobby.UI
             IsDirty = false;
         }
 
+        // Begin DeltaV - Traits Integration
+        /// <summary>
+        /// Called when trait selection changes in the TraitsTab.
+        /// Updates the profile with the new trait selection.
+        /// </summary>
+        private void OnTraitsSelectionChanged(HashSet<ProtoId<TraitPrototype>> traits)
+        {
+            if (Profile is null)
+                return;
+
+            // Remove all existing traits - iterate directly over readonly collection
+            foreach (var existingTrait in Profile.TraitPreferences)
+            {
+                Profile = Profile.WithoutTraitPreference(existingTrait, _prototypeManager);
+            }
+
+            // Add newly selected traits
+            foreach (var trait in traits)
+            {
+                Profile = Profile.WithTraitPreference(trait.Id, _prototypeManager);
+            }
+
+            SetDirty();
+        }
+
+        /// <summary>
+        /// Updates the traits tab with the current profile's selected traits.
+        /// </summary>
+        private void UpdateTraitsSelection()
+        {
+            if (Profile is null)
+            {
+                Traits.SetSelectedTraits(new HashSet<ProtoId<TraitPrototype>>());
+                return;
+            }
+
+            // Convert profile's trait preferences (strings) to ProtoId<TraitPrototype>
+            var selectedTraits = new HashSet<ProtoId<TraitPrototype>>(Profile.TraitPreferences.Count);
+            foreach (var traitId in Profile.TraitPreferences)
+            {
+                // Validate that the trait still exists in prototypes
+                if (_prototypeManager.HasIndex(traitId))
+                {
+                    selectedTraits.Add(new ProtoId<TraitPrototype>(traitId));
+                }
+            }
+
+            Traits.SetSelectedTraits(selectedTraits);
+        }
+        // End DeltaV - Traits Integration
+
         /// <summary>
         /// Refreshes the flavor text editor status.
         /// </summary>
@@ -520,6 +577,7 @@ namespace Content.Client.Lobby.UI
         /// <summary>
         /// Refreshes traits selector
         /// </summary>
+        /* // DeltaV Start - Commenting out this whole block in favor of the new traits system.
         public void RefreshTraits()
         {
             TraitsList.DisposeAllChildren();
@@ -628,6 +686,7 @@ namespace Content.Client.Lobby.UI
                 }
             }
         }
+        */ // DeltaV End
 
         /// <summary>
         /// Refreshes the species selector.
@@ -807,11 +866,13 @@ namespace Content.Client.Lobby.UI
             UpdateCMarkingsHair();
             UpdateCMarkingsFacialHair();
 
+            UpdateTraitsSelection(); // DeltaV - Traits
+
             RefreshAntags();
             RefreshJobs();
             RefreshLoadouts();
             RefreshSpecies();
-            RefreshTraits();
+            // RefreshTraits(); // DeltaV
             RefreshFlavorText();
             ReloadPreview();
 

@@ -1,3 +1,4 @@
+/* // DeltaV Start: Entirely commented in favor of DeltaV's Trait System
 using Content.Shared.GameTicking;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
@@ -63,3 +64,4 @@ public sealed class TraitSystem : EntitySystem
         }
     }
 }
+*/ // DeltaV End

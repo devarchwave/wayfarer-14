@@ -2,11 +2,13 @@ using System.Diagnostics.CodeAnalysis;
 using System.Text;
 using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Preferences;
-using Content.Shared.Traits;
+//using Content.Shared.Traits; // DeltaV
 using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
+
+using Content.Shared._DV.Traits; // DeltaV
 
 namespace Content.Shared.Roles;
 

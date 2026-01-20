@@ -1,3 +1,4 @@
+/* // DeltaV Start: Entirely commented in favor of DeltaV's Trait System
 using Content.Shared.Whitelist;
 using Robust.Shared.Prototypes;
 
@@ -61,3 +62,4 @@ public sealed partial class TraitPrototype : IPrototype
     [DataField]
     public ProtoId<TraitCategoryPrototype>? Category;
 }
+*/ // DeltaV End
