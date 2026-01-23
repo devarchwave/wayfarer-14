@@ -846,9 +846,14 @@
   color: "#fcf7f9"
   metabolisms:
     Medicine:
+    #Wayfarer changes: Much much much slower, less effective overall and no longer treats airloss
+      metabolismRate: 0.1
       effects:
-      - !type:SatiateHunger
-        factor: -1
+      - !type:EvenHealthChange
+        damage:
+          Burn: -0.2
+          Toxin: -0.2
+          Brute: -0.2
 
 - type: reagent
   id: Ultravasculine
