@@ -761,6 +761,7 @@
     - item: RCDRecharging
     # - item: BorgFireExtinguisher # Frontier: use jetpack module
     # - item: BorgHandheldGPSBasic # Frontier: use jetpack module
+    - item: RPDRecharging # Starlight: RPD
     - item: GasAnalyzer
     - item: HolofanProjectorBorg
     - item: GeigerCounter
