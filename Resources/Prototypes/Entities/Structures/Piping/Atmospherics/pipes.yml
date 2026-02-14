@@ -409,6 +409,3 @@
     navMapBlip: GasPipeManifold
     showAbsentConnections: false
   - type: AtmosDevice
-  - type: Tag
-    tags:
-    - Unstackable
