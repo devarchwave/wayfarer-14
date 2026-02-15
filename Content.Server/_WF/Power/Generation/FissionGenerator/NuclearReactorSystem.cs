@@ -5,7 +5,7 @@ using Content.Shared._FarHorizons.Power.Generation.FissionGenerator;
 
 namespace Content.Server._FarHorizons.Power.Generation.FissionGenerator;
 
-public sealed partial class NuclearReactorSystem : SharedNuclearReactorSystem
+public sealed partial class NuclearReactorSystem
 {
     private string GetReactorLocation(EntityUid uid)
     {

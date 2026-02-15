@@ -66,7 +66,7 @@ public sealed class NuclearReactorBoundUserInterface : BoundUserInterface
         _window?.Update(reactorState);
     }
 
-    private void OnActionButtonPressed(Vector2d vector)
+    private void OnActionButtonPressed(Vector2i vector)
     {
         if (_window is null ) return;
 

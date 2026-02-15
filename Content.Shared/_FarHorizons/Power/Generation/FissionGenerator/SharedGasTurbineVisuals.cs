@@ -7,7 +7,7 @@ namespace Content.Shared._FarHorizons.Power.Generation.FissionGenerator;
 /// Appearance keys for the turbine.
 /// </summary>
 [Serializable, NetSerializable]
-public enum TurbineVisuals
+public enum GasTurbineVisuals
 {
     TurbineRuined,
     DamageSpark,
@@ -19,7 +19,7 @@ public enum TurbineVisuals
 /// Visual sprite layers for the turbine.
 /// </summary>
 [Serializable, NetSerializable]
-public enum TurbineVisualLayers
+public enum GasTurbineVisualLayers
 {
     TurbineRuined,
     DamageSpark,
