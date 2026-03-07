@@ -2,8 +2,6 @@ using Content.Server.Atmos.EntitySystems;
 using Content.Shared._FarHorizons.Power.Generation.FissionGenerator;
 using Content.Shared.Atmos;
 using Content.Shared.Damage.Components;
-using Content.Shared.EntityEffects;
-using Content.Shared.EntityEffects.Effects.Atmos;
 using Content.Shared.Examine;
 using Content.Shared.Nutrition;
 using Content.Shared.Radiation.Components;
@@ -20,8 +18,6 @@ public sealed partial class ReactorPartSystem
     public override void Initialize()
     {
         base.Initialize();
-
-        InitializeCVars();
 
         SubscribeLocalEvent<ReactorPartComponent, MapInitEvent>(OnInit);
         SubscribeLocalEvent<ReactorPartComponent, ExaminedEvent>(OnExamine);

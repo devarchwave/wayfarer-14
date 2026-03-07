@@ -170,7 +170,7 @@ public sealed class NuclearReactorSystem : EntitySystem
             }
 
         UpdateGasVolume(comp);
-        UpdateGridVisual((uid, comp));
+        UpdateGridVisual(uid, comp);
     }
 
     private Dictionary<Vector2i, ReactorPartComponent> GenerateRandomPrefab(EntityUid uid, NuclearReactorComponent comp)
@@ -268,21 +268,18 @@ public sealed class NuclearReactorSystem : EntitySystem
 
     private void OnPartChanged(EntityUid uid, NuclearReactorComponent component, ContainerModifiedMessage args) => UpdateUI(uid, component);
 
-    private void OnCompRemove(Entity<NuclearReactorComponent> ent, ref ComponentRemove args)
+    private void OnCompRemove(EntityUid uid, NuclearReactorComponent comp, ref ComponentRemove args)
     {
-        _slotsSystem.RemoveItemSlot(ent.Owner, ent.Comp.PartSlot);
-        CleanUp(ent.Comp);
+        _slotsSystem.RemoveItemSlot(uid, comp.PartSlot);
+        CleanUp(comp);
     }
 
     #region Main Loop
-    private void OnUpdate(Entity<NuclearReactorComponent> ent, ref AtmosDeviceUpdateEvent args)
+    private void OnUpdate(EntityUid uid, NuclearReactorComponent comp, ref AtmosDeviceUpdateEvent args)
     {
-        var comp = ent.Comp;
-        var uid = ent.Owner;
-
         _appearance.SetData(uid, ReactorVisuals.Sprite, comp.Melted ? Reactors.Melted : Reactors.Normal);
 
-        ProcessCaseRadiation(ent);
+        ProcessCaseRadiation(uid, comp);
 
         if (comp.Melted)
             return;
@@ -334,13 +331,13 @@ public sealed class NuclearReactorSystem : EntitySystem
 
                 if (ReactorComp != null)
                 {
-                    var gas = _partSystem.ProcessGas(ReactorComp, ent, GasInput);
+                    var gas = _partSystem.ProcessGas(ReactorComp, uid, GasInput);
                     GasInput.Volume -= ReactorComp.GasVolume;
 
                     if (gas != null)
                         _atmosphereSystem.Merge(outlet.Air, gas);
 
-                    _partSystem.ProcessHeat(ReactorComp, ent, GetGridNeighbors(comp, x, y), this);
+                    _partSystem.ProcessHeat(ReactorComp, (uid, comp), GetGridNeighbors(comp, x, y), this);
 
                     if (ReactorComp.HasRodType(ReactorPartComponent.RodTypes.ControlRod) && ReactorComp.IsControlRod)
                     {
@@ -411,21 +408,20 @@ public sealed class NuclearReactorSystem : EntitySystem
 
         if (comp.Temperature > comp.ReactorMeltdownTemp) // Disabled the explode if over 1000 rads thing, hope the server survives
         {
-            CatastrophicOverload(ent);
+            CatastrophicOverload(uid, comp);
         }
 
-        UpdateVisuals(ent);
-        UpdateAudio(ent);
-        UpdateRadio(ent);
-        UpdateTempIndicators(ent);
+        UpdateVisuals(uid, comp);
+        UpdateAudio(comp);
+        UpdateRadio(uid, comp);
+        UpdateTempIndicators(uid, comp);
 
         UpdateUI(uid, comp);
     }
 
-    private void ProcessCaseRadiation(Entity<NuclearReactorComponent> ent)
+    private void ProcessCaseRadiation(EntityUid uid, NuclearReactorComponent reactor)
     {
-        var reactor = ent.Comp;
-        var comp = EnsureComp<RadiationSourceComponent>(ent.Owner);
+        var comp = EnsureComp<RadiationSourceComponent>(uid);
 
         // Linear scaling up to maximum, logarithmic beyond that
         comp.Intensity = (float)Math.Max(reactor.RadiationLevel <= reactor.MaximumRadiation ? reactor.RadiationLevel : reactor.MaximumRadiation + Math.Log(reactor.RadiationLevel - reactor.MaximumRadiation + 1), reactor.Melted ? reactor.MeltdownRadiation : 0);
@@ -522,12 +518,9 @@ public sealed class NuclearReactorSystem : EntitySystem
         return Math.Max(0, actualMolesTransfered * inlet.Air.Temperature * Atmospherics.R / inlet.Air.Pressure);
     }
 
-    private void CatastrophicOverload(Entity<NuclearReactorComponent> ent)
+    private void CatastrophicOverload(EntityUid uid, NuclearReactorComponent comp)
     {
-        var comp = ent.Comp;
-        var uid = ent.Owner;
-
-        var stationUid = _station.GetStationInMap(Transform(uid).MapID);
+        var stationUid = _station.GetOwningStation(uid);
         if (stationUid != null)
             _alertLevel.SetLevel(stationUid.Value, comp.MeltdownAlertLevel, true, true, true);
 
@@ -572,18 +565,18 @@ public sealed class NuclearReactorSystem : EntitySystem
         comp.AirContents.AdjustMoles(Gas.Tritium, MeltdownBadness * 15);
         comp.AirContents.Temperature = Math.Max(comp.Temperature, comp.AirContents.Temperature);
 
-        var T = _atmosphereSystem.GetTileMixture(ent.Owner, excite: true);
+        var T = _atmosphereSystem.GetTileMixture(uid, excite: true);
         if (T != null)
             _atmosphereSystem.Merge(T, comp.AirContents);
 
-        _adminLog.Add(LogType.Explosion, LogImpact.Extreme, $"{ToPrettyString(ent):reactor} catastrophically overloads, meltdown badness: {MeltdownBadness}");
+        _adminLog.Add(LogType.Explosion, LogImpact.High, $"{ToPrettyString(uid):reactor} catastrophically overloads, meltdown badness: {MeltdownBadness}");
 
         // You did not see graphite on the roof. You're in shock. Report to medical.
         for (var i = 0; i < _random.Next(10, 30); i++)
             _throwingSystem.TryThrow(Spawn("NuclearDebrisChunk", _transformSystem.GetMapCoordinates(uid)), _random.NextAngle().ToVec().Normalized(), _random.NextFloat(8, 16), uid);
 
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Effects/metal_break5.ogg"), uid);
-        _explosionSystem.QueueExplosion(ent.Owner, "Radioactive", Math.Max(100, MeltdownBadness * 5), 1, 5, 0, canCreateVacuum: false);
+        _explosionSystem.QueueExplosion(uid, "Radioactive", Math.Max(100, MeltdownBadness * 5), 1, 5, 0, canCreateVacuum: false);
 
         var lightcomp = _lightSystem.EnsureLight(uid);
         _lightSystem.SetEnergy(uid, 0.1f, lightcomp);
@@ -594,14 +587,13 @@ public sealed class NuclearReactorSystem : EntitySystem
         comp.ThermalPower = 0;
 
         // This will Dirty() the reactor, so no need to declare it explicitly
-        UpdateGridVisual(ent);
+        UpdateGridVisual(uid, comp);
     }
 
-    public void UpdateGridVisual(Entity<NuclearReactorComponent> ent)
-    {
-        var comp = ent.Comp;
-        var uid = ent.Owner;
+    public void UpdateGridVisual(Entity<NuclearReactorComponent> ent) => UpdateGridVisual(ent.Owner, ent.Comp);
 
+    public void UpdateGridVisual(EntityUid uid, NuclearReactorComponent comp)
+    {
         if (comp.ComponentGrid == null)
             return;
 
@@ -624,7 +616,7 @@ public sealed class NuclearReactorSystem : EntitySystem
                 }
             }
         }
-        Dirty(ent);
+        Dirty(uid, comp);
 
         // Sanity check to make sure there is actually an appearance component (nullpointer hell)
         if (!_entityManager.HasComponent<AppearanceComponent>(uid))
@@ -636,11 +628,8 @@ public sealed class NuclearReactorSystem : EntitySystem
         _appearance.SetData(uid, ReactorCapVisuals.Sprite, !prevValue);
     }
 
-    private void UpdateVisuals(Entity<NuclearReactorComponent> ent)
+    private void UpdateVisuals(EntityUid uid, NuclearReactorComponent comp)
     {
-        var comp = ent.Comp;
-        var uid = ent.Owner;
-
         if (comp.Melted)
         {
             _appearance.SetData(uid, ReactorVisuals.Lights, ReactorWarningLights.LightsOff);
@@ -680,10 +669,8 @@ public sealed class NuclearReactorSystem : EntitySystem
         }
     }
 
-    private void UpdateAudio(Entity<NuclearReactorComponent> ent)
+    private void UpdateAudio(NuclearReactorComponent comp)
     {
-        var comp = ent.Comp;
-
         if(Exists(comp.AlarmAudioHighThermal))
             _ambientSoundSystem.SetAmbience(comp.AlarmAudioHighThermal.Value, !comp.Melted && comp.ThermalPower > comp.MaximumThermalPower);
         if(Exists(comp.AlarmAudioHighTemp))
@@ -692,17 +679,14 @@ public sealed class NuclearReactorSystem : EntitySystem
             _ambientSoundSystem.SetAmbience(comp.AlarmAudioHighRads.Value, !comp.Melted && comp.RadiationLevel > comp.MaximumRadiation * 0.5);
     }
 
-    private void UpdateRadio(Entity<NuclearReactorComponent> ent)
+    private void UpdateRadio(EntityUid uid, NuclearReactorComponent comp)
     {
-        var comp = ent.Comp;
-        var uid = ent.Owner;
-
         if (comp.Melted)
             return;
 
-        var engi = _protoMan.Index<RadioChannelPrototype>(ent.Comp.EngineeringChannel);
+        var engi = _protoMan.Index<RadioChannelPrototype>(comp.EngineeringChannel);
 
-        var shortband = _prototypes.Index<RadioChannelPrototype>(ent.Comp.ShortbandChannel); // Wayfarer: We'll use this so we only send the BIG critical alerts to.
+        var shortband = _protoMan.Index<RadioChannelPrototype>(comp.ShortbandChannel); // Wayfarer: We'll use this so we only send the BIG critical alerts to.
         string stationName = GetReactorLocation(uid); // Wayfarer
 
 
@@ -710,24 +694,24 @@ public sealed class NuclearReactorSystem : EntitySystem
         {
             if (!comp.IsSmoking)
             {
-                _adminLog.Add(LogType.Damaged, $"{ToPrettyString(ent):reactor} is at {comp.Temperature}K and may meltdown");
-                //_radioSystem.SendRadioMessage(uid, Loc.GetString("reactor-smoke-start-message", ("owner", uid), ("temperature", Math.Round(comp.Temperature))), engi, ent); // Wayfarer: Edited for the one below
-                _radioSystem.SendRadioMessage(uid, Loc.GetString("reactor-smoke-start-message-wf", ("owner", uid), ("station", stationName), ("temperature", Math.Round(comp.Temperature))), shortband, ent);
+                _adminLog.Add(LogType.Damaged, $"{ToPrettyString(uid):reactor} is at {comp.Temperature}K and may meltdown");
+                //_radioSystem.SendRadioMessage(uid, Loc.GetString("reactor-smoke-start-message", ("owner", uid), ("temperature", Math.Round(comp.Temperature))), engi, uid); // Wayfarer: Edited for the one below
+                _radioSystem.SendRadioMessage(uid, Loc.GetString("reactor-smoke-start-message-wf", ("owner", uid), ("station", stationName), ("temperature", Math.Round(comp.Temperature))), shortband, uid);
                 comp.LastSendTemperature = comp.Temperature;
             }
             if (comp.Temperature >= comp.ReactorFireTemp && !comp.IsBurning)
             {
-                _adminLog.Add(LogType.Damaged, $"{ToPrettyString(ent):reactor} is at {comp.Temperature}K and is likely to meltdown");
-                //_radioSystem.SendRadioMessage(uid, Loc.GetString("reactor-fire-start-message", ("owner", uid), ("temperature", Math.Round(comp.Temperature))), engi, ent); // Wayfarer: Edited for the one below
-                _radioSystem.SendRadioMessage(uid, Loc.GetString("reactor-fire-start-message-wf", ("owner", uid), ("station", stationName), ("temperature", Math.Round(comp.Temperature))), engi, ent); // This one is critical, so we send it to both channels.
-                _radioSystem.SendRadioMessage(uid, Loc.GetString("reactor-fire-start-message-wf", ("owner", uid), ("station", stationName), ("temperature", Math.Round(comp.Temperature))), shortband, ent);
+                _adminLog.Add(LogType.Damaged, $"{ToPrettyString(uid):reactor} is at {comp.Temperature}K and is likely to meltdown");
+                //_radioSystem.SendRadioMessage(uid, Loc.GetString("reactor-fire-start-message", ("owner", uid), ("temperature", Math.Round(comp.Temperature))), engi, uid); // Wayfarer: Edited for the one below
+                _radioSystem.SendRadioMessage(uid, Loc.GetString("reactor-fire-start-message-wf", ("owner", uid), ("station", stationName), ("temperature", Math.Round(comp.Temperature))), engi, uid); // This one is critical, so we send it to both channels.
+                _radioSystem.SendRadioMessage(uid, Loc.GetString("reactor-fire-start-message-wf", ("owner", uid), ("station", stationName), ("temperature", Math.Round(comp.Temperature))), shortband, uid);
                 comp.LastSendTemperature = comp.Temperature;
             }
             else if (comp.Temperature < comp.ReactorFireTemp && comp.IsBurning)
             {
-                _adminLog.Add(LogType.Healed, $"{ToPrettyString(ent):reactor} is cooling from {comp.ReactorFireTemp}K");
-                //_radioSystem.SendRadioMessage(uid, Loc.GetString("reactor-fire-stop-message", ("owner", uid)), engi, ent); // Wayfarer: Edited for the one below
-                _radioSystem.SendRadioMessage(uid, Loc.GetString("reactor-fire-stop-message-wf", ("owner", uid), ("station", stationName)), shortband, ent);
+                _adminLog.Add(LogType.Healed, $"{ToPrettyString(uid):reactor} is cooling from {comp.ReactorFireTemp}K");
+                //_radioSystem.SendRadioMessage(uid, Loc.GetString("reactor-fire-stop-message", ("owner", uid)), engi, uid); // Wayfarer: Edited for the one below
+                _radioSystem.SendRadioMessage(uid, Loc.GetString("reactor-fire-stop-message-wf", ("owner", uid), ("station", stationName)), shortband, uid);
                 comp.LastSendTemperature = comp.Temperature;
             }
         }
@@ -735,9 +719,9 @@ public sealed class NuclearReactorSystem : EntitySystem
         {
             if (comp.IsSmoking)
             {
-                _adminLog.Add(LogType.Healed, $"{ToPrettyString(ent):reactor} is cooling from {comp.ReactorOverheatTemp}K");
-                //_radioSystem.SendRadioMessage(uid, Loc.GetString("reactor-smoke-stop-message", ("owner", uid)), engi, ent); // Wayfarer: Edited for the one below
-                _radioSystem.SendRadioMessage(uid, Loc.GetString("reactor-smoke-stop-message-wf", ("owner", uid), ("station", stationName)), shortband, ent);
+                _adminLog.Add(LogType.Healed, $"{ToPrettyString(uid):reactor} is cooling from {comp.ReactorOverheatTemp}K");
+                //_radioSystem.SendRadioMessage(uid, Loc.GetString("reactor-smoke-stop-message", ("owner", uid)), engi, uid); // Wayfarer: Edited for the one below
+                _radioSystem.SendRadioMessage(uid, Loc.GetString("reactor-smoke-stop-message-wf", ("owner", uid), ("station", stationName)), shortband, uid);
                 comp.LastSendTemperature = comp.Temperature;
                 comp.HasSentWarning = false;
             }
@@ -765,30 +749,28 @@ public sealed class NuclearReactorSystem : EntitySystem
 
         if (comp.LastSendTemperature > comp.Temperature)
         {
-            //_radioSystem.SendRadioMessage(uid, Loc.GetString("reactor-temperature-cooling-message", ("owner", uid), ("temperature", Math.Round(comp.Temperature))), engi, ent); // Wayfarer: Edited for the one below
-            _radioSystem.SendRadioMessage(uid, Loc.GetString("reactor-temperature-cooling-message-wf", ("owner", uid), ("station", stationName), ("temperature", Math.Round(comp.Temperature))), shortband, ent);
+            //_radioSystem.SendRadioMessage(uid, Loc.GetString("reactor-temperature-cooling-message", ("owner", uid), ("temperature", Math.Round(comp.Temperature))), engi, uid); // Wayfarer: Edited for the one below
+            _radioSystem.SendRadioMessage(uid, Loc.GetString("reactor-temperature-cooling-message-wf", ("owner", uid), ("station", stationName), ("temperature", Math.Round(comp.Temperature))), shortband, uid);
         }
         else
         {
             if (comp.Temperature >= comp.ReactorFireTemp)
             {
                 //_radioSystem.SendRadioMessage(uid, Loc.GetString("reactor-temperature-critical-message", ("owner", uid), ("temperature", Math.Round(comp.Temperature))), engi, ent); // Wayfarer: Edited for the one below
-                _radioSystem.SendRadioMessage(uid, Loc.GetString("reactor-temperature-critical-message-wf", ("owner", uid), ("station", stationName), ("temperature", Math.Round(comp.Temperature))), shortband, ent);
+                _radioSystem.SendRadioMessage(uid, Loc.GetString("reactor-temperature-critical-message-wf", ("owner", uid), ("station", stationName), ("temperature", Math.Round(comp.Temperature))), shortband, uid);
             }
             else if (comp.Temperature >= comp.ReactorOverheatTemp)
             {
                 //_radioSystem.SendRadioMessage(uid, Loc.GetString("reactor-temperature-dangerous-message", ("owner", uid), ("temperature", Math.Round(comp.Temperature))), engi, ent); // Wayfarer: Edited for the one below
-                _radioSystem.SendRadioMessage(uid, Loc.GetString("reactor-temperature-dangerous-message-wf", ("owner", uid), ("station", stationName), ("temperature", Math.Round(comp.Temperature))), shortband, ent);
+                _radioSystem.SendRadioMessage(uid, Loc.GetString("reactor-temperature-dangerous-message-wf", ("owner", uid), ("station", stationName), ("temperature", Math.Round(comp.Temperature))), shortband, uid);
             }
         }
 
         comp.LastSendTemperature = comp.Temperature;
     }
 
-    private void UpdateTempIndicators(Entity<NuclearReactorComponent> ent)
+    private void UpdateTempIndicators(EntityUid uid, NuclearReactorComponent comp)
     {
-        var comp = ent.Comp;
-        var uid = ent.Owner;
         var change = false;
 
         if (comp.Melted)
@@ -829,7 +811,7 @@ public sealed class NuclearReactorSystem : EntitySystem
         }
 
         if (change)
-            Dirty(ent);
+            Dirty(uid, comp);
     }
     #endregion
 
@@ -944,7 +926,7 @@ public sealed class NuclearReactorSystem : EntitySystem
             comp.GridEntities.Add(pos, item.Value);
         }
 
-        UpdateGridVisual((uid, comp));
+        UpdateGridVisual(uid, comp);
         UpdateGasVolume(comp);
         UpdateUI(uid, comp);
     }
@@ -1140,7 +1122,7 @@ public sealed class NuclearReactorSystem : EntitySystem
 
                     comp.ComponentGrid[x, y] = null;
 
-                    UpdateGridVisual((uid, comp));
+                    UpdateGridVisual(uid, comp);
                     UpdateGasVolume(comp);
                 }
     }
