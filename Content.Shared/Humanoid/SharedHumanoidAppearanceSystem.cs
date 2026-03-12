@@ -491,7 +491,11 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
             {
                 if (!prototype.ForcedColoring)
                 {
-                    AddMarking(uid, marking.MarkingId, marking.MarkingColors, false);
+                    AddMarking(
+                        uid,
+                        marking,
+                        marking.MarkingColors,
+                        false);
                 }
                 else
                 {
@@ -541,9 +545,12 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
                 prototype,
                 profile.Appearance.SkinColor,
                 profile.Appearance.EyeColor,
-                humanoid.MarkingSet
-            );
-            AddMarking(uid, marking.MarkingId, markingColors, false);
+                humanoid.MarkingSet);
+            AddMarking(
+                uid,
+                marking,
+                markingColors,
+                false);
         }
 
         EnsureDefaultMarkings(uid, humanoid);
@@ -612,10 +619,11 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
     /// <param name="sync">Whether to immediately sync this marking or not</param>
     /// <param name="forced">If this marking was forced (ignores marking points)</param>
     /// <param name="humanoid">Humanoid component of the entity</param>
-    public void AddMarking(EntityUid uid, string marking, IReadOnlyList<Color> colors, bool sync = true, bool forced = false, HumanoidAppearanceComponent? humanoid = null)
+    public void AddMarking(EntityUid uid, Marking marking, IReadOnlyList<Color> colors, bool sync = true,
+        bool forced = false, HumanoidAppearanceComponent? humanoid = null)
     {
         if (!Resolve(uid, ref humanoid)
-            || !_markingManager.Markings.TryGetValue(marking, out var prototype))
+            || !_markingManager.Markings.TryGetValue(marking.MarkingId, out var prototype))
         {
             return;
         }
@@ -624,10 +632,10 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
         markingObject.Forced = forced;
         humanoid.MarkingSet.AddBack(prototype.MarkingCategory, markingObject);
 
-        // Automatically hide Genital markings by default (like undergarments)
-        if (prototype.MarkingCategory == MarkingCategories.Genital)
+        // Automatically hide markings not set to be visible at start
+        if (!marking.ShowAtStart)
         {
-            humanoid.HiddenMarkings.Add(marking);
+            humanoid.HiddenMarkings.Add(marking.MarkingId);
         }
 
         if (sync)
