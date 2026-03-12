@@ -203,13 +203,13 @@ namespace Content.Server.Database
         public async Task<int?> GetProfileIdAsync(NetUserId userId, int slot)
         {
             await using var db = await GetDb();
-            
+
             var profile = await db.DbContext.Profile
                 .Include(p => p.Preference)
                 .Where(p => p.Preference.UserId == userId.UserId && p.Slot == slot)
                 .Select(p => p.Id)
                 .FirstOrDefaultAsync();
-                
+
             return profile == 0 ? null : profile;
         }
 
@@ -245,8 +245,30 @@ namespace Content.Server.Database
             {
                 foreach (var marking in markingsRaw)
                 {
-                    var parsed = Marking.ParseFromDbString(marking);
+                    //var parsed = Marking.ParseFromDbString(marking);
+                    // Wayfarer/Coyote: Marking System Improvements parsing
+                    Marking? ParseFromDbJSON(string input)
+                    {
+                        return new Marking(JsonSerializer.Deserialize<MarkingDTO>(input));
+                    }
 
+                    Marking? ParseFromDbString(string input)
+                    {
+                        if (input.Length == 0) return null;
+                        // if it starts with '{', it's JSON, so deserialize it.
+                        if (input.StartsWith("{")) return ParseFromDbJSON(input);
+                        // otherwise, it's an old string, so parse it using legacy code
+                        // we could force a migration at some point to remove dependance on this old code
+                        var split = input.Split('@');
+                        if (split.Length != 2) return null;
+                        List<Color> colorList = new();
+                        foreach (string color in split[1].Split(','))
+                            colorList.Add(Color.FromHex(color));
+
+                        return new Marking(split[0], colorList);
+                    }
+                    var parsed = ParseFromDbString(marking);
+                    // Wayfarer/Coyote end.
                     if (parsed is null) continue;
 
                     markings.Add(parsed);
@@ -315,7 +337,7 @@ namespace Content.Server.Database
             List<string> markingStrings = new();
             foreach (var marking in appearance.Markings)
             {
-                markingStrings.Add(marking.ToString());
+                markingStrings.Add(JsonSerializer.Serialize(marking.ToDTO()));
             }
             var markings = JsonSerializer.SerializeToDocument(markingStrings);
 
@@ -2283,11 +2305,11 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
                 return;
 
             db.DbContext.WayfarerSafetyDepositBoxItem.RemoveRange(box.Items);
-            
+
             // Set LastWithdrawn to indicate the box is now in the world
             box.LastWithdrawn = DateTime.UtcNow;
             box.LastWithdrawnRoundId = roundId;
-            
+
             await db.DbContext.SaveChangesAsync(cancel);
         }
 
@@ -2302,8 +2324,8 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
             // Find boxes that have been withdrawn and have no items for longer than the cutoff period
             var staleBoxes = await db.DbContext.WayfarerSafetyDepositBox
                 .Include(b => b.Items)
-                .Where(b => b.LastWithdrawn != null && 
-                            b.LastWithdrawn < cutoffDate && 
+                .Where(b => b.LastWithdrawn != null &&
+                            b.LastWithdrawn < cutoffDate &&
                             b.Items.Count == 0)
                 .ToListAsync(cancel);
 
