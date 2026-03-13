@@ -21,6 +21,13 @@ namespace Content.Shared.Humanoid.Markings
             _markingColors = markingColors;
         }
 
+        public Marking(string markingId,
+            List<Color> markingColors, MarkingCategories category) : this(markingId, markingColors.Count, category)
+        {
+            MarkingId = markingId;
+            _markingColors = markingColors;
+        }
+
         public Marking(Marking marking,
             List<Color> markingColors) : this(marking)
         {
@@ -58,7 +65,18 @@ namespace Content.Shared.Humanoid.Markings
             {
                 CanToggleVisible = true;
                 OtherCanToggleVisible = true;
-            } else
+            }
+            else if (category == MarkingCategories.Genital)
+            {
+                ShowAtStart = false;
+                CanToggleVisible = true;
+                OtherCanToggleVisible = false;
+                PutOnVerb = "show";
+                PutOnVerb2p = "shows";
+                TakeOffVerb = "hide";
+                TakeOffVerb2p = "hides";
+            }
+            else
             {
                 CanToggleVisible = false;
                 OtherCanToggleVisible = false;

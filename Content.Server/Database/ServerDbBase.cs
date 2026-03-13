@@ -30,13 +30,14 @@ namespace Content.Server.Database
     public abstract class ServerDbBase
     {
         private readonly ISawmill _opsLog;
-
+        private IPrototypeManager _protoMan;
         public event Action<DatabaseNotification>? OnNotificationReceived;
 
         /// <param name="opsLog">Sawmill to trace log database operations to.</param>
         public ServerDbBase(ISawmill opsLog)
         {
             _opsLog = opsLog;
+            _protoMan = IoCManager.Resolve<IPrototypeManager>();
         }
 
         #region Preferences
@@ -65,7 +66,7 @@ namespace Content.Server.Database
             var profiles = new Dictionary<int, ICharacterProfile>(maxSlot);
             foreach (var profile in prefs.Profiles)
             {
-                profiles[profile.Slot] = ConvertProfiles(profile);
+                profiles[profile.Slot] = ConvertProfiles(profile, _protoMan);
             }
 
             var constructionFavorites = new List<ProtoId<ConstructionPrototype>>(prefs.ConstructionFavorites.Count);
@@ -219,7 +220,7 @@ namespace Content.Server.Database
             prefs.SelectedCharacterSlot = newSlot;
         }
 
-        private static HumanoidCharacterProfile ConvertProfiles(Profile profile)
+        private static HumanoidCharacterProfile ConvertProfiles(Profile profile, IPrototypeManager protoMan)
         {
             var jobs = profile.Jobs.ToDictionary(j => new ProtoId<JobPrototype>(j.JobName), j => (JobPriority) j.Priority);
             var antags = profile.Antags.Select(a => new ProtoId<AntagPrototype>(a.AntagName));
@@ -262,8 +263,8 @@ namespace Content.Server.Database
                         List<Color> colorList = new();
                         foreach (string color in split[1].Split(','))
                             colorList.Add(Color.FromHex(color));
-
-                        return new Marking(split[0], colorList);
+                        var proto = protoMan.Index<MarkingPrototype>(new EntProtoId(split[0]));
+                        return new Marking(split[0], colorList, proto.MarkingCategory);
                     }
 
                     var parsed = ParseFromDbString(marking);
