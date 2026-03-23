@@ -112,7 +112,7 @@ public sealed partial class ReactorPartSystem : SharedReactorPartSystem
     /// <param name="AdjacentComponents">List of reactor parts next to the reactorPart.</param>
     /// <param name="reactorSystem">The SharedNuclearReactorSystem.</param>
     /// <exception cref="Exception">Calculations resulted in a sub-zero value.</exception>
-    public void ProcessHeat(ReactorPartComponent reactorPart, Entity<NuclearReactorComponent> reactorEnt, List<ReactorPartComponent?> AdjacentComponents, NuclearReactorSystem reactorSystem)
+    public void ProcessHeat(ReactorPartComponent reactorPart, Entity<NuclearReactorComponent> reactorEnt, ReactorPartComponent?[] AdjacentComponents, NuclearReactorSystem reactorSystem)
     {
         var reactor = reactorEnt.Comp;
 
@@ -223,7 +223,7 @@ public sealed partial class ReactorPartSystem : SharedReactorPartSystem
     public List<ReactorNeutron> ProcessNeutrons(ReactorPartComponent reactorPart, List<ReactorNeutron> neutrons, out float thermalEnergy)
     {
         var preCalcTemp = reactorPart.Temperature;
-        var result = new List<ReactorNeutron>(neutrons.Count);
+        var result = new List<ReactorNeutron>(neutrons.Count); // Avoid Remove: build new list
 
         foreach (var neutron in neutrons)
         {
@@ -237,7 +237,6 @@ public sealed partial class ReactorPartSystem : SharedReactorPartSystem
                     {
                         result.Add(new() { dir = _random.NextAngle().GetDir(), velocity = _random.Next(2, 3 + 1) });
                     }
-                    neutrons.Remove(neutron);
                     reactorPart.Temperature += 50f * StimulatedHeatingFactor;
                 }
                 else if (neutron.velocity <= 5 && Prob(ReactionRate * reactorPart.Properties.Radioactivity * NeutronReactionBias)) // stimulated emission
@@ -248,7 +247,6 @@ public sealed partial class ReactorPartSystem : SharedReactorPartSystem
                     {
                         result.Add(new() { dir = _random.NextAngle().GetDir(), velocity = _random.Next(1, 3 + 1) });
                     }
-                    neutrons.Remove(neutron);
                     reactorPart.Temperature += 25f * StimulatedHeatingFactor;
                 }
                 else
@@ -264,7 +262,7 @@ public sealed partial class ReactorPartSystem : SharedReactorPartSystem
                     if (neutron.velocity > 0)
                         result.Add(neutron);
 
-                    reactorPart.Temperature += 1f; // ... not worth the adjustment
+                    reactorPart.Temperature += 1f * StimulatedHeatingFactor;
                 }
             }
             else
@@ -274,8 +272,7 @@ public sealed partial class ReactorPartSystem : SharedReactorPartSystem
         }
         if (Prob(reactorPart.Properties.NeutronRadioactivity * ReactionRate * reactorPart.NeutronCrossSection))
         {
-            var count = _random.Next(1, 3 + 1);
-            for (var i = 0; i < count; i++)
+            for (var i = 0; i < _random.Next(1, 3 + 1); i++)
             {
                 result.Add(new() { dir = _random.NextAngle().GetDir(), velocity = 3 });
             }
@@ -285,8 +282,7 @@ public sealed partial class ReactorPartSystem : SharedReactorPartSystem
         }
         if (Prob(reactorPart.Properties.Radioactivity * ReactionRate * reactorPart.NeutronCrossSection))
         {
-            var count = _random.Next(1, 3 + 1);
-            for (var i = 0; i < count; i++)
+            for (var i = 0; i < _random.Next(1, 3 + 1); i++)
             {
                 result.Add(new() { dir = _random.NextAngle().GetDir(), velocity = _random.Next(1, 3 + 1) });
             }
