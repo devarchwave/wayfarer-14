@@ -66,7 +66,7 @@ namespace Content.Server.Database
             var profiles = new Dictionary<int, ICharacterProfile>(maxSlot);
             foreach (var profile in prefs.Profiles)
             {
-                profiles[profile.Slot] = ConvertProfiles(profile, _protoMan);
+                profiles[profile.Slot] = ConvertProfiles(profile, _protoMan); // Wayfarer/Coyote: add _protoMan
             }
 
             var constructionFavorites = new List<ProtoId<ConstructionPrototype>>(prefs.ConstructionFavorites.Count);
