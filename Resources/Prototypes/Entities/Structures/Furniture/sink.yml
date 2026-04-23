@@ -23,9 +23,9 @@
   - type: SolutionContainerManager
     solutions:
       drainBuffer:
-        maxVol: 100 # HardLight: Parity with Sink
-      tank:
         maxVol: 100
+      tank:
+        maxVol: 500
   - type: SolutionRegeneration
     solution: tank
     generated:
@@ -78,11 +78,11 @@
   - type: SolutionContainerManager
     solutions:
       drainBuffer:
-        maxVol: 100
+        maxVol: 200
       tank:
         reagents:
         - ReagentId: Water
-          Quantity: 100
+          Quantity: 500
 
 - type: entity
   name: wide sink
@@ -131,8 +131,8 @@
   - type: SolutionContainerManager
     solutions:
       drainBuffer:
-        maxVol: 100 # HardLight: Parity with Sink
+        maxVol: 100
       tank:
         reagents:
         - ReagentId: Water
-          Quantity: 100
+          Quantity: 500
