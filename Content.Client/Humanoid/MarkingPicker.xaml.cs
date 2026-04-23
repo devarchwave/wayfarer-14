@@ -511,7 +511,6 @@ public sealed partial class MarkingPicker : Control
     }
 
     //Wayfarer: This is where the digi legs code would go, if we had it.
-
     private void ColorChanged(int colorIndex)
     {
         if (_selectedMarking is null) return;
@@ -631,6 +630,37 @@ public sealed partial class MarkingPicker : Control
     }
 
     #region Wayfarer/Coyote
+    private void SetCheckboxVisibility()
+    {
+        if (CanPutOnToggle.Pressed)
+        {
+            PutOnTextEdit.Visible = true;
+            TakeOffTextEdit.Visible = true;
+            PutOnTextEditLabel.Visible = true;
+            TakeOffTextEditLabel.Visible = true;
+        }
+        else
+        {
+            PutOnTextEdit.Visible = false;
+            TakeOffTextEdit.Visible = false;
+            PutOnTextEditLabel.Visible = false;
+            TakeOffTextEditLabel.Visible = false;
+        }
+        if (CanPutOnByOtherToggle.Pressed)
+        {
+            PutOnOtherTextEdit.Visible = true;
+            TakeOffOtherTextEdit.Visible = true;
+            PutOnOtherTextEditLabel.Visible = true;
+            TakeOffOtherTextEditLabel.Visible = true;
+        }
+        else
+        {
+            PutOnOtherTextEdit.Visible = false;
+            TakeOffOtherTextEdit.Visible = false;
+            PutOnOtherTextEditLabel.Visible = false;
+            TakeOffOtherTextEditLabel.Visible = false;
+        }
+    }
     private void SetCanToggle(bool canToggle)
     {
         if (_selectedMarking is null) return;
