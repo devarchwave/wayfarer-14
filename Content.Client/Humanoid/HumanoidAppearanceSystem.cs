@@ -234,7 +234,7 @@ public sealed class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
                 profile.Appearance.EyeColor,
                 markings
             );
-            markings.AddBack(prototype.MarkingCategory, new Marking(marking, markingColors)); // Wayfarer/Coyote: marking.markingId to marking
+            markings.AddBack(prototype.MarkingCategory, new Marking(marking, markingColors)); // Coyote: marking.markingId to marking
         }
 
         markings.EnsureSpecies(profile.Species, profile.Appearance.SkinColor, _markingManager, _prototypeManager);

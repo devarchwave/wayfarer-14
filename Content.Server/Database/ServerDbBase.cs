@@ -30,14 +30,14 @@ namespace Content.Server.Database
     public abstract class ServerDbBase
     {
         private readonly ISawmill _opsLog;
-        private IPrototypeManager _protoMan; // Wayfarer/Coyote
+        private IPrototypeManager _protoMan; // Coyote
         public event Action<DatabaseNotification>? OnNotificationReceived;
 
         /// <param name="opsLog">Sawmill to trace log database operations to.</param>
         public ServerDbBase(ISawmill opsLog)
         {
             _opsLog = opsLog;
-            _protoMan = IoCManager.Resolve<IPrototypeManager>(); // Wayfarer/Coyote
+            _protoMan = IoCManager.Resolve<IPrototypeManager>(); // Coyote
         }
 
         #region Preferences
@@ -66,7 +66,7 @@ namespace Content.Server.Database
             var profiles = new Dictionary<int, ICharacterProfile>(maxSlot);
             foreach (var profile in prefs.Profiles)
             {
-                profiles[profile.Slot] = ConvertProfiles(profile, _protoMan); // Wayfarer/Coyote: add _protoMan
+                profiles[profile.Slot] = ConvertProfiles(profile, _protoMan); // Coyote: add _protoMan
             }
 
             var constructionFavorites = new List<ProtoId<ConstructionPrototype>>(prefs.ConstructionFavorites.Count);
@@ -220,7 +220,7 @@ namespace Content.Server.Database
             prefs.SelectedCharacterSlot = newSlot;
         }
 
-        private static HumanoidCharacterProfile ConvertProfiles(Profile profile, IPrototypeManager protoMan) // Wayfarer/Coyote: add IprototypeManager protoMan
+        private static HumanoidCharacterProfile ConvertProfiles(Profile profile, IPrototypeManager protoMan) // Coyote: add IprototypeManager protoMan
         {
             var jobs = profile.Jobs.ToDictionary(j => new ProtoId<JobPrototype>(j.JobName), j => (JobPriority) j.Priority);
             var antags = profile.Antags.Select(a => new ProtoId<AntagPrototype>(a.AntagName));
@@ -247,7 +247,7 @@ namespace Content.Server.Database
                 foreach (var marking in markingsRaw)
                 {
                     //var parsed = Marking.ParseFromDbString(marking);
-                    // Wayfarer/Coyote: Marking System Improvements parsing
+                    // Coyote: Marking System Improvements parsing
                     Marking? ParseFromDbJSON(string input)
                     {
                         return new Marking(JsonSerializer.Deserialize<MarkingDTO>(input));
@@ -265,11 +265,11 @@ namespace Content.Server.Database
                         List<Color> colorList = new();
                         foreach (string color in split[1].Split(','))
                             colorList.Add(Color.FromHex(color));
-                        var proto = protoMan.Index<MarkingPrototype>(new EntProtoId(split[0])); // Wayfarer/Coyote
-                        return new Marking(split[0], colorList, proto.MarkingCategory); // Wayfarer/Coyote: add proto.MarkingCategory
+                        var proto = protoMan.Index<MarkingPrototype>(new EntProtoId(split[0])); // Coyote
+                        return new Marking(split[0], colorList, proto.MarkingCategory); // Coyote: add proto.MarkingCategory
                     }
                     var parsed = ParseFromDbString(marking);
-                    // Wayfarer/Coyote end.
+                    // Coyote end.
                     if (parsed is null) continue;
 
                     markings.Add(parsed);

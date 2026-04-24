@@ -79,7 +79,7 @@ namespace Content.Shared.Humanoid.Markings
 
         public Marking AsMarking()
         {
-            return new Marking(ID, Sprites.Count, MarkingCategory); // Wayfarer/Coyote: Add MarkingCategory
+            return new Marking(ID, Sprites.Count, MarkingCategory); // Coyote: Add MarkingCategory
         }
     }
 }

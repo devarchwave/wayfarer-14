@@ -493,7 +493,7 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
                 {
                     AddMarking(
                         uid,
-                        marking, // Wayfarer/Coyote: Add marking for the marking system improvements.
+                        marking, // Coyote: Add marking for the marking system improvements.
                         marking.MarkingColors,
                         false);
                 }
@@ -548,7 +548,7 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
                 humanoid.MarkingSet);
             AddMarking(
                 uid,
-                marking, // Wayfarer/Coyote: Add marking for the marking system improvements.
+                marking, // Coyote: Add marking for the marking system improvements.
                 markingColors,
                 false);
         }
@@ -628,10 +628,10 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
     /// <param name="sync">Whether to immediately sync this marking or not</param>
     /// <param name="forced">If this marking was forced (ignores marking points)</param>
     /// <param name="humanoid">Humanoid component of the entity</param>
-    public void AddMarking(EntityUid uid, Marking marking, IReadOnlyList<Color> colors, bool sync = true, bool forced = false, HumanoidAppearanceComponent? humanoid = null) // Wayfarer/Coyote: change string marking to Marking marking.
+    public void AddMarking(EntityUid uid, Marking marking, IReadOnlyList<Color> colors, bool sync = true, bool forced = false, HumanoidAppearanceComponent? humanoid = null) // Coyote: change string marking to Marking marking.
     {
         if (!Resolve(uid, ref humanoid)
-            || !_markingManager.Markings.TryGetValue(marking.MarkingId, out var prototype)) // Wayfarer/Coyote: marking to marking.markingId
+            || !_markingManager.Markings.TryGetValue(marking.MarkingId, out var prototype)) // Coyote: marking to marking.markingId
         {
             return;
         }
@@ -641,9 +641,9 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
         humanoid.MarkingSet.AddBack(prototype.MarkingCategory, markingObject);
 
         // Automatically hide markings not set to be visible at start
-        if (!marking.ShowAtStart) //Wayfarer/Coyote: prototype.MarkingCategory == MarkingCategories.Genital to !marking.ShowAtStart
+        if (!marking.ShowAtStart) // Coyote: prototype.MarkingCategory == MarkingCategories.Genital to !marking.ShowAtStart
         {
-            humanoid.HiddenMarkings.Add(marking.MarkingId); // Wayfarer/Coyote: marking to marking.markingId
+            humanoid.HiddenMarkings.Add(marking.MarkingId); // Coyote: marking to marking.markingId
         }
 
         if (sync)

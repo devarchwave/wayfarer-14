@@ -446,7 +446,7 @@ namespace Content.Client.Lobby.UI
 
             Markings.OnMarkingAdded += OnMarkingChange;
             Markings.OnMarkingRemoved += OnMarkingChange;
-            Markings.OnMarkingDataChanged += OnMarkingChange;
+            Markings.OnMarkingDataChanged += OnMarkingChange; // Coyote: Markings.OnMarkingColorChange to Markings.OnMarkingDataChanged
             Markings.OnMarkingRankChange += OnMarkingChange;
 
             #endregion Markings

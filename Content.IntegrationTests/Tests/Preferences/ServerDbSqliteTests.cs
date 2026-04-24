@@ -75,14 +75,14 @@ namespace Content.IntegrationTests.Tests.Preferences
             var conn = new SqliteConnection("Data Source=:memory:");
             conn.Open();
             builder.UseSqlite(conn);
-            // Wayfarer/Coyote Test Addition
+            // Coyote Test Addition
             var deps = IoCManager.InitThread();
             try
             {
                 IoCManager.Register<IPrototypeManager, DummyPrototypeManager>(false);
             } catch (Exception ex) { }
             deps.BuildGraph();
-            // Wayfarer/Coyote end
+            // Coyote end
             return new ServerDbSqlite(() => builder.Options, true, cfg, true, opsLog);
         }
 
@@ -143,7 +143,7 @@ namespace Content.IntegrationTests.Tests.Preferences
             return new(Guid.NewGuid());
         }
 
-        // Wayfarer/Coyote: Yuck, if anyone knows a better way to inject a mock, let me know
+        // Coyote: Yuck, if anyone knows a better way to inject a mock, let me know
         private sealed class DummyPrototypeManager : IPrototypeManager
         {
             public FrozenDictionary<ProtoId<EntityCategoryPrototype>, IReadOnlyList<EntityPrototype>> Categories => throw new NotImplementedException();
