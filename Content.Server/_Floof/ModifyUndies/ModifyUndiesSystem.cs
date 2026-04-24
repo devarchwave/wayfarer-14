@@ -163,12 +163,18 @@ public sealed class ModifyUndiesSystem : EntitySystem
                     else
                     {
                         // to the user
-                        gString = "marking-toggle-other-start";
+                        /* Coyote: Commented out for the line below
+                        gString = isVisible
+                            ? "undies-removed-user-start"
+                            : "undies-equipped-user-start";
+                        */
+                        gString = "marking-toggle-other-start"; // Coyote: Marking System Improvements
                         _popupSystem.PopupCoordinates(
                             Loc.GetString(
                                 gString,
-                                ("verb", isVisible ? marking.TakeOffVerb : marking.PutOnVerb),
-                                ("marking-name", localizedName)
+                                //("undie", localizedName) // Coyote: Commented out for the lines below
+                                ("verb", isVisible ? marking.TakeOffVerb : marking.PutOnVerb), // Coyote: Marking System Improvements
+                                ("marking-name", localizedName) // Coyote: Marking System Improvements
                                 ),
                             Transform(args.Target).Coordinates,
                             Filter.Entities(args.User),

@@ -30,7 +30,7 @@
                 <Button Name="CMarkingRemove" Text="{Loc 'markings-remove'}" StyleClasses="OpenRight" />
             </BoxContainer>
         </BoxContainer>
-        <!-- Wayfarer / Coyote Marking system improvements -->
+        <!-- Coyote Marking system improvements -->
         <GridContainer Columns="2"
             Name="MarkingData"
             Visible="False"
