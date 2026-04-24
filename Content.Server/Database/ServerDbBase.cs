@@ -338,7 +338,7 @@ namespace Content.Server.Database
             List<string> markingStrings = new();
             foreach (var marking in appearance.Markings)
             {
-                markingStrings.Add(JsonSerializer.Serialize(marking.ToDTO()));
+                markingStrings.Add(JsonSerializer.Serialize(marking.ToDTO())); // Coyote: marking.ToString() to JsonSerializer.Serialize(marking.ToDTO()) since we're using JSON now.
             }
             var markings = JsonSerializer.SerializeToDocument(markingStrings);
 

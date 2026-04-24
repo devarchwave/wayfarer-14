@@ -144,8 +144,8 @@ namespace Content.Shared.Humanoid.Markings
             return MarkingId.Equals(other.MarkingId)
                 && _markingColors.SequenceEqual(other._markingColors)
                 && Visible.Equals(other.Visible)
-            // Coyote Start
                 && Forced.Equals(other.Forced)
+            // Coyote Start
                 && CustomName == other.CustomName
                 && CanToggleVisible == other.CanToggleVisible
                 && OtherCanToggleVisible == other.OtherCanToggleVisible
@@ -156,7 +156,7 @@ namespace Content.Shared.Humanoid.Markings
                 && ShowAtStart == other.ShowAtStart;
             // Coyote End
         }
-        /* Coyote: Commenting this block below as we no longer use those.
+        /* Coyote: Commenting this block below as we no longer use those. We're now being fancy and using JSON.
         // VERY BIG TODO: TURN THIS INTO JSONSERIALIZER IMPLEMENTATION
 
 

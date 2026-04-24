@@ -62,12 +62,19 @@ public sealed class ModifyUndiesSystem : EntitySystem
         {
             if (!_markingManager.TryGetMarking(marking, out var mProt))
                 continue;
+
+            /* Coyote: Commented for the Marking System Improvements
+            // check if the Bodypart is in the component's BodyPartTargets
+            if (!component.BodyPartTargets.Contains(mProt.BodyPart))
+            */
+
             // Skip if we don't have permission to modify this marking
             if (isMine && !marking.CanToggleVisible || !isMine && !marking.OtherCanToggleVisible)
                 continue;
             // Skip genital markings based on consent
-            // This can probably be removed now that users can control genital interactions
-            // through the marking interface. Should be discussed to confirm
+
+            // Coyote: This can probably be removed now that users can control genital interactions through the marking interface.
+
             if (mProt.BodyPart == HumanoidVisualLayers.Genital)
             {
                 // If user and target are the same person, they can always interact with their own markings
@@ -81,8 +88,8 @@ public sealed class ModifyUndiesSystem : EntitySystem
                     }
                 }
             }
-
-            var localizedName = string.IsNullOrEmpty(marking.CustomName) ? Loc.GetString($"marking-{mProt.ID}") : marking.CustomName;
+            //var localizedName = Loc.GetString($"marking-{mProt.ID}"); // Coyote: See below
+            var localizedName = string.IsNullOrEmpty(marking.CustomName) ? Loc.GetString($"marking-{mProt.ID}") : marking.CustomName; // Coyote: Marking system improvements.
             var partSlot = mProt.BodyPart;
             var isVisible = !humApp.HiddenMarkings.Contains(mProt.ID);
             if (mProt.Sprites.Count < 1)
@@ -92,7 +99,8 @@ public sealed class ModifyUndiesSystem : EntitySystem
                 HumanoidVisualLayers.UndergarmentTop => new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/bra.png")),
                 HumanoidVisualLayers.UndergarmentBottom => new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/underpants.png")),
                 HumanoidVisualLayers.Genital => new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/love.png")),
-                _ => mProt.Sprites.FirstOrDefault() ?? new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/undies.png"))
+                //_ => new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/undies.png")) // Coyote: See below
+                _ => mProt.Sprites.FirstOrDefault() ?? new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/undies.png")) // Coyote: Marking system improvements.
             };
             // add the verb
             Verb verb = new()
@@ -103,8 +111,8 @@ public sealed class ModifyUndiesSystem : EntitySystem
                     ("isVisible", isVisible),
                     ("isMine", isMine),
                     ("target", Identity.Entity(args.Target, EntityManager)),
-                    ("putOnVerb", string.IsNullOrEmpty(marking.PutOnVerb) ? Loc.GetString("marking-toggle-self-default-verb-on") : marking.PutOnVerb),
-                    ("takeOffVerb", string.IsNullOrEmpty(marking.TakeOffVerb) ? Loc.GetString("marking-toggle-self-default-verb-off") : marking.TakeOffVerb)
+                    ("putOnVerb", string.IsNullOrEmpty(marking.PutOnVerb) ? Loc.GetString("marking-toggle-self-default-verb-on") : marking.PutOnVerb), // Coyote: Marking system improvements.
+                    ("takeOffVerb", string.IsNullOrEmpty(marking.TakeOffVerb) ? Loc.GetString("marking-toggle-self-default-verb-off") : marking.TakeOffVerb) // Coyote: Marking system improvements.
                     ),
                 Icon = undieOrBra,
                 Category = UndiesCat,
@@ -133,12 +141,18 @@ public sealed class ModifyUndiesSystem : EntitySystem
                     string gString;
                     if (args.User == args.Target)
                     {
-                        gString = "marking-toggle-self-start";
+                        /* Coyote: Commented out for the line below
+                        gString = isVisible
+                            ? "undies-removed-self-start"
+                            : "undies-equipped-self-start";
+                        */
+                        gString = "marking-toggle-self-start"; // Coyote: Marking System Improvements
                         _popupSystem.PopupCoordinates(
                             Loc.GetString(
                                 gString,
-                                ("marking-name", localizedName),
-                                ("verb", isVisible ? marking.TakeOffVerb : marking.PutOnVerb)
+                                //("undie", localizedName) // Coyote: Commented out for the two lines below
+                                ("marking-name", localizedName), // Coyote: Marking System Improvements
+                                ("verb", isVisible ? marking.TakeOffVerb : marking.PutOnVerb) // Coyote: Marking System Improvements
                                 ),
                             Transform(args.Target).Coordinates,
                             Filter.Entities(args.Target),
@@ -161,13 +175,22 @@ public sealed class ModifyUndiesSystem : EntitySystem
                             true,
                             PopupType.Medium);
                         // to the target
-                        gString = "marking-toggle-by-other-start";
+                        /* Coyote: Commented out for the line below
+                        gString = isVisible
+                            ? "undies-removed-target-start"
+                            : "undies-equipped-target-start";
+                        */
+                        gString = "marking-toggle-by-other-start"; // Coyote: Marking System Improvements
                         _popupSystem.PopupCoordinates(
                             Loc.GetString(
                                 gString,
-                                ("marking-name", localizedName),
-                                ("verb", isVisible ? marking.TakeOffVerb : marking.PutOnVerb),
-                                ("other", Identity.Entity(args.User, EntityManager))
+                                /* Coyote: Commented out for the lines below
+                                ("undie", localizedName),
+                                ("user", Identity.Entity(args.User, EntityManager))
+                                */
+                                ("marking-name", localizedName), // Coyote: Marking System Improvements
+                                ("verb", isVisible ? marking.TakeOffVerb : marking.PutOnVerb), // Coyote: Marking System Improvements
+                                ("other", Identity.Entity(args.User, EntityManager)) // Coyote: Marking System Improvements
                                 ),
                             Transform(args.Target).Coordinates,
                             Filter.Entities(args.Target),
@@ -214,16 +237,22 @@ public sealed class ModifyUndiesSystem : EntitySystem
         // Effect targets for different players
         // Popups
         string gString;
-        var marking = args.Marking;
+        var marking = args.Marking; // Coyote: Marking System Improvements
 
         if (args.User == args.Target.Value)
         {
-            gString = "marking-toggle-self";
+            /* Coyote: Commented out for the lines below
+            gString = args.IsVisible
+                ? "undies-removed-self"
+                : "undies-equipped-self";
+            */
+            gString = "marking-toggle-self"; // Coyote: Marking System Improvements
             _popupSystem.PopupCoordinates(
                 Loc.GetString(
                     gString,
-                    ("marking-name", string.IsNullOrEmpty(marking.CustomName) ? args.MarkingPrototypeName : marking.CustomName),
-                    ("verb", args.IsVisible ? marking.TakeOffVerb : marking.PutOnVerb)
+                    //("undie", args.MarkingPrototypeName) // Coyote: Commented out for the lines below
+                    ("marking-name", string.IsNullOrEmpty(marking.CustomName) ? args.MarkingPrototypeName : marking.CustomName), // Coyote: Marking System Improvements
+                    ("verb", args.IsVisible ? marking.TakeOffVerb : marking.PutOnVerb) // Coyote: Marking System Improvements
                     ),
                 Transform(args.Target.Value).Coordinates,
                 Filter.Entities(args.Target.Value),
@@ -234,25 +263,40 @@ public sealed class ModifyUndiesSystem : EntitySystem
         else
         {
             // to the user
-            gString = "marking-toggle-other";
+            /* Coyote: Commented out for the line below
+            gString = args.IsVisible
+                ? "undies-removed-user"
+                : "undies-equipped-user";
+            */
+            gString = "marking-toggle-other"; // Coyote: Marking System Improvements
             _popupSystem.PopupCoordinates(
                 Loc.GetString(
                     gString,
-                    ("marking-name", string.IsNullOrEmpty(marking.CustomName) ? args.MarkingPrototypeName : marking.CustomName),
-                    ("verb", args.IsVisible ? marking.TakeOffVerb : marking.PutOnVerb)
+                    //("undie", args.MarkingPrototypeName) // Coyote: Commented out for the lines below
+                    ("marking-name", string.IsNullOrEmpty(marking.CustomName) ? args.MarkingPrototypeName : marking.CustomName), // Coyote: Marking System Improvements
+                    ("verb", args.IsVisible ? marking.TakeOffVerb : marking.PutOnVerb) // Coyote: Marking System Improvements
                     ),
                 Transform(args.Target.Value).Coordinates,
                 Filter.Entities(args.User),
                 true,
                 PopupType.Medium);
             // to the target
-            gString = "marking-toggle-by-other";
+            /* Coyote: Commented out for the line below
+            gString = args.IsVisible
+                ? "undies-removed-target"
+                : "undies-equipped-target";
+            */
+            gString = "marking-toggle-by-other"; // Coyote: Marking System Improvements
             _popupSystem.PopupCoordinates(
                 Loc.GetString(
                     gString,
-                    ("marking-name", string.IsNullOrEmpty(marking.CustomName) ? args.MarkingPrototypeName : marking.CustomName),
-                    ("verb", args.IsVisible ? marking.TakeOffVerb2p : marking.PutOnVerb2p),
-                    ("other", Identity.Entity(args.User, EntityManager))
+                    /* Coyote: Commented out for the lines below
+                    ("undie", args.MarkingPrototypeName),
+                    ("user", Identity.Entity(args.User, EntityManager))
+                    */
+                    ("marking-name", string.IsNullOrEmpty(marking.CustomName) ? args.MarkingPrototypeName : marking.CustomName), // Coyote: Marking System Improvements
+                    ("verb", args.IsVisible ? marking.TakeOffVerb2p : marking.PutOnVerb2p), // Coyote: Marking System Improvements
+                    ("other", Identity.Entity(args.User, EntityManager)) // Coyote: Marking System Improvements
                     ),
                 Transform(args.Target.Value).Coordinates,
                 Filter.Entities(args.Target.Value),
