@@ -82,7 +82,7 @@
       tank:
         reagents:
         - ReagentId: Water
-          Quantity: 500
+          Quantity: 250 # Wayfarer
 
 - type: entity
   name: wide sink
