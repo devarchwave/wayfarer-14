@@ -25,7 +25,7 @@
       drainBuffer:
         maxVol: 100
       tank:
-        maxVol: 500
+        maxVol: 250 # Wayfarer
   - type: SolutionRegeneration
     solution: tank
     generated:
