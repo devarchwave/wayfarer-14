@@ -196,7 +196,6 @@ namespace Content.Server.Lathe
 
             // Coyote Start: We comment out these two checks for the two methods below.
             /*
-            // Frontier: argument check
             if (!CanProduce(uid, recipe, quantity, component))
                 return false;
 
