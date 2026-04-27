@@ -165,7 +165,7 @@
       state: "creampie_vox" # Not default
       visible: false
   - type: HumanoidAppearance
-    species: Vox
+    species: OldKinVox
     undergarmentTop: UndergarmentTopTanktopVox
     undergarmentBottom: UndergarmentBottomBoxersVox
     markingsDisplacement:
@@ -231,7 +231,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: HumanoidAppearance
-    species: Vox
+    species: OldKinVox
     undergarmentTop: UndergarmentTopTanktopVox
     undergarmentBottom: UndergarmentBottomBoxersVox
     markingsDisplacement:
@@ -241,7 +241,7 @@
             sprite: _COYOTE/Mobs/Species/OldKinVox/displacement.rsi
             state: hair
   - type: Body
-    prototype: Vox
+    prototype: OldKinVox
   - type: Inventory
     speciesId: vox
     #templateId: OldKinVox
