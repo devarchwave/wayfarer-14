@@ -1114,6 +1114,7 @@
   - WFHoloGraffitiProjector # Punkish (might be annoying)
   - WFCrayonMagic
   - WFSprayPainterMagic
+  - ContractorAccessConfigurator # Coyote: Add Civilian Access Configurator
   # Bureaucracy
   - WFBoxFolderMedicalDoctor
   - WFBrbSign
