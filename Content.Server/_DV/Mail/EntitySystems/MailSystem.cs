@@ -80,7 +80,7 @@ namespace Content.Server._DV.Mail.EntitySystems
         [Dependency] private readonly BankSystem _bank = default!; // Frontier
         [Dependency] private readonly PowerReceiverSystem _powerReceiver = default!; // Frontier
         [Dependency] private readonly IPlayerManager _player = default!; // Frontier
-        [Dependency] private readonly IGameTiming _gameTiming = default!;
+        [Dependency] private readonly IGameTiming _gameTiming = default!; // Coyote
 
         private ISawmill _sawmill = default!;
         private static readonly ProtoId<TagPrototype> MailTag = "Mail"; // Frontier
@@ -255,9 +255,7 @@ namespace Content.Server._DV.Mail.EntitySystems
                 return;
             }
 
-            args.PushMarkup(
-                Loc.GetString(
-                    mailEntityStrings.DescClose,
+            args.PushMarkup(Loc.GetString(mailEntityStrings.DescClose,
                     ("name", component.Recipient),
                     ("job", component.RecipientJob),
                     ("station", component.RecipientStation))); // Frontier: add station
@@ -268,6 +266,7 @@ namespace Content.Server._DV.Mail.EntitySystems
             if (component.IsPriority)
                 args.PushMarkup(Loc.GetString(component.IsProfitable ? "mail-desc-priority" : "mail-desc-priority-inactive"));
 
+            // Coyote Start: Mail Tweaks
             if (component.TrashTime > TimeSpan.Zero)
             {
                 var timeLeft = component.TrashTime - _gameTiming.CurTime;
@@ -284,6 +283,7 @@ namespace Content.Server._DV.Mail.EntitySystems
                     args.PushMarkup(Loc.GetString("mail-desc-trash-imminent"));
                 }
             }
+            // Coyote End
         }
 
 
@@ -320,7 +320,8 @@ namespace Content.Server._DV.Mail.EntitySystems
         {
             if (component.IsLocked)
             {
-                if (component.TrashTime < _gameTiming.CurTime) // Frontier: dont penalize if trash time is up
+                // Coyote Start: Mail Tweaks
+                if (component.TrashTime < _gameTiming.CurTime) // Coyote: dont penalize if trash time is up
                 {
                     _popupSystem.PopupEntity(
                         Loc.GetString("mail-penalty-trash"),
@@ -331,6 +332,7 @@ namespace Content.Server._DV.Mail.EntitySystems
                     }
                     return;
                 }
+                // Coyote End
                 // DeltaV - Tampered mail recorded to logistic stats
                 if (component.IsProfitable) // Frontier: update only when profitable
                 {
@@ -373,7 +375,8 @@ namespace Content.Server._DV.Mail.EntitySystems
 
             if (component.IsFragile || !component.IsProfitable) // Frontier: update only when profitable
                 return;
-            if (component.TrashTime < _gameTiming.CurTime) // Frontier: dont penalize if trash time is up
+            // Coyote Start: Mail Tweaks
+            if (component.TrashTime < _gameTiming.CurTime) // Coyote: dont penalize if trash time is up
             {
                 _popupSystem.PopupEntity(
                     Loc.GetString("mail-penalty-trash"),
@@ -384,6 +387,7 @@ namespace Content.Server._DV.Mail.EntitySystems
                 }
                 return;
             }
+            // Coyote End
             // DeltaV - Broken mail recorded to logistic stats
             ExecuteForEachLogisticsStats((logisticStats) => // Frontier: no station
             {

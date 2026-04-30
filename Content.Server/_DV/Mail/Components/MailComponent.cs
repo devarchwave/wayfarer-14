@@ -116,6 +116,8 @@ namespace Content.Server._DV.Mail.Components
 
         public CancellationTokenSource? PriorityCancelToken;
 
+        // Coyote Start: Mail Tweaks
+        #region Coyote
         /// <summary>
         /// How long it takes for the mail to be considered trash.
         /// After this time, the mail can be deleted without penalty.
@@ -128,5 +130,6 @@ namespace Content.Server._DV.Mail.Components
         /// </summary>
         [ViewVariables(VVAccess.ReadWrite)]
         public TimeSpan TrashTime = TimeSpan.Zero;
+        #endregion Coyote
     }
 }
