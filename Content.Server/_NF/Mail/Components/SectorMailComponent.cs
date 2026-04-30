@@ -13,7 +13,7 @@ public sealed partial class SectorMailComponent : Component // Frontier: Station
     public float Accumulator = 1000f; // Coyote: 1995f to 1000f
 
     [DataField]
-    public TimeSpan TeleportInterval = TimeSpan.FromMinutes(5); // Coyote: 35 to 5
+    public TimeSpan TeleportInterval = TimeSpan.FromMinutes(10); // Coyote: 35 to 10
 
     [DataField]
     public TimeSpan TrashTime = TimeSpan.FromMinutes(60); // Coyote: Trash mail after 60 minutes
