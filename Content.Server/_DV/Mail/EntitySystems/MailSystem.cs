@@ -256,9 +256,9 @@ namespace Content.Server._DV.Mail.EntitySystems
             }
 
             args.PushMarkup(Loc.GetString(mailEntityStrings.DescClose,
-                    ("name", component.Recipient),
-                    ("job", component.RecipientJob),
-                    ("station", component.RecipientStation))); // Frontier: add station
+                ("name", component.Recipient),
+                ("job", component.RecipientJob),
+                ("station", component.RecipientStation))); // Frontier: add station
 
             if (component.IsFragile)
                 args.PushMarkup(Loc.GetString("mail-desc-fragile"));
