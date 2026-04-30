@@ -107,7 +107,7 @@
       allowNonHumans: true
       multiAntagSetting: All
       components: &pirateComponents
-      - type: MailDisabled
+      #- type: MailDisabled # Wayfarer: Allows outlaws to receive mail, in theory.
       - type: NpcFactionMember
         factions:
         - NFPirate
