@@ -131,5 +131,6 @@ namespace Content.Server._DV.Mail.Components
         [ViewVariables(VVAccess.ReadWrite)]
         public TimeSpan TrashTime = TimeSpan.Zero;
         #endregion Coyote
+        // Coyote End
     }
 }

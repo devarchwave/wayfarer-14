@@ -585,7 +585,7 @@ namespace Content.Server._DV.Mail.EntitySystems
                     mailComp.PriorityCancelToken.Token);
             }
 
-            mailComp.TrashTime = _gameTiming.CurTime + mailComp.TrashDuration;
+            mailComp.TrashTime = _gameTiming.CurTime + mailComp.TrashDuration; // Coyote: Mail Tweaks
 
             _appearanceSystem.SetData(uid, MailVisuals.JobIcon, recipient.JobIcon);
 
