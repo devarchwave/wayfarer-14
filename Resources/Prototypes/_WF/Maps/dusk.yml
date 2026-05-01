@@ -33,7 +33,6 @@
           SpawnPoints: 20
       - type: StationDeadDrop
         maxDeadDrops: 8 # big station
-
       - type: TradeCrateDestination
         destinationProto: Trade
       - type: StationJobs
