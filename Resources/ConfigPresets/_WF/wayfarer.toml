@@ -1,0 +1,86 @@
+[game]
+desc = "Dusk Station."
+lobbyenabled = true
+lobbyduration = 180
+
+# New players can't join a server without admins
+[game.panic_bunker]
+enabled = true
+min_overall_minutes = 240
+disable_with_admins = true
+enable_without_admins = true
+show_reason = true
+custom_reason = "You have not played long enough to connect to this server. Please play on Frontier servers until you have more playtime."
+
+[infolinks]
+discord    = "https://discord.gg/JAFjVbsdx5"
+github     = "https://github.com/project-wayfarer/wayfarer-14"
+website    = "https://wayfarer14.com/"
+wiki       = "https://wayfarer14.com/wiki"
+patreon    = ""
+bug_report = "https://github.com/project-wayfarer/wayfarer-14/issues"
+appeal     = "https://discord.gg/JAFjVbsdx5"
+
+[net]
+max_connections = 1024
+tickrate = 30
+
+[vote]
+restart_required_ratio = 0.85
+preset_enabled = false
+
+[netres]
+limit = 10.0
+
+[admin]
+see_own_notes = true
+deadmin_on_join = true
+allow_multi_server_play = false
+
+[admin.alert]
+min_players_sharing_connection = 2
+
+[server]
+id = "wayfarer"
+rules_file = "WayfarerRules"
+uptime_restart_minutes = 0
+
+[discord]
+rich_main_icon_id = "wayfarer"
+
+# general mrp stuff
+[ic]
+flavor_text = true
+punctuation = true
+
+[worldgen]
+enabled = true
+
+[rules]
+time = 60
+
+[ahelp]
+admin_prefix = false
+admin_prefix_webhook = false
+
+[votekick]
+enabled = false
+eligible_number = 5
+initiator_ghost_requirement = false
+voter_ghost_requirement = false
+
+[atmos]
+space_wind = true
+
+[shuttle]
+arrivals = false
+emergency_dock_time = 360 # an extra 2 minutes over the default
+emergency_transit_time_min = 300
+auto_call_extension_time = 45
+emergency_early_launch_allowed = false
+
+[biomass]
+easy_mode = false # reclaimer can work on soul-ful bodies, mrp server
+
+[control]
+storage_limit = 3
