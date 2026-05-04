@@ -6,4 +6,4 @@
   sprites: MobHumanSprites
   markingLimits: MobHumanMarkingLimits
   dollPrototype: MobDwarfDummy
-  skinColoration: Hues # WF: HumanToned<Hues
+  skinColoration: Hues # Wayfarer: HumanToned<Hues

@@ -6,7 +6,7 @@
   sprites: MobHumanSprites
   markingLimits: MobFelinidMarkingLimits
   dollPrototype: MobFelinidDummy
-  skinColoration: Hues # WF: HumanToned<Hues
+  skinColoration: Hues # Wayfarer: HumanToned<Hues
 
 - type: markingPoints
   id: MobFelinidMarkingLimits
