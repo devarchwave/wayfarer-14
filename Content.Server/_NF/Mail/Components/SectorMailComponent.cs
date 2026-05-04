@@ -10,10 +10,10 @@ namespace Content.Server._NF.Mail.Components;
 public sealed partial class SectorMailComponent : Component // Frontier: Station->Sector
 {
     [DataField]
-    public float Accumulator = 1000f; // Coyote: 1995f to 1000f
+    public float Accumulator = 1000f; // Coyote: 1995f<1000f
 
     [DataField]
-    public TimeSpan TeleportInterval = TimeSpan.FromMinutes(10); // Coyote: 35 to 10
+    public TimeSpan TeleportInterval = TimeSpan.FromMinutes(10); // Coyote: 35<10
 
     [DataField]
     public TimeSpan TrashTime = TimeSpan.FromMinutes(60); // Coyote: Trash mail after 60 minutes

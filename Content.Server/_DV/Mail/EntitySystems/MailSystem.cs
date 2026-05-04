@@ -266,7 +266,7 @@ namespace Content.Server._DV.Mail.EntitySystems
             if (component.IsPriority)
                 args.PushMarkup(Loc.GetString(component.IsProfitable ? "mail-desc-priority" : "mail-desc-priority-inactive"));
 
-            // Coyote Start: Mail Tweaks
+            // Coyote: Mail Tweaks
             if (component.TrashTime > TimeSpan.Zero)
             {
                 var timeLeft = component.TrashTime - _gameTiming.CurTime;
@@ -320,7 +320,7 @@ namespace Content.Server._DV.Mail.EntitySystems
         {
             if (component.IsLocked)
             {
-                // Coyote Start: Mail Tweaks
+                // Coyote: Mail Tweaks
                 if (component.TrashTime < _gameTiming.CurTime) // Coyote: dont penalize if trash time is up
                 {
                     _popupSystem.PopupEntity(
@@ -375,7 +375,7 @@ namespace Content.Server._DV.Mail.EntitySystems
 
             if (component.IsFragile || !component.IsProfitable) // Frontier: update only when profitable
                 return;
-            // Coyote Start: Mail Tweaks
+            // Coyote: Mail Tweaks
             if (component.TrashTime < _gameTiming.CurTime) // Coyote: dont penalize if trash time is up
             {
                 _popupSystem.PopupEntity(

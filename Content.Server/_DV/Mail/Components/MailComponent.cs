@@ -116,7 +116,7 @@ namespace Content.Server._DV.Mail.Components
 
         public CancellationTokenSource? PriorityCancelToken;
 
-        // Coyote Start: Mail Tweaks
+        // Coyote: Mail Tweaks
         #region Coyote
         /// <summary>
         /// How long it takes for the mail to be considered trash.
