@@ -13,7 +13,7 @@
   parent: BaseVessel
   name: DBI Stronghold
   description: A science Vessel with a Robust Research chamber.
-  price: 62000 # 56428 10%= 5642.8
+  price: 108`000 # 56428 10%= 5642.8 # Wayfarer: Price adjusted to mapping guidelines
   category: Large
   group: Shipyard
   shuttlePath: /Maps/_NF/Shuttles/stronghold.yml
@@ -35,7 +35,7 @@
       stationProto: StandardFrontierVessel
       components:
         - type: StationNameSetup
-          mapNameTemplate: 'Stronghold {1}'
+          mapNameTemplate: 'Stronghold CIV{1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
             prefixCreator: '14'
