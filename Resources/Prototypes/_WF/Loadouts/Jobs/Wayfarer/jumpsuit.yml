@@ -794,14 +794,14 @@
 
 - type: loadout
   id: WFClothingUniformJumpsuitParamedic
-  price: 500
+  price: 0
   equipment:
     jumpsuit: ClothingUniformJumpsuitParamedic
   groupBy: "jumpsuitMedical"
 
 - type: loadout
   id: WFClothingUniformJumpskirtParamedic
-  price: 500
+  price: 0
   equipment:
     jumpsuit: ClothingUniformJumpskirtParamedic
   groupBy: "jumpsuitMedical"
