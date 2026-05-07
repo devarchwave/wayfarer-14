@@ -87,7 +87,7 @@
   id: OutlawEncryptionKey
   name: loadout-group-contractor-encryption-key
   minLimit: 0
-  maxLimit: 6
+  maxLimit: 8
   loadouts:
   - WFEncryptionKeyTraffic
   - WFEncryptionKeyMedical
@@ -95,6 +95,8 @@
   - WFEncryptionKeyEngineering
   - WFEncryptionKeyScience
   - EncryptionKeyFreelance
+  - WFEncryptionKeyHorny
+  - WFEncryptionKeyExtremeKink
   fallbacks:
   - WFEncryptionKeyTraffic
 
