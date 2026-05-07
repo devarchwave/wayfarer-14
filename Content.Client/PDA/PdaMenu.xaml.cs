@@ -38,8 +38,7 @@ namespace Content.Client.PDA
         private string _shuttleDeed = Loc.GetString("comp-pda-ui-unknown"); // Frontier
         private string _currentDate = Loc.GetString("comp-pda-ui-unknown"); // DeltaV - PDA date
         private TimeSpan? _roundEndTime = null; // Frontier
-
-        private TimeSpan? _shiftEndTime = null; // Wayfarer: Absolute client RealTime when shift ends (calculated from server duration)
+        private DateTime? _shiftEndTime = null; // Wayfarer: Absolute UTC wall-clock time when the shift ends
 
         private int _currentView;
 
@@ -225,42 +224,11 @@ namespace Content.Client.PDA
             // End Frontier
             */ // Wayfarer: Commented for the code below.
             // Wayfarer Start
-            // Server sends duration remaining; calculate absolute end time using client's RealTime
-            // This avoids clock synchronization issues between client and server
-            if (state.ShiftEndTime.HasValue && state.ShiftEndTime.Value > TimeSpan.Zero)
-            {
-                _shiftEndTime = _gameTiming.RealTime + state.ShiftEndTime.Value;
-                var timeRemaining = state.ShiftEndTime.Value;
-                ShiftEndTimeLabel.SetMarkup(Loc.GetString("comp-pda-ui-remaining-time",
-                    ("time", timeRemaining.ToString("d\\:hh\\:mm\\:ss"))));
-                ShiftEndTimeLabel.Visible = true;
-            }
-            else
-            {
-                _shiftEndTime = null;
-                ShiftEndTimeLabel.Visible = false;
-            }
-
-            // Store the absolute shift end time (server RealTime) for calculating remaining time
+            // Store the absolute UTC end time received from the server.
+            // The label is kept live by FrameUpdate() using DateTime.UtcNow (OS clock),
+            // so it counts down accurately regardless of server or game-tick slowdowns.
             _shiftEndTime = state.ShiftEndTime;
-            if (_shiftEndTime.HasValue)
-            {
-                var timeRemaining = _shiftEndTime.Value - _gameTiming.RealTime;
-                if (timeRemaining > TimeSpan.Zero)
-                {
-                    ShiftEndTimeLabel.SetMarkup(Loc.GetString("comp-pda-ui-remaining-time",
-                        ("time", timeRemaining.ToString("d\\:hh\\:mm\\:ss"))));
-                    ShiftEndTimeLabel.Visible = true;
-                }
-                else
-                {
-                    ShiftEndTimeLabel.Visible = false;
-                }
-            }
-            else
-            {
-                ShiftEndTimeLabel.Visible = false;
-            }
+            UpdateShiftEndTimeLabel();
             // End Wayfarer
 
             var alertLevel = state.PdaOwnerInfo.StationAlertLevel;
@@ -296,6 +264,28 @@ namespace Content.Client.PDA
             ShowUplinkButton.Visible = state.HasUplink;
             LockUplinkButton.Visible = state.HasUplink;
         }
+        // Wayfarer Start
+        private void UpdateShiftEndTimeLabel()
+        {
+            if (_shiftEndTime.HasValue)
+            {
+                var timeRemaining = _shiftEndTime.Value - DateTime.UtcNow;
+                if (timeRemaining > TimeSpan.Zero)
+                {
+                    ShiftEndTimeLabel.SetMarkup(Loc.GetString("comp-pda-ui-shift-end-time",
+                        ("time", $"{timeRemaining.Days}d {timeRemaining.Hours:D2}h {timeRemaining.Minutes:D2}m {timeRemaining.Seconds:D2}s")));
+                    ShiftEndTimeLabel.Visible = true;
+                }
+                else
+                {
+                    ShiftEndTimeLabel.Visible = false;
+                }
+            }
+            else
+            {
+                ShiftEndTimeLabel.Visible = false;
+            }
+        }
 
         protected override void FrameUpdate(FrameEventArgs args)
         {
@@ -305,7 +295,9 @@ namespace Content.Client.PDA
             StationTimeLabel.SetMarkup(Loc.GetString("comp-pda-ui-station-time",
                 ("time", $"{stationTime.Days}d {stationTime.Hours:D2}h {stationTime.Minutes:D2}m {stationTime.Seconds:D2}s")));
 
+            UpdateShiftEndTimeLabel();
         }
+        // End Wayfarer
 
         public void UpdateAvailablePrograms(List<(EntityUid, CartridgeComponent)> programs)
         {
@@ -449,12 +441,12 @@ namespace Content.Client.PDA
         protected override void Draw(DrawingHandleScreen handle)
         {
             base.Draw(handle);
-
+            /*
             var stationTime = _gameTiming.CurTime.Subtract(_gameTicker.RoundStartTimeSpan);
 
             StationTimeLabel.SetMarkup(Loc.GetString("comp-pda-ui-station-time",
                 ("time", stationTime.ToString("d\\:hh\\:mm\\:ss")))); // Wayfarer: "hh\\:mm\\:ss"<"d\\:hh\\:mm\\:ss"
-            /*
+
             // Frontier
             if (_roundEndTime is not null)
             {
@@ -467,25 +459,7 @@ namespace Content.Client.PDA
                 }
             }
             // End Frontier
-            */ // Wayfarer: Commented for the one below.
-            // Wayfarer Start
-            // Calculate and update remaining time until shift end in real-time
-            if (_shiftEndTime.HasValue)
-            {
-                var timeRemaining = _shiftEndTime.Value - _gameTiming.RealTime;
-                if (timeRemaining > TimeSpan.Zero)
-                {
-                    ShiftEndTimeLabel.SetMarkup(Loc.GetString("comp-pda-ui-remaining-time",
-                        ("time", timeRemaining.ToString("d\\:hh\\:mm\\:ss"))));
-                    ShiftEndTimeLabel.Visible = true;
-                }
-                else
-                {
-                    // Shift has ended, hide the label
-                    ShiftEndTimeLabel.Visible = false;
-                }
-            }
-            // End Wayfarer
+            */ // Wayfarer: Commented out.
         }
     }
 }

@@ -20,7 +20,7 @@ namespace Content.Shared.PDA
         public int Balance; // Frontier
         public string? OwnedShipName; // Frontier
         public TimeSpan? RoundEndTime; // Frontier
-        public TimeSpan? ShiftEndTime; // Wayfarer: Duration remaining until shift ends (client will add to its own RealTime)
+        public DateTime? ShiftEndTime; // Wayfarer: Absolute UTC wall-clock time when the shift ends (server OS time)
 
         public PdaUpdateState(
             List<NetEntity> programs,
@@ -37,7 +37,7 @@ namespace Content.Shared.PDA
             bool hasUplink = false,
             bool canPlayMusic = false,
             string? address = null,
-            TimeSpan? shiftEndTime = null) // Wayfarer: Changed DateTime to TimeSpan
+            DateTime? shiftEndTime = null) // Wayfarer
             : base(programs, activeUI)
         {
             FlashlightEnabled = flashlightEnabled;
