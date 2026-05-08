@@ -11,6 +11,8 @@ using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Content.Shared.Tiles; // Frontier
 
+using Content.Shared.SSDIndicator; // Wayfarer, needed to check if something has the component.
+
 namespace Content.Server.Xenoarchaeology.Artifact.XAE;
 
 /// <summary>
