@@ -1,6 +1,6 @@
 - type: entity
   parent: BaseItem
-  id: BaseKnife
+  id: [BaseKnife, RecyclableItemSteelSmall] # Wayfarer: added recyclable component
   abstract: true
   components:
   - type: Tag

@@ -28,3 +28,9 @@
   - type: Tag
     tags:
     - Igniter
+  - type: PhysicalComposition #Wayfarer
+    materialComposition:
+      Steel: 50
+    chemicalComposition:
+      Sulfur: 5
+      Carbon: 5

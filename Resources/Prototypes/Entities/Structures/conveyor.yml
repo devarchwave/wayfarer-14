@@ -69,6 +69,10 @@
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: SyncSprite # Frontier
+  - type: PhysicalComposition # Wayfarer
+    materialComposition:
+      Steel: 100
+      RawScrap: 25
 
 - type: entity
   id: ConveyorBeltAssembly
