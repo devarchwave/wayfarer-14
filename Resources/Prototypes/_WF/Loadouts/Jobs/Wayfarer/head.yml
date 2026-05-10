@@ -414,6 +414,15 @@
   equipment:
     head: FoodAmbrosiaVulgaris
 
+- type: loadout
+  id: WFClothingHeadHatDruid
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: NFHeadwearCapable
+  price: 500
+  equipment:
+    head: ClothingHeadHatDruid
+
 #T2
 - type: loadout
   id: WFClothingHeadHatCaptain
@@ -596,6 +605,7 @@
   price: 1250
   equipment:
     head: ClothingHeadHatJester
+  groupBy: "clown"
 
 - type: loadout
   id: WFClothingHeadHatJesterAlt
@@ -608,6 +618,7 @@
   price: 1250
   equipment:
     head: ClothingHeadHatJesterAlt
+  groupBy: "clown"
 
 - type: loadout
   id: WFClothingHeadHatBeret
@@ -646,7 +657,7 @@
   price: 1250
   equipment:
     head: ClothingHeadHatMimesoft
-  groupBy: "caps"
+  groupBy: "mime"
 
 - type: loadout
   id: WFClothingHeadHatPilgrim
@@ -786,6 +797,18 @@
   price: 1250
   equipment:
     head: ClothingHeadHatWitchhunter
+
+- type: loadout
+  id: WFClothingHeadHatWitch1
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: WFT2
+  hideEffects:
+  - !type:GroupLoadoutEffect
+    proto: NFHeadwearCapable
+  price: 1250
+  equipment:
+    head: ClothingHeadHatWitch1
 
 - type: loadout
   id: WFClothingHeadHatBishopMitre
@@ -1024,3 +1047,16 @@
   price: 5000
   equipment:
     head: ClothingHeadHatWarden
+
+# Starlight clothing
+- type: loadout
+  id: WFSLClothingHeadBase0121
+  price: 500
+  equipment:
+    head: SLClothingHeadBase0121
+
+- type: loadout
+  id: WFSLRedRegaliaHat
+  price: 1000
+  equipment:
+    head: SLRedRegaliaHat
