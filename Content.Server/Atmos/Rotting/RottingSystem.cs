@@ -137,7 +137,7 @@ public sealed class RottingSystem : SharedRottingSystem
 
                 if (damage.DamageDict.Count > 0)
                     _damageable.TryChangeDamage(uid, damage, true, false);
-                // End Wayfarer
+                // Wayfarer End
             }
 
             if (TryComp<RotIntoComponent>(uid, out var rotInto))
@@ -163,6 +163,7 @@ public sealed class RottingSystem : SharedRottingSystem
                 var tileMix = _atmosphere.GetTileMixture(uid, excite: true);
                 tileMix?.AdjustMoles(Gas.Ammonia, molRate * physics.FixturesMass);
             }
+            // Wayfarer End
         }
     }
 }
