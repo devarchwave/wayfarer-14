@@ -275,6 +275,9 @@
     - tray5
     - tray6
   - type: NFIngredient
+  - type: PhysicalComposition
+    materialComposition:
+      Cardboard: 50
 
 - type: entity
   parent: FoodBoxSushi

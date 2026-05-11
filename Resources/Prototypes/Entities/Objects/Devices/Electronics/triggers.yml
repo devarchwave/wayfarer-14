@@ -36,7 +36,7 @@
         path: /Audio/Machines/Nuke/general_beep.ogg
         params:
           volume: -2
-    - type: PhysicalComposition # Wayfarer
+  - type: PhysicalComposition # Wayfarer
     materialComposition:
       Steel: 150
     chemicalComposition:
@@ -95,8 +95,3 @@
   - type: PayloadTrigger
     components:
     - type: TriggerOnVoice
-  - type: PhysicalComposition # Wayfarer
-    materialComposition:
-      Steel: 150
-    chemicalComposition:
-      Silicon: 15
