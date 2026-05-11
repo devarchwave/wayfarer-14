@@ -3098,3 +3098,10 @@ Entries:
   id: 6851
   time: '2026-05-10T02:24:30.0000000+00:00'
   url: https://github.com/project-wayfarer/wayfarer-14/pull/630
+- author: Whisper
+  changes:
+    - type: Add
+      message: Added all silicon/borg emotes to IPC
+  id: 6852
+  time: '2026-05-11T02:28:58.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/827
