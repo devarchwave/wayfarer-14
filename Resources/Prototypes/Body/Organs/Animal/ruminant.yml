@@ -14,7 +14,7 @@
       - Flower
       - Fruit
       - Vegetable
-      # End Wayfarer
+      # Wayfarer end
   - type: SolutionContainerManager
     solutions:
       stomach:
