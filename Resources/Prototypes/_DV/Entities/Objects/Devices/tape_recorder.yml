@@ -50,6 +50,10 @@
     interfaces:
       enum.TapeRecorderUIKey.Key:
         type: TapeRecorderBoundUserInterface
+  - type: PhysicalComposition # Wayfarer: added recyclable component
+    materialComposition:
+      Steel: 50
+      Plastic: 20
 
 - type: entity
   parent: TapeRecorder

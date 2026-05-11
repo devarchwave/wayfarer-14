@@ -383,6 +383,10 @@
   - type: Tag
     tags:
     - Syringe
+  - type: physicalcomposition
+    materialComposition:
+      Steel: 10
+      Plastic: 5
 
 - type: entity
   parent: BaseSyringe

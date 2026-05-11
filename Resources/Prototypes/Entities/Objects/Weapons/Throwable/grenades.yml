@@ -412,6 +412,10 @@
           # Unprimed: <Use state determined by enum.ConstructionVisuals.Layer>
   - type: StaticPrice
     price: 30 # Frontier: 75<30
+  - type: PhysicalComposition # Wayfarer
+    materialComposition:
+      Steel: 50
+      Plastic: 20
 
 - type: entity
   name: EMP grenade

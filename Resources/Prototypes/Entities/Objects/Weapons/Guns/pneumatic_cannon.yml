@@ -176,6 +176,10 @@
     containers:
       storagebase: !type:Container
         ents: []
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 20
+      Plastic: 10
 
 # shoots bullets instead of throwing them, no other changes
 - type: entity

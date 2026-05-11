@@ -18,6 +18,10 @@
     state: rpg
   - type: StaticPrice
     price: 20
+  - type: PhysicalComposition # Wayfarer
+    materialComposition:
+      Steel: 50
+      Plastic: 20
 
 - type: entity
   parent: NFBaseCartridgeRocket
@@ -62,6 +66,10 @@
     tags:
     - Grenade
     - NFCartridgeGrenade40mm
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 50
+      Plastic: 20
 
 - type: entity
   parent: [ NFBaseGrenade40mm, GrenadeBaton ]
