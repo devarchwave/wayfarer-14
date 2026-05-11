@@ -383,7 +383,7 @@
   - type: Tag
     tags:
     - Syringe
-  - type: physicalcomposition
+  - type: PhysicalComposition
     materialComposition:
       Steel: 10
       Plastic: 5
