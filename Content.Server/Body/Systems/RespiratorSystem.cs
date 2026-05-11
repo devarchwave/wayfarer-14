@@ -17,7 +17,7 @@ using Content.Shared.EntityEffects;
 using Content.Shared.EntityEffects.EffectConditions;
 using Content.Shared.EntityEffects.Effects;
 using Content.Shared.Mobs.Systems;
-using Content.Shared.SSDIndicator; // Wayfarer, needed to check if something has the component.
+using Content.Shared.SSDIndicator; // Wayfarer
 using Content.Shared.Mind.Components; // Wayfarer
 using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
@@ -85,7 +85,7 @@ public sealed class RespiratorSystem : EntitySystem
              && TryComp<MindContainerComponent>(uid, out var mindContComp)
               && mindContComp.HasMind)
                 continue;
-            // End Wayfarer
+            // Wayfarer End
 
             UpdateSaturation(uid, -(float)respirator.UpdateInterval.TotalSeconds, respirator);
 
