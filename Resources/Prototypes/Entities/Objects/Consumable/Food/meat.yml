@@ -573,7 +573,6 @@
       right:
       - state: rotten-inhand-right
 
-
 - type: entity
   parent: FoodMeatRawBase
   id: FoodMeatSpider
