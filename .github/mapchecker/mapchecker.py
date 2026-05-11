@@ -41,9 +41,9 @@ if __name__ == "__main__":
             "Resources/Prototypes/_NF/Maps/Outpost",  # Frontier Outpost
             "Resources/Prototypes/_NF/PointsOfInterest",  # Points of interest
             "Resources/Prototypes/_NF/Shipyard",  # Shipyard ships.
-            "Resources/Prototypes/_WF/Maps/Outpost",  # Wayfarer Outpost
-            "Resources/Prototypes/_WF/PointsOfInterest",  # Wayfarer Points of interest
-            "Resources/Prototypes/_WF/Shipyard",  # Wayfarer Shipyard ships.
+            "Resources/Prototypes/_WF/Maps/Outpost",  # Wayfarer: Outpost
+            "Resources/Prototypes/_WF/PointsOfInterest",  # Wayfarer: Points of interest
+            "Resources/Prototypes/_WF/Shipyard",  # Wayfarer: Shipyard ships.
         ]
     )
     parser.add_argument(
