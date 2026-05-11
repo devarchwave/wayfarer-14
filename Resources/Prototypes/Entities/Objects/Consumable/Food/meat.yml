@@ -542,7 +542,7 @@
     state: plant
 
 - type: entity
-  parent: [ FoodMeatBase , RecyclableItemOrganicTiny ] # Wayfarer: added RecyclableItemOrganicTiny
+  parent: FoodMeatBase
   id: FoodMeatRotten
   name: rotten meat
   description: Halfway to becoming fertilizer for your garden.
