@@ -113,10 +113,10 @@
       containers:
         - machine_board
         - machine_parts
-      machine_board:
-      whitelist:
-        components:
-          - MachineBoard2x1
+      #machine_board: # Wayfarer: This form of whitelisting doesn't exist.
+      #whitelist:
+      #  components:
+      #    - MachineBoard2x1
     - type: Damageable
       damageContainer: StructuralInorganic
       damageModifierSet: Metallic
@@ -150,7 +150,7 @@
           minCount: 1
           whitelist:
             components:
-            - MachineBoard
+            - MachineBoard2x1 # Wayfarer: MachineBoard<MachineBoard2x1
 
 - type: entity
   id: MachineFrameDestroyed2x1
