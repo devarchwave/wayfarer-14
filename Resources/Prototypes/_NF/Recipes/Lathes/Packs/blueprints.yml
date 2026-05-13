@@ -116,6 +116,7 @@
   # PortableFission
   - PortableGeneratorDKJrMachineCircuitboard
   # RapidConstruction
+  - RPD # Wayfarer
   - ShipyardRCD
   - ShipyardRCDAmmo
   # ConstructionBags
