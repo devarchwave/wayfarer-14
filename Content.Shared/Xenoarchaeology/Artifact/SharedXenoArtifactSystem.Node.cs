@@ -411,6 +411,7 @@ public abstract partial class SharedXenoArtifactSystem
         if (node.Comp.ArtifexiumUsed)
             nodeComponent.ResearchValue = (int)Math.Pow(nodeComponent.ResearchValue - 700, 0.9);
         // End Frontier: remove value from using artifexium, different value sets
+
         nodeComponent.ResearchValue = (int)(nodeComponent.ResearchValue * _cfg.GetCVar(WFCVars.ArtifactPointMultiplier)); // Wayfarer: Apply the research multiplier.
     }
 
