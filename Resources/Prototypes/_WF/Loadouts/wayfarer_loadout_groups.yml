@@ -383,6 +383,89 @@
   - WFSLVintageUniformSuit
   - WFSLCargoOverallsUniformSuit
   - WFSLRedRegaliaSuit
+  # Impstation clothing
+  - WFIMPClothingUniformCircusClown
+  - WFIMPClothingUniformJokester
+  - WFIMPClothingUniformHitmanSuit
+  - WFIMPClothingUniformBurglarJumpsuit
+  - WFIMPClothingUniformFuneralSuit
+  - WFIMPClothingUniformNightclubSuit
+  - WFIMPClothingUniformMrSpaceWide
+  - WFIMPClothingUniformBrownSuit
+  - WFIMPClothingUniformCreamSuit
+  - WFIMPClothingUniformDetectiveSuit
+  - WFIMPClothingUniformMiamiVice
+  - WFIMPClothingUniformSeniorBartender
+  - WFIMPClothingUniformBrosBlazer
+  - WFIMPClothingUniformJesterEvil
+  - WFIMPClothingUniformSailorSuit
+  - WFIMPClothingUniformJumpsuitMimeCropped
+  - WFIMPClothingUniformJumpsuitMimeNouveau
+  - WFIMPClothingUniformJumpsuitCourier
+  - WFIMPClothingUniformSpaceJumpsuitCasualBrown
+  - WFIMPClothingUniformSpaceJumpsuitCasualTriColor
+  - WFIMPClothingUniformSpaceJumpsuitCasualMulti
+  - WFIMPClothingUniformSpaceJumpsuitCasualBlue
+  - WFIMPClothingUniformJumpsuitMusicianMarchingBand
+  - WFIMPClothingUniformJumpsuitTailcoatSuit
+  # DeltaV clothing
+  - WFDVClothingUniformJumpsuitSuitBlack
+  - WFDVClothingUniformJumpsuitSuitBlackAlt
+  - WFDVClothingUniformJumpsuitSuitBlackMob
+  - WFDVClothingUniformJumpsuitSuitBrown
+  - WFDVClothingUniformJumpsuitSuitBrownAlt
+  - WFDVClothingUniformJumpsuitSuitBrownMob
+  - WFDVClothingUniformJumpsuitSuitWhite
+  - WFDVClothingUniformJumpsuitSuitWhiteAlt
+  - WFDVClothingUniformJumpsuitSuitWhiteMob
+  - WFDVClothingUniformJumpsuitJeansRed
+  - WFDVClothingUniformJumpsuitJeansGreen
+  - WFDVClothingUniformJumpsuitJeansBrown
+  - WFDVClothingUniformJumpsuitWrestlerCostumeGreen
+  - WFDVClothingUniformJumpsuitWrestlerCostumeRed
+  - WFDVClothingUniformJumpsuitWrestlerCostumeYellow
+  - WFDVClothingUniformJumpsuitWrestlerCostumeBlue
+  - WFDVClothingUniformElf
+  - WFDVClothingUniformHarbingerTunic
+  - WFDVClothingUniformJumpsuitSober
+  - WFDVClothingUniformJumpsuitLostTourist
+  - WFDVClothingUniformJumpskirtOveralls
+  - WFDVClothingUniformSkirtCourier
+  - WFDVClothingUniformJumpskirtFestiveDressRed
+  - WFDVClothingUniformJumpskirtElf
+  - WFDVClothingUniformJumpskirtWaitstaffFormal
+  - WFDVClothingUniformTurtleneckColorWhite
+  - WFDVClothingUniformTurtleneckColorGrey
+  - WFDVClothingUniformTurtleneckColorBlack
+  - WFDVClothingUniformTurtleneckColorBlue
+  - WFDVClothingUniformTurtleneckColorDarkBlue
+  - WFDVClothingUniformTurtleneckColorTeal
+  - WFDVClothingUniformTurtleneckColorGreen
+  - WFDVClothingUniformTurtleneckColorDarkGreen
+  - WFDVClothingUniformTurtleneckColorOrange
+  - WFDVClothingUniformTurtleneckColorPink
+  - WFDVClothingUniformTurtleneckColorRed
+  - WFDVClothingUniformTurtleneckColorYellow
+  - WFDVClothingUniformTurtleneckColorPurple
+  - WFDVClothingUniformTurtleneckColorLightBrown
+  - WFDVClothingUniformTurtleneckColorBrown
+  - WFDVClothingUniformTurtleneckColorMaroon
+  - WFDVClothingUniformTurtleneckSkirtColorWhite
+  - WFDVClothingUniformTurtleneckSkirtColorGrey
+  - WFDVClothingUniformTurtleneckSkirtColorBlack
+  - WFDVClothingUniformTurtleneckSkirtColorBlue
+  - WFDVClothingUniformTurtleneckSkirtColorDarkBlue
+  - WFDVClothingUniformTurtleneckSkirtColorTeal
+  - WFDVClothingUniformTurtleneckSkirtColorGreen
+  - WFDVClothingUniformTurtleneckSkirtColorDarkGreen
+  - WFDVClothingUniformTurtleneckSkirtColorOrange
+  - WFDVClothingUniformTurtleneckSkirtColorPink
+  - WFDVClothingUniformTurtleneckSkirtColorRed
+  - WFDVClothingUniformTurtleneckSkirtColorYellow
+  - WFDVClothingUniformTurtleneckSkirtColorPurple
+  - WFDVClothingUniformTurtleneckSkirtColorLightBrown
+  - WFDVClothingUniformTurtleneckSkirtColorBrown
+  - WFDVClothingUniformTurtleneckSkirtColorMaroon
   fallbacks:
   - WFClothingUniformJumpsuitColorGrey
   - WFClothingUniformJumpskirtColorGrey
@@ -599,6 +682,37 @@
   - WFWetFloorSign
   - WFClothingOuterCoatExpensive
   - WFClothingOuterCoatSpaceAsshole
+  # Impstation clothing
+  - WFIMPClothingOuterCoatJokester
+  - WFIMPClothingOuterCoatPufferDark
+  - WFIMPClothingOuterCoatPufferRed
+  - WFIMPClothingOuterCoatPufferBlue
+  - WFIMPClothingOuterCoatPufferMime
+  - WFIMPClothingOuterCoatPufferSilver
+  - WFIMPClothingOuterCoatPufferPink
+  - WFIMPClothingOuterCoatBomberBlack
+  - WFIMPClothingOuterCoatBomberWhite
+  - WFIMPClothingOuterCoatBomberCargo
+  - WFIMPClothingOuterCoatBomberAtmosHolo
+  - WFIMPClothingOuterCoatWebSweater
+  - WFIMPClothingOuterCoatMusicianFurCoat
+  - WFIMPClothingOuterCoatVRexFurCoat
+  - WFIMPClothingOuterRainCape
+  - WFIMPClothingOuterWhitePoncho
+  - WFIMPClothingOuterQMPoncho
+  - WFIMPClothingOuterBlackPoncho
+  - WFIMPClothingOuterCowVest
+  - WFIMPClothingOuterBlackVest
+  - WFIMPClothingOuterChapsBrown
+  - WFIMPClothingOuterChapsWhite
+  - WFIMPClothingOuterChapsBlack
+  - WFIMPClothingOuterChapsFancy
+  # DeltaV clothing
+  - WFDVClothingOuterCoatOvercoat
+  - WFDVClothingOuterCoatLeatherJacket
+  - WFDVClothingOuterDusterCoat
+  - WFDVClothingOuterCoatNavalCoat
+  - WFDVClothingOuterClerkVest
 
 # == BELT
 - type: loadoutGroup
@@ -754,6 +868,9 @@
   - WFSLClothingShoesHighheelShoes
   - WFSLClothingUniformBootsVampir
   - WFSLClothingShoesBootsSalvage1208134
+  # DeltaV clothing
+  - WFDVClothingShoesBootsFishing
+  - WFDVClothingShoesMiscWhite
   fallbacks:
   - WFClothingShoesColorBlack
 
@@ -866,6 +983,39 @@
   # Starlight clothing
   - WFSLClothingHeadBase0121
   - WFSLRedRegaliaHat
+  # Impstation clothing
+  - WFIMPClothingHeadHatCircusClown
+  - WFIMPClothingHeadDevilHorns
+  - WFIMPClothingHeadJesterEvilHat
+  - WFIMPClothingHeadDeerstalker
+  - WFIMPClothingHeadSailorCap
+  - WFIMPClothingHeadFloatingFloraCrown
+  - WFIMPClothingHeadHatMimeBowler
+  - WFIMPClothingHeadHatBucketHat
+  - WFIMPClothingHeadHatPompombow
+  - WFIMPClothingHeadHatPompomear
+  - WFIMPClothingHeadHatCuteTiara
+  - WFIMPClothingHeadHatSimpleTiara
+  - WFIMPClothingHeadHatPrincess
+  - WFIMPClothingHeadHatGreenEscoffion
+  - WFIMPClothingHeadHatBlackVeil
+  # DeltaV clothing
+  - WFDVClothingHeadHatFedoraBlack
+  - WFDVClothingHeadHatFedoraChoc
+  - WFDVClothingHeadHatFedoraWhite
+  - WFDVClothingHeadPropellerHat
+  - WFDVClothingHeadHatReindeer
+  - WFDVClothingHeadHatRedRibbon
+  - WFDVClothingHeadHatFestiveHatRed
+  - WFDVClothingHeadHatFestiveHatGreen
+  - WFDVClothingHeadHatCandyCane
+  - WFDVClothingHeadHatStar
+  - WFDVClothingHeadHatFestiveLights
+  - WFDVClothingHeadHatElf
+  - WFDVClothingHeadHatWrestlingMaskLuchaRed
+  - WFDVClothingHeadHatWrestlingMaskLuchaBlue
+  - WFDVClothingHeadHatFlatBlack
+  - WFDVClothingHeadHatFlatBrown
 
 # == HEADSETS
 - type: loadoutGroup
@@ -1063,6 +1213,13 @@
   - WFSLClothingUniformShinelVampir
   - WFSLClothingNeckTieGeoffroyblack12
   - WFSLRedRegaliaCloak
+  # DeltaV clothing
+  - WFDVClothingNeckTieWhite
+  - WFDVClothingNeckTieBlack
+  - WFDVClothingNeckTieBrown
+  - WFDVClothingNeckTieBlue
+  - WFDVClothingNeckTieGreen
+  - WFDVClothingNeckCopperNecklace
   # Flooftier collars end
 
 # == PDAS
@@ -1201,6 +1358,7 @@
   - WFCrayonBox
   - WFSoapNT
   - PlushieLizard
+  - PlushieVox # SKREEEEEEEEEEEE!
   - WehfarerPlushie
   - WFPlushieSharkGrey
   - WFPlushieSharkBlue

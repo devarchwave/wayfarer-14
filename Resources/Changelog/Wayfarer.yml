@@ -3105,3 +3105,143 @@ Entries:
   id: 6852
   time: '2026-05-11T02:28:58.0000000+00:00'
   url: https://github.com/project-wayfarer/wayfarer-14/pull/827
+- author: BlueSushii
+  changes:
+    - type: Add
+      message: 50k disks to terminal
+  id: 6853
+  time: '2026-05-11T23:51:23.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/845
+- author: BlueSushii
+  changes:
+    - type: Tweak
+      message: Artifacts worth more
+  id: 6854
+  time: '2026-05-11T23:52:00.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/844
+- author: DevArchwave
+  changes:
+    - type: Tweak
+      message: Reduced the space cleanup system's cooldown.
+    - type: Tweak
+      message: Capped the ammonia emission from rotting entities.
+  id: 6855
+  time: '2026-05-11T23:53:08.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/849
+- author: Possumongus
+  changes:
+    - type: Fix
+      message: Fixed IPC snout sprite missplacement
+  id: 6856
+  time: '2026-05-11T23:54:47.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/846
+- author: DevArchwave
+  changes:
+    - type: Tweak
+      message: New sprites for the AME and its jars.
+  id: 6857
+  time: '2026-05-12T09:17:49.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/855
+- author: drraccoony
+  changes:
+    - type: Add
+      message: Added 5 new royalty free lofi tracks
+  id: 6858
+  time: '2026-05-12T16:44:22.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/853
+- author: Rellu225
+  changes:
+    - type: Fix
+      message: Fixed S2A dock on Dusk.
+  id: 6859
+  time: '2026-05-12T19:15:13.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/840
+- author: TheSlapper
+  changes:
+    - type: Add
+      message: (Miles) Ported a selection of clothing from DeltaV
+  id: 6860
+  time: '2026-05-12T19:16:13.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/834
+- author: Possumongus
+  changes:
+    - type: Add
+      message: RPD. Find it in your nearest engineering lathe or vendor
+    - type: Fix
+      message: >-
+        Fixed RCD desync issues, better ghost functionality, light stacking and
+        a bunch of other stuff.
+  id: 6861
+  time: '2026-05-12T19:17:51.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/850
+- author: Khaomi
+  changes:
+    - type: Add
+      message: Added Weh Flap by Enrico, which is a modification of Flip Flap
+  id: 6862
+  time: '2026-05-12T19:18:37.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/856
+- author: TheSlapper
+  changes:
+    - type: Add
+      message: (Miles) Ported clothing from ImpStation
+  id: 6863
+  time: '2026-05-12T21:40:42.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/841
+- author: VVersengt
+  changes:
+    - type: Remove
+      message: Anomalous Geode is no more
+  id: 6864
+  time: '2026-05-12T21:44:58.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/830
+- author: JustKaits
+  changes:
+    - type: Fix
+      message: broken downtown superstar airlock
+  id: 6865
+  time: '2026-05-13T00:39:42.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/860
+- author: Feathernights
+  changes:
+    - type: Tweak
+      message: Ported over the Goobstation Hardsuit sprites.
+  id: 6866
+  time: '2026-05-13T00:40:44.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/835
+- author: Luweth
+  changes:
+    - type: Tweak
+      message: >-
+        Changed the name of Old-kin to Aurelian, cleaning up their entire
+        structure in the process.
+    - type: Tweak
+      message: >-
+        Redone guide for Aurelian, better clarifying things in the process. Also
+        colors.
+    - type: Add
+      message: Separate organs and parts for Aurelian Vox.
+    - type: Add
+      message: Added various new hairs and markings for Aurelian Vox.
+    - type: Add
+      message: Vox plushie to loadout. (Most important change here.)
+    - type: Add
+      message: Regular Vox may now be carried. Uppies.
+    - type: Fix
+      message: Aurelian are blacklisted from medical bounty pods.
+    - type: Fix
+      message: All Vox not processing dead reagents in their streams.
+    - type: Fix
+      message: All Vox having duplicate organs while missing others.
+  id: 6867
+  time: '2026-05-13T00:50:13.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/854
+- author: DevArchwave
+  changes:
+    - type: Tweak
+      message: >-
+        KC Pathfinder shuttle was updated and re-enabled, bringing it to modern
+        standards.
+  id: 6868
+  time: '2026-05-13T01:23:11.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/836
