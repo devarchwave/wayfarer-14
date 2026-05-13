@@ -175,7 +175,7 @@
     # - id: RCDAmmo # Frontier
     - id: RubberStampCE
     - id: MetalFoamGrenade
-    - id: RPD # Wayfarer
+    - id: ShipyardRPD # Wayfarer
     - id: ShipyardRCD # Frontier
     - id: ShipyardRCDAmmo # Frontier
     - id: trayScanner # Frontier
