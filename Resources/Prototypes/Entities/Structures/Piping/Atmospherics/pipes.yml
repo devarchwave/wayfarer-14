@@ -409,3 +409,8 @@
     navMapBlip: GasPipeManifold
     showAbsentConnections: false
   - type: AtmosDevice
+  # Starlight: RPD
+  #- type: Tag
+  #  tags:
+  #  - Unstackable
+  # Starlight End
