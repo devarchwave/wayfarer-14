@@ -15,7 +15,7 @@
   #- NFBlueprintsScience
   #- NFBlueprintsService
   - WFBlueprintsCommon
-  # End Wayfarer
+  # Wayfarer End
 
 - type: blueprint
   id: NFEngineering
