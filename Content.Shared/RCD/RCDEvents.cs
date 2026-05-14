@@ -30,15 +30,15 @@ public sealed class RCDConstructionGhostFlipEvent : EntityEventArgs
 }
 
 [Serializable, NetSerializable]
-public sealed class RPDEyeRotationEvent : EntityEventArgs
+public sealed class RPDSelectedLayerEvent : EntityEventArgs
 {
     public readonly NetEntity NetEntity;
-    public float? EyeRotation;
+    public readonly byte Layer;
 
-    public RPDEyeRotationEvent(NetEntity netEntity, float? eyeRotation)
+    public RPDSelectedLayerEvent(NetEntity netEntity, byte layer)
     {
         NetEntity = netEntity;
-        EyeRotation = eyeRotation;
+        Layer = layer;
     }
 }
 // Starlight End: RPD

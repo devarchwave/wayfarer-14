@@ -1,4 +1,5 @@
 using Content.Shared.RCD.Systems;
+using Content.Shared.Atmos.Components; // Starlight-edit: RPD layered placement support
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Physics;
@@ -93,12 +94,11 @@ public sealed partial class RCDComponent : Component
 
     // Starlight Start
     /// <summary>
-    /// Stores player rotation
-    /// This is a workaround to the fact eye rotation is not currently networked and required for pipe layering
-    /// Sent only when needed
+    /// Last free-mode layer selected on the client.
+    /// Used by the server as the authoritative layer when placing layered pipes in Free mode.
     /// </summary>
-    [DataField, AutoNetworkedField]
-    public float? LastKnownEyeRotation { get; set; } = null;
+    [DataField]
+    public AtmosPipeLayer? LastSelectedLayer { get; set; } = null;
 
     /// <summary>
     /// Current pipe layer / build mode for RPD

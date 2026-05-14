@@ -72,7 +72,6 @@ public sealed class RCDSystem : EntitySystem
     private static readonly ProtoId<TagPrototype> CatwalkTag = "Catwalk";
 
     private HashSet<EntityUid> _intersectingEntities = new();
-    private AtmosPipeLayer _currentLayer = AtmosPipeLayer.Primary; // Starlight: RPD
 
     public override void Initialize()
     {
@@ -88,7 +87,7 @@ public sealed class RCDSystem : EntitySystem
         // Starlight Start
         SubscribeLocalEvent<RCDComponent, ComponentStartup>(OnStartup);
         SubscribeNetworkEvent<RCDConstructionGhostFlipEvent>(OnRCDConstructionGhostFlipEvent);
-        SubscribeNetworkEvent<RPDEyeRotationEvent>(OnRPDEyeRotationEvent);
+        SubscribeNetworkEvent<RPDSelectedLayerEvent>(OnRPDSelectedLayerEvent);
         SubscribeLocalEvent<RCDComponent, GetVerbsEvent<UtilityVerb>>(OnGetUtilityVerb);
         SubscribeLocalEvent<RCDComponent, GetVerbsEvent<AlternativeVerb>>(OnGetAlternativeVerb);
         // Starlight End
@@ -177,7 +176,7 @@ public sealed class RCDSystem : EntitySystem
         }
     }
 
-    private void OnRPDEyeRotationEvent(RPDEyeRotationEvent ev, EntitySessionEventArgs session)
+    private void OnRPDSelectedLayerEvent(RPDSelectedLayerEvent ev, EntitySessionEventArgs session)
     {
         var uid = GetEntity(ev.NetEntity);
 
@@ -190,11 +189,11 @@ public sealed class RCDSystem : EntitySystem
         if (!TryComp<RCDComponent>(uid, out var rcd))
             return;
 
-        // Update the layer if different
-        if (rcd.LastKnownEyeRotation != ev.EyeRotation)
-        {
-            rcd.LastKnownEyeRotation = ev.EyeRotation;
-        }
+        var layerInt = Math.Clamp(ev.Layer, (byte) AtmosPipeLayer.Primary, (byte) AtmosPipeLayer.Tertiary);
+        var selectedLayer = (AtmosPipeLayer) layerInt;
+
+
+        rcd.LastSelectedLayer = selectedLayer;
     }
 
     private void OnGetUtilityVerb(EntityUid uid, RCDComponent component, GetVerbsEvent<UtilityVerb> args)
@@ -239,6 +238,8 @@ public sealed class RCDSystem : EntitySystem
         if (args.Handled || !args.CanReach)
             return;
 
+        UpdateCachedPrototype(uid, component); // Starlight Edit: Refresh cached prototype before any interaction time layer logic.
+
         var user = args.User;
         var used = args.Used; // Frontier
         var location = args.ClickLocation;
@@ -259,41 +260,30 @@ public sealed class RCDSystem : EntitySystem
         var position = _mapSystem.TileIndicesFor(gridUid.Value, mapGrid, location);
 
         // Starlight Start
+        var placementLayer = AtmosPipeLayer.Primary;
         if (component.IsRpd && prototype.HasLayers)
         {
-            var tileSize = mapGrid.TileSize;
-            var tileCenter = new Vector2(tile.X + tileSize / 2, tile.Y + tileSize / 2);
-            var mouseCoordsDiff = args.ClickLocation.Position - tileCenter - new Vector2(0.5f, 0.5f);
-            var mouseDeadzoneRadius = 0.25f;
-
-            _currentLayer = AtmosPipeLayer.Primary;
+            placementLayer = AtmosPipeLayer.Primary;
 
             switch (component.CurrentMode)
             {
                 case RpdMode.Primary:
-                    _currentLayer = AtmosPipeLayer.Primary;
+                    placementLayer = AtmosPipeLayer.Primary;
                     break;
 
                 case RpdMode.Secondary:
-                    _currentLayer = AtmosPipeLayer.Secondary;
+                    placementLayer = AtmosPipeLayer.Secondary;
                     break;
 
                 case RpdMode.Tertiary:
-                    _currentLayer = AtmosPipeLayer.Tertiary;
+                    placementLayer = AtmosPipeLayer.Tertiary;
                     break;
 
                 case RpdMode.Free:
-                    // Only use mouse direction in Free mode
-                    if (mouseCoordsDiff.Length() > mouseDeadzoneRadius && component.LastKnownEyeRotation.HasValue)
+                    // Free mode layer is selected client-side and synced explicitly.
+                    if (component.LastSelectedLayer.HasValue)
                     {
-                        var gridRotation = _transform.GetWorldRotation(gridUid.Value);
-                        var angle = new Angle(mouseCoordsDiff);
-                        var eyeRotation = new Angle(component.LastKnownEyeRotation.Value);
-                        var direction = (angle + eyeRotation + gridRotation + Math.PI / 2).GetCardinalDir();
-
-                        _currentLayer = (direction == Direction.North || direction == Direction.East)
-                            ? AtmosPipeLayer.Secondary
-                            : AtmosPipeLayer.Tertiary;
+                        placementLayer = component.LastSelectedLayer.Value;
                     }
                     break;
             }
@@ -385,7 +375,7 @@ public sealed class RCDSystem : EntitySystem
 
         // Try to start the do after
         var effect = Spawn(effectPrototype, location);
-        var ev = new RCDDoAfterEvent(GetNetCoordinates(location), component.ConstructionDirection, component.ProtoId, cost, GetNetEntity(effect));
+        var ev = new RCDDoAfterEvent(GetNetCoordinates(location), component.ConstructionDirection, placementLayer, component.ProtoId, cost, GetNetEntity(effect));      // Starlight Edit: Include layer as well in snapshot at start so finalize uses consistent placement state.
 
         var doAfterArgs = new DoAfterArgs(EntityManager, user, delay, ev, uid, target: args.Target, used: uid)
         {
@@ -465,7 +455,7 @@ public sealed class RCDSystem : EntitySystem
             return;
 
         // Finalize the operation (this should handle prediction properly)
-        FinalizeRCDOperation(uid, component, gridUid.Value, mapGrid, tile, position, args.Direction, args.Target, args.User);
+        FinalizeRCDOperation(uid, component, gridUid.Value, mapGrid, tile, position, args.Direction, args.PipeLayer, args.Target, args.User); // Starlight Edit: Include layer from do-after event to avoid finalize time drift.
 
         // Play audio and consume charges
         _audio.PlayPredicted(component.SuccessSound, uid, args.User);
@@ -763,7 +753,8 @@ public sealed class RCDSystem : EntitySystem
 
     #region Entity construction/deconstruction
 
-    private void FinalizeRCDOperation(EntityUid uid, RCDComponent component, EntityUid gridUid, MapGridComponent mapGrid, TileRef tile, Vector2i position, Direction direction, EntityUid? target, EntityUid user)
+    // Starlight Edit: Add layer to finalize for deterministic layer placement.
+    private void FinalizeRCDOperation(EntityUid uid, RCDComponent component, EntityUid gridUid, MapGridComponent mapGrid, TileRef tile, Vector2i position, Direction direction, AtmosPipeLayer pipeLayer, EntityUid? target, EntityUid user)
     {
         if (!_net.IsServer)
             return;
@@ -790,20 +781,14 @@ public sealed class RCDSystem : EntitySystem
                 {
                     if (_protoManager.TryIndex<EntityPrototype>(proto, out var entityProto) &&
                         entityProto.TryGetComponent<AtmosPipeLayersComponent>(out var atmosPipeLayers, _entityManager.ComponentFactory) &&
-                        _pipeLayersSystem.TryGetAlternativePrototype(atmosPipeLayers, _currentLayer, out var newProtoId))
+                        _pipeLayersSystem.TryGetAlternativePrototype(atmosPipeLayers, pipeLayer, out var newProtoId))
                     {
                         proto = newProtoId;
                     }
                 }
 
                 // Calculate rotation before spawn
-                var rotation = prototype.Rotation switch
-                {
-                    RcdRotation.Fixed => Angle.Zero,
-                    RcdRotation.Camera => Transform(uid).LocalRotation,
-                    RcdRotation.User => direction.ToAngle(),
-                    _ => Angle.Zero // Fallback
-                };
+                var rotation = GetConstructionRotation(uid, prototype, direction);
 
                 // For RPD's, if overlapping existing pipe, replace the pipe
                 if (component.IsRpd)
@@ -819,7 +804,7 @@ public sealed class RCDSystem : EntitySystem
                             {
                                 var proposed = new PipeRestrictOverlapSystem.ProposedPipe(
                                     pipeNode.Direction,
-                                    _currentLayer,
+                                    pipeLayer,
                                     rotation
                                 );
 
@@ -892,6 +877,18 @@ public sealed class RCDSystem : EntitySystem
     }
 
     // Starlight Start: RPD
+    // Break out GetConstructionRotation into its own helper method since it's used in multiple places and the logic is a bit more complex with the addition of RPD/RPLD rotation options.
+    private Angle GetConstructionRotation(EntityUid rcdUid, RCDPrototype prototype, Direction direction)
+    {
+        return prototype.Rotation switch
+        {
+            RcdRotation.Fixed => Angle.Zero,
+            RcdRotation.Camera => Transform(rcdUid).LocalRotation,
+            RcdRotation.User => direction.ToAngle(),
+            _ => Angle.Zero
+        };
+    }
+
     public void UpdateCachedPrototype(EntityUid uid, RCDComponent component)
     {
         if (component.ProtoId.Id != component.CachedPrototype?.Prototype ||
@@ -924,6 +921,9 @@ public sealed partial class RCDDoAfterEvent : DoAfterEvent
     public Direction Direction { get; private set; }
 
     [DataField]
+    public AtmosPipeLayer PipeLayer { get; private set; } = AtmosPipeLayer.Primary;     // Starlight Edit: Layer snapshot captured at doafter start and replayed on finalize.
+
+    [DataField]
     public ProtoId<RCDPrototype> StartingProtoId { get; private set; }
 
     [DataField]
@@ -934,10 +934,12 @@ public sealed partial class RCDDoAfterEvent : DoAfterEvent
 
     private RCDDoAfterEvent() { }
 
-    public RCDDoAfterEvent(NetCoordinates location, Direction direction, ProtoId<RCDPrototype> startingProtoId, int cost, NetEntity? effect = null)
+    // Starlight Edit: Constructor stores layer placement snapshot.
+    public RCDDoAfterEvent(NetCoordinates location, Direction direction, AtmosPipeLayer pipeLayer, ProtoId<RCDPrototype> startingProtoId, int cost, NetEntity? effect = null)
     {
         Location = location;
         Direction = direction;
+        PipeLayer = pipeLayer;        // Starlight Edit
         StartingProtoId = startingProtoId;
         Cost = cost;
         Effect = effect;
