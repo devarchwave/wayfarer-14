@@ -38,6 +38,7 @@ using Content.Shared.NodeContainer;
 using Content.Shared.Atmos;
 using Content.Shared._Starlight.Atmos;
 // Starlight End
+using Content.Server._NF.Worldgen.Components.Debris; // Wayfarer
 
 namespace Content.Shared.RCD.Systems;
 
@@ -306,11 +307,14 @@ public sealed class RCDSystem : EntitySystem
         {
             if (!GridAccessSystem.IsAuthorized(gridUid.Value, gridAccessComponent, out var popupMessage))
             {
-                if (popupMessage != null)
+                if (!TryComp<SpaceDebrisComponent>(gridUid.Value, out _)) // Wayfarer: Simple check to verify if it's space debris, so players can use the RPD and RCD on asteroids.
                 {
-                    _popup.PopupClient(Loc.GetString("rcd-component-" + popupMessage), used, user);
+                    if (popupMessage != null)
+                    {
+                        _popup.PopupClient(Loc.GetString("rcd-component-" + popupMessage), used, user);
+                    }
+                    return;
                 }
-                return;
             }
         }
         // End Frontier: grid-access restrictions
