@@ -16,7 +16,7 @@
   name: materials-cardboard
   icon: { sprite: /Textures/Objects/Materials/materials.rsi, state: cardboard }
   color: "#70736c"
-  price: 0.025
+  price: 0.005 # Frontier: 0.025<0.005 TODO - materials rebalance
   properties: # FH edit
     electrical: 4
     hard: 1
@@ -45,7 +45,7 @@
   unit: materials-unit-sheet
   icon: { sprite: /Textures/Objects/Materials/materials.rsi, state: durathread }
   color: "#8291a1"
-  price: 0.35 # 1-1 mix of plastic and cloth.
+  price: 0.15 # 1-1 mix of plastic and cloth. # Frontier: 0.35<0.15 TODO - materials rebalance
   properties: # FH edit
     electrical: 8
     thermal: 9
@@ -73,7 +73,7 @@
   name: materials-plasma
   icon: { sprite: Objects/Materials/Sheets/other.rsi, state: plasma }
   color: "#7e009e"
-  price: 0.35 # $35 for 1 unit
+  price: 0.2 # $35 for 1 unit # Frontier: 0.35<0.2 TODO - materials rebalance
   properties: # FH edit
     electrical: 5
     thermal: 3
@@ -90,7 +90,7 @@
   name: materials-plastic
   icon: { sprite: Objects/Materials/Sheets/other.rsi, state: plastic }
   color: "#d9d9d9"
-  price: 0.20 # $20 for 1 unit
+  price: 0.1 # $20 for 1 unit # Frontier: 0.2<0.1 TODO - materials rebalance
   properties: # FH edit
     electrical: 2
     thermal: 3
@@ -118,7 +118,7 @@
   name: materials-uranium
   icon: { sprite: Objects/Materials/Sheets/other.rsi, state: uranium }
   color: "#32a852"
-  price: 0.85 # $85 for 1 unit
+  price: 0.2 # $85 for 1 unit # Frontier: 0.85<0.2 TODO - materials rebalance
   properties: # FH edit
     electrical: 4
     thermal: 3
@@ -167,7 +167,7 @@
   unit: materials-unit-web
   icon: { sprite: Objects/Materials/silk.rsi, state: icon }
   color: "#eeeeee" #eeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
-  price: 0 # Maybe better for it to be priceless, knowing how greedy cargo is.
+  price: 0.005 # Frontier: 0<0.005 - same value as cardboard
   properties: # FH edit
     electrical: 4
     thermal: 4
@@ -182,7 +182,7 @@
   unit: materials-unit-boll
   icon: { sprite: Objects/Materials/materials.rsi, state: cotton }
   color: "#cccccc"
-  price: 0.01 #Who knew cotton was infinitely more valuable than silk
+  price: 0.02 # Frontier: 0<0.02 - some marginal value
 
 - type: material
   id: Bones
@@ -205,7 +205,7 @@
   unit: materials-unit-piece
   icon: { sprite: Objects/Materials/ore.rsi, state: coal }
   color: "#404040"
-  price: 0.1 # $10 for 1 unit
+  price: 0.03 # Frontier: 0.1<0.03 TODO - material rebalance
   properties: # FH edit
     electrical: 4
     hard: 3
