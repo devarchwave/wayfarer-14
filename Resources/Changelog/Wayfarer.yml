@@ -3413,3 +3413,10 @@ Entries:
   id: 6887
   time: '2026-05-17T06:53:58.0000000+00:00'
   url: https://github.com/project-wayfarer/wayfarer-14/pull/902
+- author: VVersengt
+  changes:
+    - type: Fix
+      message: Fixed evil pens fitting into safety deposit boxes.
+  id: 6888
+  time: '2026-05-17T10:43:50.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/906
