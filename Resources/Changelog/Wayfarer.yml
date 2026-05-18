@@ -3452,3 +3452,26 @@ Entries:
   id: 6892
   time: '2026-05-18T07:46:05.0000000+00:00'
   url: https://github.com/project-wayfarer/wayfarer-14/pull/829
+- author: TheSlapper
+  changes:
+    - type: Add
+      message: Canned Laughter. A drink you can now buy in the Happy Honk.
+    - type: Add
+      message: >-
+        Red Nose. A mask item available in the loadout. Locked to the clown
+        trait.
+    - type: Tweak
+      message: >-
+        Clown trait no longer makes the player laugh compulsively, instead, it
+        makes the player speak in comic sans.
+    - type: Add
+      message: >-
+        Balloon Animals. A regular balloon can now be bought in the Happy Honk,
+        which can be twisted into various shapes if you have clown training.
+    - type: Add
+      message: >-
+        Juggling. An ability granted to those with clown training, allows the
+        player to juggle items.
+  id: 6893
+  time: '2026-05-18T16:04:27.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/903
