@@ -9,8 +9,8 @@
 
 # Radiation Blocking Projector from Far Horizons
 - type: latheRecipe
-  parent: NFBaseToolsRecipe
   id: RadiationBlockingProjector
+  parent: NFBaseToolsRecipe
   result: RadiationBlockingProjector
   completetime: 8
   materials:
