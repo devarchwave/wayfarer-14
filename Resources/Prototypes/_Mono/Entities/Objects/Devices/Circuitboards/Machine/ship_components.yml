@@ -8,6 +8,6 @@
     prototype: ThrusterLarge
     frameSize: 2x2
     requirements:
-      Capacitor: 4
+      Capacitor: 6 # Wayfarer: 4<6
     stackRequirements:
       Steel: 20
