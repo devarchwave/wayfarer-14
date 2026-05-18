@@ -182,7 +182,7 @@
   unit: materials-unit-boll
   icon: { sprite: Objects/Materials/materials.rsi, state: cotton }
   color: "#cccccc"
-  price: 0.02 # Frontier: 0<0.02 - some marginal value
+  price: 0.01 #Who knew cotton was infinitely more valuable than silk
 
 - type: material
   id: Bones
@@ -191,7 +191,7 @@
   unit: materials-unit-piece
   icon: { sprite: Objects/Materials/materials.rsi, state: bones }
   color: "#896f5e"
-  price: 0
+  price: 0.02 # Frontier: 0<0.02 - some marginal value
   properties: # FH edit
     electrical: 4
     hard: 5
@@ -218,7 +218,7 @@
   unit: materials-unit-piece
   icon: { sprite: Objects/Misc/reagent_fillings.rsi, state: powderpile }
   color: "#A9A9A9"
-  price: 0
+  price: 0.005 # Frontier: 0<0.005 - same value as cardboard
   properties: # FH edit
     electrical: 3
     flammable: 8

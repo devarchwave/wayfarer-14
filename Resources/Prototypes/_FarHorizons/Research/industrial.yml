@@ -40,7 +40,7 @@
   #  state: nuclear_waste
   discipline: NFEngineering # Wayfarer: Industrial<NFEngineering
   tier: 2
-  cost: 12500
+  cost: 7500 # Wayfarer: 12500<7500
   recipeUnlocks:
   - NuclearCentrifugeMachineCircuitboard
   - PlutoniumReactorFuelRod
