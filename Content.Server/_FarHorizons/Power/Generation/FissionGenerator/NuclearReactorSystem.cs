@@ -45,6 +45,8 @@ using Content.Shared.Damage.Systems;
 using System.Diagnostics.CodeAnalysis;
 using Robust.Shared.Timing;
 
+using Robust.Shared.Player; // Wayfarer
+
 namespace Content.Server._FarHorizons.Power.Generation.FissionGenerator;
 
 // Ported and modified from goonstation by Jhrushbe.
@@ -534,7 +536,8 @@ public sealed partial class NuclearReactorSystem : SharedNuclearReactorSystem
         var sender = Loc.GetString("reactor-meltdown-announcement-sender");
         _chatSystem.DispatchStationAnnouncement(stationUid ?? uid, announcement, sender, false, null, Color.Orange);
 
-        _soundSystem.PlayGlobalOnStation(uid, _audio.ResolveSound(comp.MeltdownSound));
+        //_soundSystem.PlayGlobalOnStation(uid, _audio.ResolveSound(comp.MeltdownSound)); // Wayfarer: Commented for the one below
+        _audio.PlayGlobal(comp.MeltdownSound, Filter.Broadcast(), true);
 
         comp.Melted = true;
         var MeltdownBadness = 0f;
@@ -715,7 +718,8 @@ public sealed partial class NuclearReactorSystem : SharedNuclearReactorSystem
             var announcement = Loc.GetString("reactor-melting-announcement-wf", ("station", stationName));
             var sender = Loc.GetString("reactor-melting-announcement-sender");
             _chatSystem.DispatchStationAnnouncement(stationUid ?? uid, announcement, sender, false, null, Color.Orange);
-            _soundSystem.PlayGlobalOnStation(uid, _audio.ResolveSound(new SoundPathSpecifier("/Audio/Misc/delta_alt.ogg")));
+            //_soundSystem.PlayGlobalOnStation(uid, _audio.ResolveSound(new SoundPathSpecifier("/Audio/Misc/delta_alt.ogg"))); // Wayfarer: Commented for the one below
+            _audio.PlayGlobal(_audio.ResolveSound(new SoundPathSpecifier("/Audio/Misc/delta_alt.ogg")), Filter.Broadcast(), true);
             comp.HasSentWarning = true;
         }
 
