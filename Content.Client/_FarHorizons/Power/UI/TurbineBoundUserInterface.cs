@@ -54,6 +54,12 @@ public sealed class TurbineBoundUserInterface : BoundUserInterface
         {
             _pred?.SendMessage(new TurbineChangeStatorLoadMessage(val));
         };
+        // Wayfarer Start: Fix turbine flow rate not showing.
+        _window.TurbineFlowRateChanged += val =>
+        {
+            _pred?.SendMessage(new TurbineChangeFlowRateMessage(val));
+        };
+        // Wayfarer End
         Update();
     }
 
