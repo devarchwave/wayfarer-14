@@ -222,6 +222,7 @@
     - DoorBumpOpener
     - AnomalyHost
   - type: ModifyUndies  # FLOOF Add
+  - type: DamageCap # Wayfarer
 
 - type: entity
   save: false
