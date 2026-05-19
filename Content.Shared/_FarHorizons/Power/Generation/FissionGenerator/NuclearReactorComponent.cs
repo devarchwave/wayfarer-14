@@ -134,13 +134,21 @@ public sealed partial class NuclearReactorComponent : Component
     /// <summary>
     /// Sound that plays globally on meltdown
     /// </summary>
-    public SoundSpecifier MeltdownSound = new SoundPathSpecifier("/Audio/_FarHorizons/Machines/meltdown_siren.ogg");
+    public SoundSpecifier MeltdownSound = new SoundPathSpecifier("/Audio/_WF/Machines/reactor_meltdown_alarm.ogg"); // Wayfarer: /Audio/_FarHorizons/Machines/meltdown_siren.ogg</Audio/_WF/Machines/reactor_meltdown_alarm.ogg
 
     /// <summary>
     /// Radio channel to send alerts to
     /// </summary>
     [DataField]
     public string EngineeringChannel = "Engineering";
+
+    // Wayfarer Start
+    /// <summary>
+    /// Radio channel to send less critical but still critical alerts to
+    /// </summary>
+    [DataField]
+    public string ShortbandChannel = "Traffic";
+    // Wayfarer End
 
     /// <summary>
     /// Last reported temperature during overheat events
