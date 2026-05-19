@@ -59,7 +59,7 @@
 #    - state: idpublicaffairsliaison
 
 - type: entity
-  parent: IDCardStandard
+  parent: [IDCardStandard, BaseCGPContraband] # Wayfarer: added BaseCGPContraband
   id: CadetIDCard
   name: CGP junior peacekeeper ID card
   components:
@@ -207,10 +207,10 @@
 - type: entity
   parent: PassengerIDCard
   id: ContractorIDCard
-  name: contractor ID card
+  name: wayfarer ID card # Wayfarer: contractor < wayfarer
   components:
   - type: PresetIdCard
-    job: Contractor
+    job: Wayfarer # Wayfarer: Contractor < Wayfarer
   - type: Sprite
     sprite: _NF/Objects/Misc/id_cards.rsi
     layers:

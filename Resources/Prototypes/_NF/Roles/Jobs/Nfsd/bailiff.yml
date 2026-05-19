@@ -22,7 +22,7 @@
 #  - Sergeant
 #  - Bailiff
 #  - Brigmedic
-# Wayfarer End
+# End Wayfarer
   accessGroups:
   - CGPCommand #Wayfarer: GeneralNfsdAccess<CGPCommand
   special:

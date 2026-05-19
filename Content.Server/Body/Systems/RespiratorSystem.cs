@@ -85,7 +85,7 @@ public sealed class RespiratorSystem : EntitySystem
              && TryComp<MindContainerComponent>(uid, out var mindContComp)
               && mindContComp.HasMind)
                 continue;
-            // Wayfarer End
+            // End Wayfarer
 
             UpdateSaturation(uid, -(float)respirator.UpdateInterval.TotalSeconds, respirator);
 

@@ -125,7 +125,7 @@
     # Wayfarer: Fix Sigh
     Sigh:
       collection: MaleSigh
-    # Wayfarer end
+    # End Wayfarer
 
 - type: emoteSounds
   id: FemaleReptilian
@@ -165,7 +165,7 @@
     # Wayfarer: Fix Sigh
     Sigh:
       collection: FemaleSigh
-    # Wayfarer end
+    # End Wayfarer
 
 - type: emoteSounds
   id: MaleSlime

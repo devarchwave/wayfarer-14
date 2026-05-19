@@ -50,7 +50,7 @@
                     HorizontalAlignment="Center"
                     VerticalExpand="False">
                 </Button>
-                <!-- Wayfarer end -->
+                <!-- End Wayfarer -->
             </BoxContainer>
         </PanelContainer>
     </BoxContainer>

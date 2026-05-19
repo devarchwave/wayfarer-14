@@ -69,6 +69,7 @@
   - ShipyardStronghold # FrontierShip Resources/Prototypes/_NF/Guidebook/shipyard.yml
   - ShipyardSurveyor # FrontierShip Resources/Prototypes/_NF/Guidebook/shipyard.yml
   - ShipyardSwan
+  - ShipyardUniform
   - ShipyardVagabond # FrontierShip Resources/Prototypes/_NF/Guidebook/shipyard.yml
 
 # syndicate shipyard commented out due to not knowing what to replace it name wise with.

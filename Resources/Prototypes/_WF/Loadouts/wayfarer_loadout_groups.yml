@@ -1452,6 +1452,7 @@
   - WFClothingMaskSadMime
   - WFClothingMaskClown
   - WFClothingMaskClownBald
+  - WFClothingMaskClownNose # Wayfarer
   fallbacks:
   - WFClothingMaskBreath
 
@@ -1523,7 +1524,8 @@
   - WFLightImplanter
   - WFBikeHornImplanter
   - WFSadTromboneImplanter
-  - WFMimePowersImplanter
-  - WFBibleUserImplanter
+  # Mime vow and faith implanters removed. The mime vow is replaced by the new Mime trait. Faith is covered by the existing Pious trait.
+  #- WFMimePowersImplanter
+  #- WFBibleUserImplanter
   fallbacks:
   - WFMedicalTrackingImplanter

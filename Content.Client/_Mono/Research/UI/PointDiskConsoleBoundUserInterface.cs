@@ -42,7 +42,7 @@ namespace Content.Client._Mono.Research.UI
             {
                 SendMessage(new PointDiskConsolePrint50KDiskMessage());
             };
-            // Wayfarer end
+            // End Wayfarer
         }
 
         protected override void UpdateState(BoundUserInterfaceState state)
