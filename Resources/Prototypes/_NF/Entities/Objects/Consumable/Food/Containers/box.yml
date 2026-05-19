@@ -279,7 +279,7 @@
   - type: PhysicalComposition
     materialComposition:
       Cardboard: 50
-  # Wayfarer end
+  # End Wayfarer
 
 - type: entity
   parent: FoodBoxSushi

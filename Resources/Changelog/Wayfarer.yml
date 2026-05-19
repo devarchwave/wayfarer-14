@@ -3406,3 +3406,132 @@ Entries:
   id: 6886
   time: '2026-05-16T01:11:27.0000000+00:00'
   url: https://github.com/project-wayfarer/wayfarer-14/pull/892
+- author: stinkiestdog
+  changes:
+    - type: Tweak
+      message: Craftable wide sinks now have the correct tank volume (250u)
+  id: 6887
+  time: '2026-05-17T06:53:58.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/902
+- author: VVersengt
+  changes:
+    - type: Fix
+      message: Fixed evil pens fitting into safety deposit boxes.
+  id: 6888
+  time: '2026-05-17T10:43:50.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/906
+- author: VVersengt
+  changes:
+    - type: Fix
+      message: Fixed Hot Chili spilling over the floor when cooked.
+  id: 6889
+  time: '2026-05-17T10:44:23.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/907
+- author: VVersengt
+  changes:
+    - type: Fix
+      message: >-
+        Explosive and EMP crossbow bolts now explode and EMP, respectively, on
+        impact.
+  id: 6890
+  time: '2026-05-17T10:44:47.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/908
+- author: VVersengt
+  changes:
+    - type: Add
+      message: Autonomous hauler is now active in the event schedule.
+  id: 6891
+  time: '2026-05-18T00:55:12.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/912
+- author: Goodfaun
+  changes:
+    - type: Remove
+      message: Remedy ship
+    - type: Add
+      message: replacement service ship Uniform
+  id: 6892
+  time: '2026-05-18T07:46:05.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/829
+- author: TheSlapper
+  changes:
+    - type: Add
+      message: Canned Laughter. A drink you can now buy in the Happy Honk.
+    - type: Add
+      message: >-
+        Red Nose. A mask item available in the loadout. Locked to the clown
+        trait.
+    - type: Tweak
+      message: >-
+        Clown trait no longer makes the player laugh compulsively, instead, it
+        makes the player speak in comic sans.
+    - type: Add
+      message: >-
+        Balloon Animals. A regular balloon can now be bought in the Happy Honk,
+        which can be twisted into various shapes if you have clown training.
+    - type: Add
+      message: >-
+        Juggling. An ability granted to those with clown training, allows the
+        player to juggle items.
+  id: 6893
+  time: '2026-05-18T16:04:27.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/903
+- author: stinkiestdog
+  changes:
+    - type: Tweak
+      message: >-
+        Crew manifest now shows if someone is SSD, grouping them in an
+        'Inactive' section at the bottom
+    - type: Tweak
+      message: Crew monitoring console now shows if someone is SSD.
+    - type: Tweak
+      message: Crit implant tracker now shows if someone is SSD.
+  id: 6894
+  time: '2026-05-18T16:04:52.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/893
+- author: Khaomi
+  changes:
+    - type: Add
+      message: Added Ship name to Ship Out Of Character
+  id: 6895
+  time: '2026-05-18T16:08:41.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/898
+- author: Luweth
+  changes:
+    - type: Add
+      message: Added Aurelian Beret variants
+    - type: Add
+      message: Added Aurelian Goggle/Hud/Glasses variants
+    - type: Add
+      message: Added Aurelian Bandana variants
+    - type: Add
+      message: Added Aurelian Tail Layering variants
+    - type: Add
+      message: Added Aurelian Paramed variant
+  id: 6896
+  time: '2026-05-18T16:10:29.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/920
+- author: TheSlapper
+  changes:
+    - type: Add
+      message: (Miles) Ported Goob slot machines.
+  id: 6897
+  time: '2026-05-18T16:11:15.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/913
+- author: VVersengt
+  changes:
+    - type: Remove
+      message: Removed randomized weapon stats.
+  id: 6898
+  time: '2026-05-18T18:58:16.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/921
+- author: VVersengt
+  changes:
+    - type: Tweak
+      message: More contraband classification changes.
+    - type: Fix
+      message: The civilian access configurator is no longer evil.
+    - type: Tweak
+      message: CGP chest rig now has explosion resistance for contents.
+  id: 6899
+  time: '2026-05-19T01:46:34.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/923

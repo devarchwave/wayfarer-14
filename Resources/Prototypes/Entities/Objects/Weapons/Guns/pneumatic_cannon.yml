@@ -181,7 +181,7 @@
     materialComposition:
       Steel: 20
       Plastic: 10
-  # Wayfarer end
+  # End Wayfarer
 
 # shoots bullets instead of throwing them, no other changes
 - type: entity

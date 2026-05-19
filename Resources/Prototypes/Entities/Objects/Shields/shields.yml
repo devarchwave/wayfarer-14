@@ -64,7 +64,7 @@
       materialComposition:
         Steel: 50
         Plastic: 20
-    # Wayfarer end
+    # End Wayfarer
 
 #Security Shields
 
@@ -538,7 +538,7 @@
       materialComposition:
         Steel: 50
         Plastic: 20
-    # Wayfarer end
+    # End Wayfarer
 
 - type: entity
   name: broken energy shield

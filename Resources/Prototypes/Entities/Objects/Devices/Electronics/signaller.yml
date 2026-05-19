@@ -35,7 +35,7 @@
       Steel: 50
     chemicalComposition:
       Silicon: 10
-  # Wayfarer end
+  # End Wayfarer
 - type: entity
   parent: RemoteSignaller
   id: RemoteSignallerAdvanced

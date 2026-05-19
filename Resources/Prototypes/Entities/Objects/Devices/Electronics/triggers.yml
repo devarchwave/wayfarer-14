@@ -42,7 +42,7 @@
       Steel: 150
     chemicalComposition:
       Silicon: 15
-  # Wayfarer end
+  # End Wayfarer
 
 - type: entity
   parent: TimerTrigger

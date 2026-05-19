@@ -22,7 +22,7 @@
   # Wayfarer: STC should have mindshield
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant, NFSDTrackingImplant ]
-  # Wayfarer End
+  # End Wayfarer
   - !type:GiveItemOnHolidaySpecial
     holiday: FrontierBirthday
     prototype: FrontierBirthdayGift

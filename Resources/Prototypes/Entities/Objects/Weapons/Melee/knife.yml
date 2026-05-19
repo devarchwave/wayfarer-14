@@ -31,7 +31,7 @@
   - type: PhysicalComposition
     materialComposition:
       Steel: 50
-  # Wayfarer end
+  # End Wayfarer
 
 - type: entity
   parent: BaseKnife

@@ -64,7 +64,7 @@
     - FlipFlap
     # Wayfarer
     - WehFlap
-    # Wayfarer end
+    # End Wayfarer
 
 - type: entity
   parent: BaseRecord

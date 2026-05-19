@@ -62,16 +62,6 @@
     sprite: _WF/Mobs/Species/AurelianVox/parts.rsi
     state: eyes
 
-- type: marking
-  id: AurelianVoxTail
-  bodyPart: TailBehind
-  markingCategory: Tail
-  #speciesRestriction: [AurelianVox]
-  forcedColoring: false
-  sprites:
-  - sprite: _WF/Mobs/Species/AurelianVox/parts.rsi
-    state: tail
-
 - type: humanoidBaseSprite
   id: MobAurelianVoxHead
   baseSprite:

@@ -18,5 +18,5 @@ public sealed partial class PointDiskConsolePrintingComponent : Component
     // Wayfarer
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public bool Disk50K = false;
-    //Wayfarer end
+    //End Wayfarer
 }

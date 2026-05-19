@@ -25,4 +25,6 @@ marking-AurelianVoxRoboticFootLeft = [ A-Vox ] Robotic Foot (Left)
 marking-AurelianVoxRoboticFootRight = [ A-Vox ] Robotic Foot (Right)
 
 marking-AurelianVoxTail = [ A-Vox ] Long Tail
+marking-AurelianVoxTailOS = [ A-Vox ] Long Tail (Oversuit)
 marking-AurelianVoxRoboticTail = [ A-Vox ] Robotic Tail
+marking-AurelianVoxRoboticTailOS = [ A-Vox ] Robotic Tail (Oversuit)

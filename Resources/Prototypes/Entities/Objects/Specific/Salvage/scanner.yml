@@ -43,7 +43,7 @@
     materialComposition:
       Steel: 50
       Plastic: 20
-  # Wayfarer end
+  # End Wayfarer
 
 - type: entity
   id: MineralScanner
