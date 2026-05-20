@@ -50,16 +50,14 @@ public sealed class TurbineBoundUserInterface : BoundUserInterface
         else
             _window.SetEntity(Owner);
 
-        _window.TurbineStatorLoadChanged += val =>
-        {
-            _pred?.SendMessage(new TurbineChangeStatorLoadMessage(val));
-        };
-        // Wayfarer Start: Fix turbine flow rate not showing.
         _window.TurbineFlowRateChanged += val =>
         {
             _pred?.SendMessage(new TurbineChangeFlowRateMessage(val));
         };
-        // Wayfarer End
+        _window.TurbineStatorLoadChanged += val =>
+        {
+            _pred?.SendMessage(new TurbineChangeStatorLoadMessage(val));
+        };
         Update();
     }
 
