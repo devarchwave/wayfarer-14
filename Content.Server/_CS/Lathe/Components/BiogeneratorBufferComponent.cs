@@ -27,7 +27,7 @@ public sealed partial class BiogeneratorBufferComponent : Component
     /// Time between regeneration ticks.
     /// </summary>
     [DataField("regenInterval")]
-    public TimeSpan RegenInterval = TimeSpan.FromSeconds(20);
+    public TimeSpan RegenInterval = TimeSpan.FromSeconds(30);
 
     /// <summary>
     /// Next time the buffer will be regenerated.
