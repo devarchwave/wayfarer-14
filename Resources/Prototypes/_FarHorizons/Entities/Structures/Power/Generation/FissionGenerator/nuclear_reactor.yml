@@ -152,7 +152,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: AccessReader # You got a permit for that meltdown?
-    access: [["Engineering"]]
+    #access: [["Engineering"]] # Wayfarer
   - type: Lock
     unlockOnClick: false
   - type: WarpPoint
