@@ -4238,17 +4238,6 @@ entities:
       powerLoad: 5
     - type: Battery
       startingCharge: 0
-- proto: ComputerGunneryConsole
-  entities:
-  - uid: 634
-    components:
-    - type: Transform
-      pos: 5.5,18.5
-      parent: 1
-    - type: ApcPowerReceiver
-      powerLoad: 5
-    - type: Battery
-      startingCharge: 0
 - proto: ComputerPowerMonitoring
   entities:
   - uid: 635
@@ -6309,17 +6298,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 6.5,15.5
       parent: 1
-- proto: GunneryServerLow
-  entities:
-  - uid: 921
-    components:
-    - type: Transform
-      pos: 4.5,14.5
-      parent: 1
-    - type: Battery
-      startingCharge: 0
-    - type: ApcPowerReceiver
-      powerLoad: 5
 - proto: Gyroscope
   entities:
   - uid: 922
@@ -6514,13 +6492,6 @@ entities:
     - type: Transform
       pos: 0.5,16.5
       parent: 1
-- proto: MachineFTLDrive
-  entities:
-  - uid: 936
-    components:
-    - type: Transform
-      pos: 1.5,16.5
-      parent: 1
 - proto: MedicalBed
   entities:
   - uid: 937
@@ -6588,33 +6559,6 @@ entities:
     - type: Transform
       pos: -5.5,2.5
       parent: 1
-- proto: PirateClothingUniformJumpskirtAtmos
-  entities:
-  - uid: 625
-    components:
-    - type: Transform
-      parent: 621
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-- proto: PirateClothingUniformJumpsuitAtmos
-  entities:
-  - uid: 626
-    components:
-    - type: Transform
-      parent: 621
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-- proto: PirateClothingUniformJumpsuitAtmosCasual
-  entities:
-  - uid: 627
-    components:
-    - type: Transform
-      parent: 621
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
 - proto: PlaqueAtmos
   entities:
   - uid: 944
@@ -8559,39 +8503,6 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -0.5,-0.5
-      parent: 1
-- proto: WeaponTurretL85Autocannon
-  entities:
-  - uid: 1256
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 8.5,12.5
-      parent: 1
-  - uid: 1257
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -8.5,-2.5
-      parent: 1
-  - uid: 1258
-    components:
-    - type: Transform
-      pos: 0.5,-18.5
-      parent: 1
-- proto: WeaponTurretM25
-  entities:
-  - uid: 1259
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 1.5,18.5
-      parent: 1
-  - uid: 1260
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -5.5,18.5
       parent: 1
 - proto: WindoorSecure
   entities:
