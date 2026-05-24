@@ -29254,7 +29254,7 @@ entities:
     - type: Transform
       pos: -4.5,19.5
       parent: 1
-- proto: WFComputerCargoOrdersEddison
+- proto: WFComputerCargoOrdersEdison
   entities:
   - uid: 4418
     components:
