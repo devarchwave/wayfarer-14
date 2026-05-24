@@ -1,7 +1,7 @@
-- type: latheRecipe
-  parent: [ BaseCircuitboardRecipe ]
-  id: NuclearFabricatorMachineCircuitboard
-  result: NuclearFabricatorMachineCircuitboard
+#- type: latheRecipe # Wayfarer: Disabled. All recipes go to the engi fab, when the appropriate researches are researched.
+#  parent: [ BaseCircuitboardRecipe ]
+#  id: NuclearFabricatorMachineCircuitboard
+#  result: NuclearFabricatorMachineCircuitboard
 
 - type: latheRecipe
   parent: [ BaseCircuitboardRecipe ]

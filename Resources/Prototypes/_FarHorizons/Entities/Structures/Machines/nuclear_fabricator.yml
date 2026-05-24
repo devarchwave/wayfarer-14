@@ -1,6 +1,7 @@
 - type: entity
   id: NuclearFabricator
   parent: BaseLatheLube
+  categories: [ DoNotMap ] # Wayfarer: Disabled. All recipes go to the engi fab, when the appropriate researches are researched.
   name: nuclear fabricator
   description: It makes nuclear reactor parts.
   components:

@@ -1,6 +1,7 @@
 ﻿- type: entity
   id: NuclearFabricatorMachineCircuitboard
   parent: BaseMachineCircuitboard
+  categories: [ DoNotMap ] # Wayfarer: Disabled. All recipes go to the engi fab, when the appropriate researches are researched.
   name: nuclear fabricator machine board
   description: A machine printed circuit board for a nuclear fabricator.
   components:
