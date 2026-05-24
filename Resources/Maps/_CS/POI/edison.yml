@@ -34998,13 +34998,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: 19.520067,4.559423
       parent: 1
-- proto: ChemicalBarrelExplosiveMarket
-  entities:
-  - uid: 5840
-    components:
-    - type: Transform
-      pos: 28.5,-13.5
-      parent: 1
 - proto: ChemistryBottleSugar
   entities:
   - uid: 5841
@@ -35489,20 +35482,6 @@ entities:
     - type: Transform
       pos: -29.5,12.5
       parent: 1
-- proto: ComputerSupermatter
-  entities:
-  - uid: 5913
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 3.5,46.5
-      parent: 1
-  - uid: 5914
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -34.5,-18.5
-      parent: 1
 - proto: ComputerSurveillanceCameraMonitor
   entities:
   - uid: 5915
@@ -35854,7 +35833,7 @@ entities:
     - type: Transform
       pos: 28.815716,-13.576101
       parent: 1
-- proto: CSComputerCargoOrdersEddison
+- proto: WFComputerCargoOrdersEdison
   entities:
   - uid: 5972
     components:
@@ -36079,13 +36058,6 @@ entities:
     components:
     - type: Transform
       pos: -26.5,56.5
-      parent: 1
-- proto: DefaultStationBeaconFrontierDockSeven
-  entities:
-  - uid: 6002
-    components:
-    - type: Transform
-      pos: 26.5,30.5
       parent: 1
 - proto: DefaultStationBeaconFrontierDockSixA
   entities:
@@ -43729,7 +43701,7 @@ entities:
     - type: Transform
       pos: -21.178436,-19.41861
       parent: 1
-- proto: FoodBoxDonkpocketSupermatter
+- proto: FoodBoxDonkpocket
   entities:
   - uid: 7057
     components:
@@ -67639,13 +67611,6 @@ entities:
     - type: Transform
       pos: -10.709464,36.37964
       parent: 1
-- proto: LeashBasic
-  entities:
-  - uid: 10440
-    components:
-    - type: Transform
-      pos: 11.294521,4.5042152
-      parent: 1
 - proto: LedLightTube
   entities:
   - uid: 10442
@@ -69658,7 +69623,7 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 11.5,36.5
       parent: 1
-- proto: MonoCatwalk
+- proto: Catwalk
   entities:
   - uid: 10854
     components:
@@ -79889,25 +79854,6 @@ entities:
     components:
     - type: Transform
       pos: 12.5,-5.5
-      parent: 1
-- proto: Supermatter
-  entities:
-  - uid: 12141
-    components:
-    - type: Transform
-      pos: -36.5,-27.5
-      parent: 1
-- proto: SupermatterComputerCircuitboard
-  entities:
-  - uid: 12142
-    components:
-    - type: Transform
-      pos: 20.356945,18.36974
-      parent: 1
-  - uid: 12143
-    components:
-    - type: Transform
-      pos: 20.5375,18.300247
       parent: 1
 - proto: SurveillanceCameraConstructed
   entities:
