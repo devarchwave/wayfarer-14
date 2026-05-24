@@ -17,6 +17,7 @@ middle_ring_3 - Sad Trio Kevin MacLeod (incompetech.com)
 middle_ring_4 - The Reveal Kevin MacLeod (incompetech.com)
 middle_ring_5 - Floating Cities Kevin MacLeod (incompetech.com)
 middle_ring_6 - Ether Vox Kevin MacLeod (incompetech.com)
+/Ambient/OuterRing
 outer_ring_1 - Shadowlands 2 Bridge Kevin MacLeod (incompetech.com)
 outer_ring_2 - Ossuary 6 Air Kevin MacLeod (incompetech.com)
 outer_ring_3 - Shadowlands 4 Breath Kevin MacLeod (incompetech.com)
