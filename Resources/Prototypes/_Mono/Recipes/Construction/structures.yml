@@ -3,7 +3,6 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: construction
-  name: diagonal wall
   id: wallSolidDiagonal
   graph: Girder
   startNode: start
@@ -17,7 +16,6 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: diagonal reinforced wall
   id: wallReinforcedDiagonal
   graph: Girder
   startNode: start
@@ -31,7 +29,6 @@
     - !type:TileNotBlocked
 
 - type: construction
-  name: directional uranium window
   id: UraniumWindowDirectional
   graph: WindowDirectional
   startNode: start
@@ -45,7 +42,6 @@
   placementMode: SnapgridCenter
 
 - type: construction
-  name: directional reinforced uranium window
   id: UraniumReinforcedWindowDirectional
   graph: WindowDirectional
   startNode: start
