@@ -3608,3 +3608,97 @@ Entries:
   id: 6908
   time: '2026-05-22T02:11:55.0000000+00:00'
   url: https://github.com/project-wayfarer/wayfarer-14/pull/951
+- author: Khaomi
+  changes:
+    - type: Tweak
+      message: Allow periods in character name
+  id: 6909
+  time: '2026-05-22T04:39:06.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/931
+- author: VVersengt
+  changes:
+    - type: Fix
+      message: >-
+        Fixed pre-filled security and cgp jetpacks having the incorrect tank
+        volumes.
+  id: 6910
+  time: '2026-05-22T04:41:02.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/940
+- author: DevArchwave
+  changes:
+    - type: Remove
+      message: >-
+        Removed the need for a whitelist to play plant manager. Kept the general
+        hourly requirement.
+  id: 6911
+  time: '2026-05-22T19:36:48.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/957
+- author: Luweth
+  changes:
+    - type: Tweak
+      message: Changes Vox marking to proper formatting so they may be told apart.
+  id: 6912
+  time: '2026-05-22T22:57:09.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/960
+- author: DevArchwave
+  changes:
+    - type: Add
+      message: Added the HES Arribane atmospherics ship. Viva Atmosia.
+  id: 6913
+  time: '2026-05-22T22:57:47.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/955
+- author: lucentlavender
+  changes:
+    - type: Add
+      message: Ovinia species (Sheep/Ram people!)
+  id: 6914
+  time: '2026-05-22T22:59:52.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/926
+- author: DevArchwave
+  changes:
+    - type: Add
+      message: The Nuclear Reactor. RBMKs don't explode. You're delusional.
+  id: 6915
+  time: '2026-05-22T23:00:31.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/895
+- author: DevArchwave
+  changes:
+    - type: Add
+      message: Added a framework for multi-tile machines.
+    - type: Add
+      message: >-
+        Large thrusters can now be built. They have more thrust and can push
+        more weight, but not higher speed.
+  id: 6916
+  time: '2026-05-22T23:02:18.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/879
+- author: DevArchwave
+  changes:
+    - type: Tweak
+      message: Many more species can now choose any skin color.
+  id: 6917
+  time: '2026-05-22T23:06:33.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/756
+- author: Luweth
+  changes:
+    - type: Fix
+      message: Fixed small eye scars for non-Vox.
+  id: 6918
+  time: '2026-05-22T23:07:21.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/959
+- author: VVersengt
+  changes:
+    - type: Fix
+      message: Guns found in loot use the correct contraband tags.
+  id: 6919
+  time: '2026-05-23T00:40:49.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/963
+- author: DevArchwave
+  changes:
+    - type: Tweak
+      message: >-
+        Investigator given a slight hull pass to bring some elements into a more
+        up to date standing.
+  id: 6920
+  time: '2026-05-23T01:12:52.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/962
