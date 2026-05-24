@@ -29,9 +29,9 @@ far_reaches_iii - Shadowlands 7 Codex Kevin MacLeod (incompetech.com)
 /Ambient/FTL
 ftl_1 - [FTL Multiverse OST] Shining Explore
 /Ambient/Expedition
-expedition_1 - Wayfarer: Empty OGG until replacement found
-expedition_2 - Wayfarer: Empty OGG until replacement found
-expedition_3 - Wayfarer: Empty OGG until replacement found
+expedition_1 - The Complex Kevin MacLeod (incompetech.com)
+expedition_2 - Harmful or Fatal Kevin MacLeod (incompetech.com)
+expedition_3 - In a Heartbeat Kevin MacLeod (incompetech.com)
 
 /CombatMode
 default_1 - Wayfarer: Empty OGG until replacement found
