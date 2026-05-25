@@ -35,6 +35,16 @@
   id: FloorTileItemSteelDarkMonoCommercial
   result: FloorTileItemSteelDarkMonoCommercial
 
+- type: latheRecipe
+  parent: BaseDarkTileRecipe
+  id: FloorTileItemCatwalkHorizontal
+  result: FloorTileItemCatwalkHorizontal
+
+- type: latheRecipe
+  parent: BaseDarkTileRecipe
+  id: FloorTileItemCatwalkVertical
+  result: FloorTileItemCatwalkVertical
+
 # Steel
 - type: latheRecipe
   parent: BaseSteelTileRecipe
@@ -60,13 +70,3 @@
   parent: BaseSteelTileRecipe
   id: FloorTileItemSteelGreyMonoCommercial
   result: FloorTileItemSteelGreyMonoCommercial
-
-- type: latheRecipe
-  parent: BaseSteelTileRecipe
-  id: FloorTileItemCatwalkHorizontal
-  result: FloorTileItemCatwalkHorizontal
-
-- type: latheRecipe
-  parent: BaseSteelTileRecipe
-  id: FloorTileItemCatwalkVertical
-  result: FloorTileItemCatwalkVertical
