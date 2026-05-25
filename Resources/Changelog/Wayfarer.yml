@@ -3732,3 +3732,10 @@ Entries:
   id: 6924
   time: '2026-05-25T01:29:21.0000000+00:00'
   url: https://github.com/project-wayfarer/wayfarer-14/pull/990
+- author: DevArchwave
+  changes:
+    - type: Add
+      message: Inline Radiators have been added to the construction menu and RPD.
+  id: 6925
+  time: '2026-05-25T19:51:58.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/984
