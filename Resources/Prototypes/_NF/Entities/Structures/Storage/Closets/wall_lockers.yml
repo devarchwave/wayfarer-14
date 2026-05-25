@@ -68,7 +68,6 @@
       - !type:DoActsBehavior
         acts: ["Destruction"]
   # Coyote End
-
   - type: Storage
     grid:
     - 0,0,5,6
