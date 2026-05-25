@@ -70,6 +70,6 @@
   - type: RequireProjectileTarget # Goobstation - Crawling
     ignoreThrow: true
   # Mono
-  - type: ShipRepairable
-    repairTime: 1
-    repairCost: 2
+  #- type: ShipRepairable
+  #  repairTime: 1
+  #  repairCost: 2
