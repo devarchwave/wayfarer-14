@@ -68,7 +68,7 @@
     tags:
     - ForceFixRotations
   - type: RequireProjectileTarget # Goobstation - Crawling
-    ignoreThrow: true
+  #  ignoreThrow: true
   # Mono
   #- type: ShipRepairable
   #  repairTime: 1
