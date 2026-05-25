@@ -3803,3 +3803,10 @@ Entries:
   id: 6933
   time: '2026-05-25T21:41:49.0000000+00:00'
   url: https://github.com/project-wayfarer/wayfarer-14/pull/997
+- author: DevArchwave
+  changes:
+    - type: Add
+      message: Added the TPC Hermes, a reinforced and robust mail delivery vessel.
+  id: 6934
+  time: '2026-05-25T22:09:18.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/954
