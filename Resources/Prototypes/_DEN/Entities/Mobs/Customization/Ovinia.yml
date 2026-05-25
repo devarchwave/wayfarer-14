@@ -212,8 +212,8 @@
   bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [ Ovinia ]
-  sexRestriction: [ Female ]
-  invertSexRestriction: true
+  #sexRestriction: [ Female ] # Wayfarer
+  #invertSexRestriction: true # Wayfarer
   sprites:
   - sprite: _DEN/Mobs/Customization/Ovinia/body_markings.rsi
     state: full-m
@@ -223,8 +223,8 @@
   bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [ Ovinia ]
-  sexRestriction: [ Male ]
-  invertSexRestriction: true
+  #sexRestriction: [ Male ] # Wayfarer
+  #invertSexRestriction: true # Wayfarer
   sprites:
   - sprite: _DEN/Mobs/Customization/Ovinia/body_markings.rsi
     state: full-f
@@ -247,8 +247,8 @@
   bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [ Ovinia ]
-  sexRestriction: [ Female ]
-  invertSexRestriction: true
+  #sexRestriction: [ Female ] # Wayfarer
+  #invertSexRestriction: true # Wayfarer
   coloring:
     default:
       type: !type:TattooColoring
@@ -261,8 +261,8 @@
   bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [ Ovinia ]
-  sexRestriction: [ Male ]
-  invertSexRestriction: true
+  #sexRestriction: [ Male ] # Wayfarer
+  #invertSexRestriction: true # Wayfarer
   coloring:
     default:
       type: !type:TattooColoring
