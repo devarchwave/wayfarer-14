@@ -28,54 +28,11 @@
       entity_storage: !type:Container
       paper_label: !type:ContainerSlot # Defined for any locker inheriting a physical one.
 
-- type: entity # Coyote: constructible lockers
-  abstract: true
-  id: LockerWallFrameBase
-  name: locker frame
-  description: An incomplete storage locker.
-  placement:
-    mode: SnapgridCenter
-    snap:
-    - Wallmount
-  components:
-  - type: Clickable
-  - type: Tag
-    tags:
-    - Structure
-  - type: Sprite
-    drawdepth: WallMountedItems
-  - type: Transform
-  - type: Damageable
-    damageModifierSet: Wood
-    damageContainer: StructuralInorganic
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 50
-      behaviors:
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalBreak
-      - !type:SpawnEntitiesBehavior
-        spawn:
-          SheetSteel1:
-            min: 1
-            max: 4
-      - !type:EmptyAllContainersBehaviour
-      - !type:DoActsBehavior
-        acts: ["Destruction"]
-  - type: WallMount
-  - type: InteractionOutline
-  - type: ContainerContainer
-    containers:
-      machine_parts: !type:Container
-
 # base for yml-colored lockers with grid inventories
 - type: entity
   id: NFBaseLockerGridInvWallColor
   parent: [ ShelfBaseReinforced, BaseStructureWallmount ]
-  description: A lockable shelving unit for organized storage
+  description: A lockable shelving unit for organized storage # Coyote
   suffix: Frontier
   abstract: true
   components:
@@ -92,7 +49,8 @@
   - type: EntityStorageVisuals
     stateDoorOpen: open
     stateDoorClosed: door
-  - type: Destructible # Coyote make wall lockers metal
+  # Coyote Start: Make them metal
+  - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
@@ -109,6 +67,7 @@
       - !type:EmptyAllContainersBehaviour
       - !type:DoActsBehavior
         acts: ["Destruction"]
+  # Coyote End
 
   - type: Storage
     grid:
@@ -126,23 +85,6 @@
         enum.StorageFillLayers.Fill:
           True: { visible: true }
           False: { visible: false }
-# endregion
-
-#region Construction #Coyote: constructible lockers
-- type: entity
-  id: LockerWallFrame
-  parent: [ LockerWallFrameBase, BaseStructureWallmount ]
-  name: locker frame
-  suffix: Frontier
-  components:
-  - type: Sprite
-    sprite: _NF/Structures/Storage/wall_locker_color.rsi
-    layers:
-    - state: base
-    - state: door
-  - type: Construction
-    graph: WallmountStorage
-    node: frame
 # endregion
 
 #region Fuel / mats storage
