@@ -3702,3 +3702,104 @@ Entries:
   id: 6920
   time: '2026-05-23T01:12:52.0000000+00:00'
   url: https://github.com/project-wayfarer/wayfarer-14/pull/962
+- author: DevArchwave
+  changes:
+    - type: Fix
+      message: The Arribane is now properly added to Edison's shipyard console.
+  id: 6921
+  time: '2026-05-25T01:20:03.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/965
+- author: DevArchwave
+  changes:
+    - type: Add
+      message: Added RPDs to the loadout.
+    - type: Fix
+      message: Fixed RPDs missing from the POI engivends.
+  id: 6922
+  time: '2026-05-25T01:21:04.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/966
+- author: DevArchwave
+  changes:
+    - type: Fix
+      message: Secret doors are secret again.
+  id: 6923
+  time: '2026-05-25T01:26:59.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/989
+- author: DevArchwave
+  changes:
+    - type: Add
+      message: Capital thrusters can now be linked properly.
+  id: 6924
+  time: '2026-05-25T01:29:21.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/990
+- author: DevArchwave
+  changes:
+    - type: Add
+      message: Inline Radiators have been added to the construction menu and RPD.
+  id: 6925
+  time: '2026-05-25T19:51:58.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/984
+- author: DevArchwave
+  changes:
+    - type: Tweak
+      message: Nuclear Fabricator research moved a little bit.
+    - type: Tweak
+      message: Nuclear Fabricator components modified to allow for efficiency upgrades.
+  id: 6926
+  time: '2026-05-25T20:40:20.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/981
+- author: DevArchwave
+  changes:
+    - type: Add
+      message: >-
+        Edison now has its own cargo request computers, including a special one
+        for the PM.
+  id: 6927
+  time: '2026-05-25T20:42:32.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/982
+- author: DevArchwave
+  changes:
+    - type: Tweak
+      message: >-
+        Corrected the POI bounty vend inventory to have infinite stock of
+        certain items.
+  id: 6928
+  time: '2026-05-25T20:43:16.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/985
+- author: DevArchwave
+  changes:
+    - type: Add
+      message: More types of diagonal walls and windoors are now buildable.
+  id: 6929
+  time: '2026-05-25T20:45:40.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/988
+- author: DevArchwave
+  changes:
+    - type: Tweak
+      message: >-
+        Some songs were shuffled around, added and removed from the ambient
+        music system. Give it a try.
+  id: 6930
+  time: '2026-05-25T20:46:16.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/991
+- author: DevArchwave
+  changes:
+    - type: Tweak
+      message: Solars auto-track on start now. This is a temporary bandaid.
+  id: 6931
+  time: '2026-05-25T20:47:02.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/994
+- author: DevArchwave
+  changes:
+    - type: Fix
+      message: Feroxi tails should look right now.
+  id: 6932
+  time: '2026-05-25T21:29:59.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/999
+- author: DevArchwave
+  changes:
+    - type: Add
+      message: More tiles and decals are now available.
+  id: 6933
+  time: '2026-05-25T21:41:49.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/997
