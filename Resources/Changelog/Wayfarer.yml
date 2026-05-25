@@ -3702,3 +3702,33 @@ Entries:
   id: 6920
   time: '2026-05-23T01:12:52.0000000+00:00'
   url: https://github.com/project-wayfarer/wayfarer-14/pull/962
+- author: DevArchwave
+  changes:
+    - type: Fix
+      message: The Arribane is now properly added to Edison's shipyard console.
+  id: 6921
+  time: '2026-05-25T01:20:03.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/965
+- author: DevArchwave
+  changes:
+    - type: Add
+      message: Added RPDs to the loadout.
+    - type: Fix
+      message: Fixed RPDs missing from the POI engivends.
+  id: 6922
+  time: '2026-05-25T01:21:04.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/966
+- author: DevArchwave
+  changes:
+    - type: Fix
+      message: Secret doors are secret again.
+  id: 6923
+  time: '2026-05-25T01:26:59.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/989
+- author: DevArchwave
+  changes:
+    - type: Add
+      message: Capital thrusters can now be linked properly.
+  id: 6924
+  time: '2026-05-25T01:29:21.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/990
