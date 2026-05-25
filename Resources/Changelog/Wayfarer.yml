@@ -3789,3 +3789,10 @@ Entries:
   id: 6931
   time: '2026-05-25T20:47:02.0000000+00:00'
   url: https://github.com/project-wayfarer/wayfarer-14/pull/994
+- author: DevArchwave
+  changes:
+    - type: Fix
+      message: Feroxi tails should look right now.
+  id: 6932
+  time: '2026-05-25T21:29:59.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/999
