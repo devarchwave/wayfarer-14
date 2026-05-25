@@ -28,8 +28,11 @@
     state: ovinia-tail
 
 - type: marking
-  parent: BaseOviniaTail
+  #parent: BaseOviniaTail # Wayfarer: We don't have marking type parenting. Add manually.
   id: OviniaTailAnimated
+  bodyPart: Tail # Wayfarer
+  markingCategory: Tail # Wayfarer
+  speciesRestriction: [ Ovinia ] # Wayfarer
   sprites:
   - sprite: _DEN/Mobs/Customization/Ovinia/tail_markings.rsi
     state: ovinia-tail_wag
@@ -328,7 +331,7 @@
 - type: marking
   id: OviniaLeftHandHoof
   bodyPart: LHand
-  markingCategory: LeftHand
+  markingCategory: Arms # Wayfarer: LeftHand<Arms
   speciesRestriction: [ Ovinia ]
   coloring:
     default:
@@ -341,7 +344,7 @@
 - type: marking
   id: OviniaRightHandHoof
   bodyPart: RHand
-  markingCategory: RightHand
+  markingCategory: Arms # Wayfarer: RightHand<Arms
   speciesRestriction: [ Ovinia ]
   coloring:
     default:
