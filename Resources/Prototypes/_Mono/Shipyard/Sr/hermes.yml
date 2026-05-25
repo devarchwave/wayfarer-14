@@ -30,7 +30,7 @@
       stationProto: StandardFrontierVessel
       components:
         - type: StationNameSetup
-          mapNameTemplate: 'Hermes {1}' # Wayfarer, name correction
+          mapNameTemplate: 'Hermes SRV{1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
             prefixCreator: '14'
