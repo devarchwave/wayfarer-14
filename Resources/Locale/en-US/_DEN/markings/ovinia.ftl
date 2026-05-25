@@ -1,107 +1,108 @@
-marking-OviniaEars = Ovinia Ears (Default)
-marking-OviniaEars-ovinia-ears = Outer Ears
-marking-OviniaEars-ovinia-ears-inner = Inner Ears
+# Formatted according to Wayfarer standards.
+marking-OviniaEars = [ Ovinia ] Ovinia Ears (Default)
+marking-OviniaEars-ovinia-ears = [ Ovinia ] Outer Ears
+marking-OviniaEars-ovinia-ears-inner = [ Ovinia ] Inner Ears
 
-marking-OviniaTail = Ovinia Tail (Default)
-marking-OviniaTail-ovinia-tail = Tail
-marking-OviniaTailAnimated = Ovinia Tail (animated)
-marking-OviniaTailAnimated-ovinia-tail_wag = Tail
+marking-OviniaTail = [ Ovinia ] Ovinia Tail (Default)
+marking-OviniaTail-ovinia-tail = [ Ovinia ] Tail
+marking-OviniaTailAnimated = [ Ovinia ] Ovinia Tail (animated)
+marking-OviniaTailAnimated-ovinia-tail_wag = [ Ovinia ] Tail
 
-marking-OviniaEarsCow = Ovinia Ears (Side)
-marking-OviniaEarsCow-cow-ears = Outer Ears
-marking-OviniaEarsCow-cow-ears-inner = Inner Ears
+marking-OviniaEarsCow = [ Ovinia ] Ovinia Ears (Side)
+marking-OviniaEarsCow-cow-ears = [ Ovinia ] Outer Ears
+marking-OviniaEarsCow-cow-ears-inner = [ Ovinia ] Inner Ears
 
-marking-OviniaEarsDeer = Ovinia Ears (Outward)
-marking-OviniaEarsDeer-deer-ears = Outer Ears
-marking-OviniaEarsDeer-deer-ears-inner = Inner Ears
+marking-OviniaEarsDeer = [ Ovinia ] Ovinia Ears (Outward)
+marking-OviniaEarsDeer-deer-ears = [ Ovinia ] Outer Ears
+marking-OviniaEarsDeer-deer-ears-inner = [ Ovinia ] Inner Ears
 
-marking-OviniaEarsHorse = Ovinia Ears (Upward)
-marking-OviniaEarsHorse-horse-ears = Outer Ears
-marking-OviniaEarsHorse-horse-ears-inner = Inner Ears
+marking-OviniaEarsHorse = [ Ovinia ] Ovinia Ears (Upward)
+marking-OviniaEarsHorse-horse-ears = [ Ovinia ] Outer Ears
+marking-OviniaEarsHorse-horse-ears-inner = [ Ovinia ] Inner Ears
 
-marking-OviniaNeckfluff = Ovinia Neck Fluff
-marking-OviniaNeckfluff-ovinia-neck-fluff = Neck Fluff
+marking-OviniaNeckfluff = [ Ovinia ] Ovinia Neck Fluff
+marking-OviniaNeckfluff-ovinia-neck-fluff = [ Ovinia ] Neck Fluff
 
-marking-OviniaLambHorns = Lamb Horns
-marking-OviniaLambHorns-lamb-horns = Horns
+marking-OviniaLambHorns = [ Ovinia ] Lamb Horns
+marking-OviniaLambHorns-lamb-horns = [ Ovinia ] Horns
 
-marking-OviniaRamHorns = Ram Horns
-marking-OviniaRamHorns-ovinia-ram-horns = Horns
+marking-OviniaRamHorns = [ Ovinia ] Ram Horns
+marking-OviniaRamHorns-ovinia-ram-horns = [ Ovinia ] Horns
 
-marking-OviniaPointyHorns = Pointy Horns
-marking-OviniaPointyHorns-ovinia-pointy-horns = Horns
+marking-OviniaPointyHorns = [ Ovinia ] Pointy Horns
+marking-OviniaPointyHorns-ovinia-pointy-horns = [ Ovinia ] Horns
 
-marking-OviniaDeerHorns = Deer Horns
-marking-OviniaDeerHorns-ovinia-deer-horns = Horns
+marking-OviniaDeerHorns = [ Ovinia ] Deer Horns
+marking-OviniaDeerHorns-ovinia-deer-horns = [ Ovinia ] Horns
 
-marking-OviniaDevilHorns = Devil Horns
-marking-OviniaDevilHorns-ovinia-devil-horns = Horns
+marking-OviniaDevilHorns = [ Ovinia ] Devil Horns
+marking-OviniaDevilHorns-ovinia-devil-horns = [ Ovinia ] Horns
 
-marking-OviniaBaphometHorns = Baphomet Horns
-marking-OviniaBaphometHorns-ovinia-baphomet-horns = Horns
+marking-OviniaBaphometHorns = [ Ovinia ] Baphomet Horns
+marking-OviniaBaphometHorns-ovinia-baphomet-horns = [ Ovinia ] Horns
 
-marking-OviniaIbexHorns = Ibex Horns
-marking-OviniaIbexHorns-ovinia-ibex-horns = Horns
+marking-OviniaIbexHorns = [ Ovinia ] Ibex Horns
+marking-OviniaIbexHorns-ovinia-ibex-horns = [ Ovinia ] Horns
 
-marking-OviniaCurvedHorns = Curved Horns
-marking-OviniaCurvedHorns-ovinia-curved-horns = Horns
+marking-OviniaCurvedHorns = [ Ovinia ] Curved Horns
+marking-OviniaCurvedHorns-ovinia-curved-horns = [ Ovinia ] Horns
 
-marking-OviniaJacobHorns = Jacob Horns
-marking-OviniaJacobHorns-jacob-horns = Horns
+marking-OviniaJacobHorns = [ Ovinia ] Jacob Horns
+marking-OviniaJacobHorns-jacob-horns = [ Ovinia ] Horns
 
 
-marking-OviniaFace = Ovinia Face
-marking-OviniaFace-ovinia-face = Face
-marking-OviniaFace-ovinia-nose = Nose
+marking-OviniaFace = [ Ovinia ] Ovinia Face
+marking-OviniaFace-ovinia-face = [ Ovinia ] Face
+marking-OviniaFace-ovinia-nose = [ Ovinia ] Nose
 
-marking-OviniaBlaze = Ovinia Face
-marking-OviniaBlaze-ovinia-blaze = Face
-marking-OviniaBlaze-ovinia-nose = Nose
+marking-OviniaBlaze = [ Ovinia ] Ovinia Face
+marking-OviniaBlaze-ovinia-blaze = [ Ovinia ] Face
+marking-OviniaBlaze-ovinia-nose = [ Ovinia ] Nose
 
-marking-OviniaSnout = Ovinia Snout
-marking-OviniaSnout-ovinia-snout = Snout
-marking-OviniaSnout-ovinia-nose = Nose
+marking-OviniaSnout = [ Ovinia ] Ovinia Snout
+marking-OviniaSnout-ovinia-snout = [ Ovinia ] Snout
+marking-OviniaSnout-ovinia-nose = [ Ovinia ] Nose
 
-marking-OviniaTummy = Ovinia Tummy
-marking-OviniaTummy-ovinia-tummy = Tummy
+marking-OviniaTummy = [ Ovinia ] Ovinia Tummy
+marking-OviniaTummy-ovinia-tummy = [ Ovinia ] Tummy
 
-marking-OviniaPatternFawn = Fawn Spots
-marking-OviniaPatternFawn-torso-fawn = Spot
+marking-OviniaPatternFawn = [ Ovinia ] Fawn Spots
+marking-OviniaPatternFawn-torso-fawn = [ Ovinia ] Spot
 
-marking-OviniaChestFullMasc = Ovinia Torso [M]
-marking-OviniaChestFullMasc-full-m = Torso
+marking-OviniaChestFullMasc = [ Ovinia ] Ovinia Torso [M]
+marking-OviniaChestFullMasc-full-m = [ Ovinia ] Torso
 
-marking-OviniaChestFullFem = Ovinia Torso [F]
-marking-OviniaChestFullFem-full-f = Torso
+marking-OviniaChestFullFem = [ Ovinia ] Ovinia Torso [F]
+marking-OviniaChestFullFem-full-f = [ Ovinia ] Torso
 
-marking-OviniaPatternCattleMasc = Splotches [M]
-marking-OviniaPatternCattleMasc-torso-cow-m = Splotch
+marking-OviniaPatternCattleMasc = [ Ovinia ] Splotches [M]
+marking-OviniaPatternCattleMasc-torso-cow-m = [ Ovinia ] Splotch
 
-marking-OviniaPatternCattleFem = Splotches [F]
-marking-OviniaPatternCattleFem-torso-cow-f = Splotch
+marking-OviniaPatternCattleFem = [ Ovinia ] Splotches [F]
+marking-OviniaPatternCattleFem-torso-cow-f = [ Ovinia ] Splotch
 
-marking-OviniaLeftLegValais = Valais Left Leg
-marking-OviniaLeftLegValais-ovinia-leg-valais-left = Valais Left Leg
+marking-OviniaLeftLegValais = [ Ovinia ] Valais Left Leg
+marking-OviniaLeftLegValais-ovinia-leg-valais-left = [ Ovinia ] Valais Left Leg
 
-marking-OviniaRightLegValais = Valais Right Leg
-marking-OviniaRightLegValais-ovinia-leg-valais-right = Valais Right Leg
+marking-OviniaRightLegValais = [ Ovinia ] Valais Right Leg
+marking-OviniaRightLegValais-ovinia-leg-valais-right = [ Ovinia ] Valais Right Leg
 
-marking-OviniaLeftHoof = Left Hoof
-marking-OviniaLeftHoof-ovinia-hoof-left = Left Hoof
+marking-OviniaLeftHoof = [ Ovinia ] Left Hoof
+marking-OviniaLeftHoof-ovinia-hoof-left = [ Ovinia ] Left Hoof
 
-marking-OviniaRightHoof = Right Hoof
-marking-OviniaRightHoof-ovinia-hoof-right = Right Hoof
+marking-OviniaRightHoof = [ Ovinia ] Right Hoof
+marking-OviniaRightHoof-ovinia-hoof-right = [ Ovinia ] Right Hoof
 
-marking-OviniaLeftArmValais = Valais Left Arm
-marking-OviniaLeftArmValais-ovinia-arm-valais-left = Valais Left Arm
+marking-OviniaLeftArmValais = [ Ovinia ] Valais Left Arm
+marking-OviniaLeftArmValais-ovinia-arm-valais-left = [ Ovinia ] Valais Left Arm
 
-marking-OviniaRightArmValais = Valais Right Arm
-marking-OviniaRightArmValais-ovinia-arm-valais-right = Valais Right Arm
+marking-OviniaRightArmValais = [ Ovinia ] Valais Right Arm
+marking-OviniaRightArmValais-ovinia-arm-valais-right = [ Ovinia ] Valais Right Arm
 
-marking-OviniaLeftHandHoof = Hooved Left Hand
-marking-OviniaLeftHandHoof-hand-hoof-left = Hoof
+marking-OviniaLeftHandHoof = [ Ovinia ] Hooved Left Hand
+marking-OviniaLeftHandHoof-hand-hoof-left = [ Ovinia ] Hoof
 
-marking-OviniaRightHandHoof = Hooved Right Hand
-marking-OviniaRightHandHoof-hand-hoof-right = Hoof
+marking-OviniaRightHandHoof = [ Ovinia ] Hooved Right Hand
+marking-OviniaRightHandHoof-hand-hoof-right = [ Ovinia ] Hoof
 
-markings-category-NeckFluff = Neck Fluff
+markings-category-NeckFluff = [ Ovinia ] Neck Fluff
