@@ -6,6 +6,7 @@ namespace Content.Shared.Humanoid.Markings
     public enum MarkingCategories : byte
     {
         Special,
+        NeckFluff, // The Den - Ovinia Neck Fluff
         Hair,
         FacialHair,
         Head,
@@ -14,7 +15,6 @@ namespace Content.Shared.Humanoid.Markings
         Snout,
         SnoutCover,
         Chest,
-        NeckFluff, // The Den - Ovinia Neck Fluff
         UndergarmentTop,
         UndergarmentBottom,
         Genital,
