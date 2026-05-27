@@ -7,7 +7,7 @@
   parent: ClothingHandsBase
   id: ClothingHandsConcussiveGauntlets
   name: concussive gauntlets
-  description: A pair of gauntlets designed for mining usage, delivering shocks to shatter anyhting in their path. Rare and powerful
+  description: A pair of gauntlets designed for mining usage, delivering shocks to shatter anything in their path. Expensive and powerful
   components:
   - type: Sprite
     sprite: _Mono/Clothing/Hands/Gloves/concussive_gauntlets.rsi
@@ -20,8 +20,8 @@
     damage:
       types:
         Blunt: 6 # Wayfarer: 15<6
-        Shock: 6 # Wayfarer Add
-        Structural: 40 # Wayfarer: 100<40
+        Shock: 5 # Wayfarer Add
+        Structural: 40 # Wayfarer: 50<40
     soundHit:
       collection: ExplosionSmall
   - type: Tag
