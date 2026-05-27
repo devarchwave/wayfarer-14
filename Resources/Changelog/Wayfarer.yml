@@ -3906,3 +3906,10 @@ Entries:
   id: 6946
   time: '2026-05-27T02:33:17.0000000+00:00'
   url: https://github.com/project-wayfarer/wayfarer-14/pull/1011
+- author: DevArchwave
+  changes:
+    - type: Add
+      message: The Velios medical shuttle has made its way to the medical shipyard.
+  id: 6947
+  time: '2026-05-27T02:36:04.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/1007
