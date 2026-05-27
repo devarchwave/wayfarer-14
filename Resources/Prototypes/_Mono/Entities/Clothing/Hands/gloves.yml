@@ -16,17 +16,18 @@
     sprite: _Mono/Clothing/Hands/Gloves/concussive_gauntlets.rsi
   - type: MeleeWeapon
     autoAttack: true
-    attackRate: 2.0
+    attackRate: 2.0 # Wayfarer: 2.5<2.0
     damage:
       types:
-        Blunt: 6
-        Structural: 40
+        Blunt: 6 # Wayfarer: 15<6
+        Shock: 6 # Wayfarer Add
+        Structural: 40 # Wayfarer: 100<40
     soundHit:
       collection: ExplosionSmall
   - type: Tag
     tags:
     - Pickaxe
-    - DepositBlacklist
+    - DepositBlacklist # Wayfarer
   - type: MiningGatheringHard
   - type: StaticPrice
     price: 15000
