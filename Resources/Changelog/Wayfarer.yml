@@ -3934,3 +3934,22 @@ Entries:
   id: 6950
   time: '2026-05-28T23:35:44.0000000+00:00'
   url: https://github.com/project-wayfarer/wayfarer-14/pull/1021
+- author: DevArchwave
+  changes:
+    - type: Add
+      message: >-
+        Added IC guidebooks for crafting adept-level and master-level staves,
+        lootable from wizard and cultist NPCs.
+    - type: Tweak
+      message: Increased the damage output of activated wizard and cultist staves.
+    - type: Tweak
+      message: >-
+        Spell scrolls, coin trees and staff recharging altars are now classified
+        as contraband.
+    - type: Tweak
+      message: Staves are now "oni-friendly".
+    - type: Fix
+      message: Fixed scroll of shade summoning the wrong mob.
+  id: 6951
+  time: '2026-05-28T23:36:43.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/1024
