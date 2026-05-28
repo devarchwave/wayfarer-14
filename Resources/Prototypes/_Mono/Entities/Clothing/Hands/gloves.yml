@@ -20,7 +20,7 @@
     damage:
       types:
         Blunt: 6 # Wayfarer: 15<6
-        Shock: 5 # Wayfarer Add
+        Shock: 5 # Wayfarer
         Structural: 40 # Wayfarer: 50<40
     soundHit:
       collection: ExplosionSmall
