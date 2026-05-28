@@ -3920,3 +3920,10 @@ Entries:
   id: 6948
   time: '2026-05-28T23:34:32.0000000+00:00'
   url: https://github.com/project-wayfarer/wayfarer-14/pull/1014
+- author: Rellu225
+  changes:
+    - type: Tweak
+      message: Changed the color of the community goal pallets.
+  id: 6949
+  time: '2026-05-28T23:35:26.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/1018
