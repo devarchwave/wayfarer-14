@@ -19,7 +19,7 @@
   - type: SolutionContainerVisuals
     maxFillLevels: 1
     fillBaseName: teaspoon
-    # inHandsMaxFillLevels: 1 # TODO: Add inHandsMaxFillLevels
+    inHandsFillBaseName: null
     # inHandsFillBaseName: -fill-
   - type: SolutionContainerManager
     solutions:
