@@ -833,6 +833,7 @@
   id: TableDungeonLootGeneralRestocksStuff
   table: !type:GroupSelector
     children:
+    - id: VendingMachineRestockBarista # Mono
     - id: VendingMachineRestockBooze
     - id: VendingMachineRestockChefvend
     - id: VendingMachineRestockCondimentStation
