@@ -569,6 +569,7 @@
       - id: VendingMachineAutoTuneVend
       - id: VendingMachinePottedPlantVend
       - id: WaterCooler
+      - id: VendingMachineBarista # Mono
       # No food vendomats in expeds - buy from food ships or die
 #      - id: VendingMachineChang
 #      - id: VendingMachineDonut

@@ -18,8 +18,10 @@
     initialStockQuality: 1
   - type: MarketModifier
     mod: 8
-  - type: Advertise
-    pack: BaristaAds
+  - type: DatasetVocalizer # Wayfarer
+    dataset: BaristaAds # Wayfarer
+  #- type: Advertise
+  #  pack: BaristaAds
   - type: SpeakOnUIClosed
     pack: BaristaGoodbyes
   - type: Sprite
