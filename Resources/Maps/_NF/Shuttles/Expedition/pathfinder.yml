@@ -1053,7 +1053,7 @@ entities:
   - uid: 86
     components:
     - type: Transform
-      pos: -0.5,-2.5
+      pos: -0.5,-0.5
       parent: 1
   - uid: 87
     components:
@@ -2672,9 +2672,6 @@ entities:
     - type: Transform
       pos: 9.5,-5.5
       parent: 1
-    - type: DeviceNetwork
-      deviceLists:
-      - 529
     - type: AtmosPipeColor
       color: '#0055CCFF'
     - type: DeviceNetwork
@@ -3695,13 +3692,6 @@ entities:
 - proto: SuitStorageEVAPilot
   entities:
   - uid: 464
-    components:
-    - type: Transform
-      pos: -2.5,-0.5
-      parent: 1
-- proto: SuitStorageEVAPilot
-  entities:
-  - uid: 504
     components:
     - type: Transform
       pos: -2.5,-0.5
