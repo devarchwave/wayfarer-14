@@ -137,7 +137,7 @@
 - type: entity
   parent: [NFBaseClothingWristset, ClothingHeadsetNfsdBrown]
   id: NFClothingWristsetNfsdBrown
-  name: NFSD wristset
+  name: CGP wristset # Wayfarer
   components:
   - type: Sprite
     layers:
@@ -164,7 +164,7 @@
 - type: entity
   parent: [NFBaseClothingWristset, NFClothingWristsetNfsdBrown]
   id: NFClothingWristsetNfsdBrownCommon
-  name: NFSD wristset
+  name: CGP wristset # Wayfarer
   suffix: Common
 
 - type: entity
@@ -191,7 +191,7 @@
 - type: entity
   parent: [NFBaseClothingWristset, NFClothingWristsetNfsdGreen]
   id: NFClothingWristsetNfsdGreenCommon
-  name: NFSD wristset
+  name: CGP wristset # Wayfarer
   suffix: Common
 
 - type: entity
@@ -218,7 +218,7 @@
 - type: entity
   parent: [NFBaseClothingWristset, NFClothingWristsetNfsdCream]
   id: NFClothingWristsetNfsdCreamCommon
-  name: NFSD wristset
+  name: CGP wristset # Wayfarer
   suffix: Common
 
 # region contractor
