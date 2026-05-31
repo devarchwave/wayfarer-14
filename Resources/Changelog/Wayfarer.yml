@@ -4047,3 +4047,12 @@ Entries:
   id: 6961
   time: '2026-05-31T17:19:08.0000000+00:00'
   url: https://github.com/project-wayfarer/wayfarer-14/pull/1041
+- author: DevArchwave
+  changes:
+    - type: Remove
+      message: >-
+        Removed likely unintended extra damage regen that had been added to only
+        a few species.
+  id: 6962
+  time: '2026-05-31T17:22:52.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/1046
