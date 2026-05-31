@@ -14,9 +14,10 @@
       mobState:
       - Critical
       - Dead
-      preventVore: true
+      preventVore: true # Floofstation
     - type: RattleOnTrigger
       targetUser: true
+
 
 - type: entity
   parent: NFBaseDeathRattleImplant

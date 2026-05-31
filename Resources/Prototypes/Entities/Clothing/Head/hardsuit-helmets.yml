@@ -442,11 +442,17 @@
       - state: equipped-head-light-avali
         shader: unshaded
       # Starlight - End
+      head-cat:
+      - state: equipped-head-light-cat
   - type: Clothing
     clothingVisuals:
       head:
       - state: equipped-head
       - state: equipped-head-unshaded
+        shader: unshaded
+      head-cat:
+      - state: equipped-head-cat
+      - state: equipped-head-unshaded-cat
         shader: unshaded
       head-vox:
       - state: equipped-head-vox
@@ -472,6 +478,7 @@
     tags:
     - CorgiWearable
     - WhitelistChameleon
+  - type: CatWearable # Frontier
 
 #Chief Medical Officer's Hardsuit
 - type: entity

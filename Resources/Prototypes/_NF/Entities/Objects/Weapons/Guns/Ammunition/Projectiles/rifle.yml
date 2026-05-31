@@ -9,7 +9,11 @@
   - type: Projectile
     damage:
       types:
+<<<<<<< HEAD
         Piercing: 16
+=======
+        Piercing: 13.75
+>>>>>>> frontier/master
 
 - type: entity
   id: NFBulletRifle10Practice
@@ -45,7 +49,11 @@
   - type: Projectile
     damage:
       types:
+<<<<<<< HEAD
         Piercing: 19.5 #Wayfarer 19 -> 19.5
+=======
+        Piercing: 16.25
+>>>>>>> frontier/master
 
 - type: entity
   id: NFBulletRifle20Overpressure
@@ -56,7 +64,11 @@
   - type: Projectile
     damage:
       types:
+<<<<<<< HEAD
         Piercing: 21.5 #Wayfarer 21 -> 21.5
+=======
+        Piercing: 18
+>>>>>>> frontier/master
 
 - type: entity
   id: NFBulletRifle20Incendiary
@@ -67,8 +79,13 @@
   - type: Projectile
     damage:
       types:
+<<<<<<< HEAD
         Piercing: 10.7 # 0.6 * base total dmg ##Wayfarer 11.7 -> 10.7
         Heat: 8.4 # 0.4 * base total dmg ##Wayfarer 7.8 -> 8.4
+=======
+        Piercing: 9.75 # 0.6 * base total dmg
+        Heat: 6.5 # 0.4 * base total dmg
+>>>>>>> frontier/master
 
 - type: entity
   id: NFBulletRifle20Uranium
@@ -79,8 +96,13 @@
   - type: Projectile
     damage:
       types:
+<<<<<<< HEAD
         Piercing: 16.0 # 0.6 * (1.4 * base total dmg) ##Wayfarer 16.2 -> 16.0
         Radiation: 9.0 # 0.4 * (1.4 * base total dmg) ##Wayfarer 8.8 -> 9
+=======
+        Piercing: 13.2 # 0.6 * (1.4 * base total dmg)
+        Radiation: 8.8 # 0.4 * (1.4 * base total dmg)
+>>>>>>> frontier/master
 
 - type: entity
   id: NFBulletRifle20Practice
@@ -116,7 +138,11 @@
   - type: Projectile
     damage:
       types:
+<<<<<<< HEAD
         Piercing: 21
+=======
+        Piercing: 17.5
+>>>>>>> frontier/master
 
 - type: entity
   id: NFBulletRifle25Overpressure
@@ -127,7 +153,11 @@
   - type: Projectile
     damage:
       types:
+<<<<<<< HEAD
         Piercing: 23
+=======
+        Piercing: 20
+>>>>>>> frontier/master
 
 - type: entity
   id: NFBulletRifle25Incendiary
@@ -138,8 +168,13 @@
   - type: Projectile
     damage:
       types:
+<<<<<<< HEAD
         Piercing: 12.6 # 0.6 * base total dmg
         Heat: 8.4 # 0.4 * base total dmg
+=======
+        Piercing: 10.5 # 0.6 * base total dmg
+        Heat: 7 # 0.4 * base total dmg
+>>>>>>> frontier/master
 
 - type: entity
   id: NFBulletRifle25Uranium
@@ -150,8 +185,13 @@
   - type: Projectile
     damage:
       types:
+<<<<<<< HEAD
         Piercing: 17.1 # 0.6 * (1.4 * base total dmg)
         Radiation: 9.9 # 0.4 * (1.4 * base total dmg)
+=======
+        Piercing: 14.4 # 0.6 * (1.4 * base total dmg)
+        Radiation: 9.6 # 0.4 * (1.4 * base total dmg)
+>>>>>>> frontier/master
 
 - type: entity
   id: NFBulletRifle25Practice
@@ -187,7 +227,11 @@
   - type: Projectile
     damage:
       types:
+<<<<<<< HEAD
         Piercing: 22.5 #Wayfarer 22 -> 22.5
+=======
+        Piercing: 18.75
+>>>>>>> frontier/master
 
 - type: entity
   id: NFBulletRifle30Overpressure
@@ -198,7 +242,11 @@
   - type: Projectile
     damage:
       types:
+<<<<<<< HEAD
         Piercing: 23.5 #Wayfarer 23 -> 23.5
+=======
+        Piercing: 21
+>>>>>>> frontier/master
 
 - type: entity
   id: NFBulletRifle30Incendiary
@@ -209,8 +257,13 @@
   - type: Projectile
     damage:
       types:
+<<<<<<< HEAD
         Piercing: 13.2
         Heat: 9.2 #Wayfarer 8.8 -> 9.2
+=======
+        Piercing: 11.25
+        Heat: 7.5
+>>>>>>> frontier/master
 
 - type: entity
   id: NFBulletRifle30Uranium
@@ -221,8 +274,13 @@
   - type: Projectile
     damage:
       types:
+<<<<<<< HEAD
         Piercing: 19.2 #Wayfarer 18.8 -> 19.2
         Radiation: 9.7 #Wayfarer 9.2 -> 9.7
+=======
+        Piercing: 15.6
+        Radiation: 10.4
+>>>>>>> frontier/master
 
 - type: entity
   id: NFBulletRifle30Practice
@@ -258,10 +316,16 @@
   - type: Projectile
     damage:
       types:
+<<<<<<< HEAD
         Piercing: 47 #Wayfarer 45 -> 47
         Structural: 208 #Wayfarer 200 -> 208
     ignoreResistances: true
     penetrationThreshold: 260
+=======
+        Piercing: 43.75
+        Structural: 200
+    penetrationThreshold: 360
+>>>>>>> frontier/master
     penetrationDamageTypeRequirement:
     - Structural
 

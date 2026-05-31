@@ -58,6 +58,10 @@ public sealed class MeteorSwarmSystem : GameRuleSystem<MeteorSwarmComponent>
         if (!TryPickTargetGrid(component, out var grid))
             return;
 
+        var station = RobustRandom.Pick(_station.GetStations());
+        if (_station.GetLargestGrid(station) is not { } grid)
+            return;
+
         var mapId = Transform(grid).MapID;
         var playableArea = _physics.GetWorldAABB(grid);
 

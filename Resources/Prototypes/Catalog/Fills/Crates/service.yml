@@ -160,9 +160,11 @@
     contents:
     - id: Paper
       amount: 4 # DeltaV - make room for more folders & stickies & reams in the bureaucracy crate
+    - id: PaperOffice
+      amount: 4 # Wayfarer: 6<4
     - id: Pen
       amount: 2
-    - id: BoxFolderClipboard
+    - id: BoxFolderClipboardEmpty
       amount: 2
     - id: HandLabeler
     - id: BoxFolderBlue
@@ -259,7 +261,7 @@
       - id: DrinkCreamCartonXL
       - id: DrinkDrGibbJug
       - id: DrinkEnergyDrinkJug
-      - id: DrinkGreenTeaJug
+      - id: DrinkGreenTeaJug # Frontier This is the stand in for safe tea.
       - id: DrinkIceJug
       - id: DrinkJuiceLimeCartonXL
       - id: DrinkJuiceOrangeCartonXL
@@ -269,7 +271,6 @@
       - id: DrinkSpaceMountainWindBottleFull
       - id: DrinkSpaceUpBottleFull
       - id: DrinkSugarJug
-      - id: DrinkTeaJug
       - id: DrinkTonicWaterBottleFull
       - id: DrinkWaterMelonJuiceJug
       - id: JugCaramexinin # Frontier: Caramexinin<JugCaramexinin

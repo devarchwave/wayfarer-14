@@ -3,7 +3,11 @@
   id: NFRedLightLaser
   damage:
     types:
+<<<<<<< HEAD
       Heat: 18 #Wayfarer 12 -> 18
+=======
+      Heat: 10
+>>>>>>> frontier/master
   muzzleFlash: &lightMuzzleFlash
     sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
     state: muzzle_laser
@@ -20,7 +24,11 @@
   id: NFRedMediumLaser
   damage:
     types:
+<<<<<<< HEAD
       Heat: 24 #Wayfarer 16 -> 24
+=======
+      Heat: 15
+>>>>>>> frontier/master
   muzzleFlash:
     sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
     state: muzzle_beam_heavy
@@ -37,7 +45,11 @@
   id: NFRedHeavyLaser
   damage:
     types:
+<<<<<<< HEAD
       Heat: 30 #Wayfarer 20 -> 30
+=======
+      Heat: 17.5
+>>>>>>> frontier/master
   muzzleFlash:
     sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
     state: muzzle_beam_heavy
@@ -54,7 +66,11 @@
   id: NFRedSpecialLaser
   damage:
     types:
+<<<<<<< HEAD
       Heat: 40 #Wayfarer 24 -> 40
+=======
+      Heat: 25
+>>>>>>> frontier/master
   muzzleFlash: &specialMuzzleFlash
     sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
     state: muzzle_beam_heavy2
@@ -71,8 +87,13 @@
   id: NFXrayLaser
   damage:
     types:
+<<<<<<< HEAD
       Heat: 15
       Radiation: 20
+=======
+      Heat: 12.5
+      Radiation: 12.5
+>>>>>>> frontier/master
   muzzleFlash:
     sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
     state: muzzle_xray
@@ -89,7 +110,11 @@
   id: NFPulse
   damage:
     types:
+<<<<<<< HEAD
       Heat: 28 #Wayfarer 24 -> 28
+=======
+      Heat: 22.5
+>>>>>>> frontier/master
   muzzleFlash:
     sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
     state: muzzle_blue
@@ -120,7 +145,11 @@
   maxLength: 60
   damage:
     types:
+<<<<<<< HEAD
       Heat: 40
+=======
+      Heat: 37.5
+>>>>>>> frontier/master
       Structural: 10
   muzzleFlash: *specialMuzzleFlash
   travelFlash: *specialTravelFlash

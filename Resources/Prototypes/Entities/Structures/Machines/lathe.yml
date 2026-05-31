@@ -560,6 +560,7 @@
     - NFBasicEVAToolsStatic # Frontier
     - ReportingStatic # DeltaV
     - NFPaperAndPaperAccessories # Frontier
+    - NFMedicalBoards # Frontier
     - NFMedicalStatic # Frontier
     - NFMedicalClothingStatic # Frontier
     - NFChemistryBasicStatic # Frontier

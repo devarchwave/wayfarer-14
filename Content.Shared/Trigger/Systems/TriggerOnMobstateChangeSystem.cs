@@ -1,4 +1,4 @@
-﻿using Content.Shared.FloofStation;
+using Content.Shared.FloofStation;
 using Content.Shared.Implants;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Mobs;
@@ -36,7 +36,7 @@ public sealed partial class TriggerOnMobstateChangeSystem : EntitySystem
         if (!component.MobState.Contains(args.Event.NewMobState))
             return;
 
-        if (component.PreventVore && HasComp<VoredComponent>(args.ImplantedEntity))
+        if (component.PreventVore && HasComp<VoredComponent>(args.ImplantedEntity)) // Floofstation
             return;
 
         _trigger.Trigger(uid, component.TargetMobstateEntity ? args.ImplantedEntity : args.Event.Origin, component.KeyOut);

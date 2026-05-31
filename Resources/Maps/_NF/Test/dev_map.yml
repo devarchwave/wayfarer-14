@@ -4,8 +4,8 @@ meta:
   engineVersion: 267.3.0
   forkId: ""
   forkVersion: ""
-  time: 02/11/2026 20:01:47
-  entityCount: 1908
+  time: 02/26/2026 13:03:38
+  entityCount: 1907
 maps:
 - 1
 grids:
@@ -643,7 +643,9 @@ entities:
       parent: 2
     - type: DeviceList
       devices:
-      - 41
+      - 801
+    - type: Fixtures
+      fixtures: {}
 - proto: AirCanister
   entities:
   - uid: 6
@@ -1073,19 +1075,25 @@ entities:
       supplyRampTolerance: 100000
       maxSupply: 1000000
       maxChargeRate: 500000
-  - uid: 77
+    - type: Fixtures
+      fixtures: {}
+  - uid: 1015
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -5.5,-14.5
-      parent: 2
+      parent: 179
+    - type: Fixtures
+      fixtures: {}
 - proto: ArrivalsShuttleTimer
   entities:
   - uid: 78
     components:
     - type: Transform
       pos: -7.5,5.5
-      parent: 2
+      parent: 179
+    - type: Fixtures
+      fixtures: {}
 - proto: AtmosDeviceFanDirectional
   entities:
   - uid: 79
@@ -7973,7 +7981,9 @@ entities:
     components:
     - type: Transform
       pos: 4.5,-14.5
-      parent: 2
+      parent: 179
+    - type: Fixtures
+      fixtures: {}
 - proto: Screwdriver
   entities:
   - uid: 1190
@@ -8289,7 +8299,9 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 24.5,11.5
-      parent: 2
+      parent: 179
+    - type: Fixtures
+      fixtures: {}
 - proto: ShipVoucherNfsdBailiff
   entities:
   - uid: 1245
@@ -8359,7 +8371,9 @@ entities:
         235:
         - - Pressed
           - Toggle
-  - uid: 1253
+    - type: Fixtures
+      fixtures: {}
+  - uid: 1014
     components:
     - type: Transform
       pos: 3.5,-14.5
@@ -8372,13 +8386,17 @@ entities:
         234:
         - - Pressed
           - Toggle
+    - type: Fixtures
+      fixtures: {}
 - proto: SignCargoDock
   entities:
   - uid: 1254
     components:
     - type: Transform
       pos: 4.5,-4.5
-      parent: 2
+      parent: 179
+    - type: Fixtures
+      fixtures: {}
 - proto: SilverOre
   entities:
   - uid: 1255

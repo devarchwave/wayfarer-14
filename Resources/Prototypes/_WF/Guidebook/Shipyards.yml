@@ -14,63 +14,96 @@
   - ShipyardSvalinn
 
 - type: guideEntry
-  id: CivShipyard
+  id: WFShipyard
   name: guide-entry-civshipyard
-  text: "/ServerInfo/_WF/Guidebook/Shipyard/CivShipyard.xml"
+  text: "/ServerInfo/_WF/Guidebook/Shipyard/WFShipyard.xml"
   priority: 7
   children:
-  - ShipyardAdder # FrontierShip Resources/Prototypes/_NF/Guidebook/shipyard.yml
-  - ShipyardAmbition # FrontierShip Resources/Prototypes/_NF/Guidebook/shipyard.yml
-  - ShipyardBarge # FronterShip Resources/Prototypes/_NF/Guidebook/shipyard.yml
-  - ShipyardBaroness # FrontierShip Resources/Prototypes/_NF/Guidebook/shipyard.yml
-  - ShipyardBocadillo # FrontierShip Resources/Prototypes/_NF/Guidebook/shipyard.yml
-  - ShipyardBodkin # FrontierShip Resources/Prototypes/_NF/Guidebook/shipyard.yml
-  - ShipyardBookworm # FrontierShip Resources/Prototypes/_NF/Guidebook/shipyard.yml
-  - ShipyardBulker # FrontierShip Resources/Prototypes/_NF/Guidebook/shipyard.yml
-  - ShipyardCamper # FrontierShip Resources/Prototypes/_NF/Guidebook/shipyard.yml
-  - ShipyardCeres # FrontierShip Resources/Prototypes/_NF/Guidebook/shipyard.yml
-  - ShipyardChisel # FrontierShip Resources/Prototypes/_NF/Guidebook/shipyard.yml
-  - ShipyardComet # FrontierShip Resources/Prototypes/_NF/Guidebook/shipyard.yml
-  - ShipyardCopperhead # FrontierShip Resources/Prototypes/_NF/Guidebook/shipyard.yml
-  - ShipyardCourier # FrontierShip Resources/Prototypes/_NF/Guidebook/shipyard.yml
-  - ShipyardCrescent # FrontierShip Resources/Prototypes/_NF/Guidebook/shipyard.yml
-  - ShipyardCrossroads # FrontierShip Resources/Prototypes/_NF/Guidebook/shipyard.yml
   - ShipyardDioddef
   - ShipyardDowntownsuperstar
-  - ShipyardDragoon # FrontierShip Resources/Prototypes/_NF/Guidebook/shipyard.yml
-  - ShipyardGarden # FrontierShip Resources/Prototypes/_NF/Guidebook/shipyard.yml
-  - ShipyardGasbender # FrontierShip Resources/Prototypes/_NF/Guidebook/shipyard.yml
-  - ShipyardGaslight # FrontierShip Resources/Prototypes/_NF/Guidebook/shipyard.yml
   - ShipyardGrandqueen
   - ShipyardGrandideals
   - ShipyardHamger
-  - ShipyardHammer # FrontierShip Resources/Prototypes/_NF/Guidebook/shipyard.yml
-  - ShipyardHauler # FrontierShip Resources/Prototypes/_NF/Guidebook/shipyard.yml
-  - ShipyardHonker # FrontierShip Resources/Prototypes/_NF/Guidebook/shipyard.yml
-  - ShipyardInvestigator # FrontierShip Resources/Prototypes/_NF/Guidebook/shipyard.yml
-  - ShipyardIzakaya # FrontierShip Resources/Prototypes/_NF/Guidebook/shipyard.yml
-  - ShipyardKestrel # FrontierShip Resources/Prototypes/_NF/Guidebook/shipyard.yml
-  - ShipyardKilderkin # FrontierShip Resources/Prototypes/_NF/Guidebook/shipyard.yml
-  - ShipyardLiquidator # FrontierShip Resources/Prototypes/_NF/Guidebook/shipyard.yml
-  - ShipyardLoader # FrontierShip Resources/Prototypes/_NF/Guidebook/shipyard.yml
-  - ShipyardLyrae # FrontierShip Resources/Prototypes/_NF/Guidebook/shipyard.yml
-  - ShipyardMcCargo # FrontierShip Resources/Prototypes/_NF/Guidebook/shipyard.yml
-  - ShipyardMcDelivery # FrontierShip Resources/Prototypes/_NF/Guidebook/shipyard.yml
   - ShipyardMjolnir
-  - ShipyardNightlight # FrontierShip Resources/Prototypes/_NF/Guidebook/shipyard.yml
-  - ShipyardNook # FrontierShip Resources/Prototypes/_NF/Guidebook/shipyard.yml
-  - ShipyardPhoenix # FrontierShip Resources/Prototypes/_NF/Guidebook/shipyard.yml
-  - ShipyardPlacebo # FrontierShip Resources/Prototypes/_NF/Guidebook/shipyard.yml
-  - ShipyardProspector # FrontierShip Resources/Prototypes/_NF/Guidebook/shipyard.yml
-  - ShipyardPulsar # FrontierShip Resources/Prototypes/_NF/Guidebook/shipyard.yml
-  - ShipyardRetort # FrontierShip Resources/Prototypes/_NF/Guidebook/shipyard.yml
-  - ShipyardSkipper # FrontierShip Resources/Prototypes/_NF/Guidebook/shipyard.yml
-  - ShipyardStringer # FrontierShip Resources/Prototypes/_NF/Guidebook/shipyard.yml
-  - ShipyardStronghold # FrontierShip Resources/Prototypes/_NF/Guidebook/shipyard.yml
-  - ShipyardSurveyor # FrontierShip Resources/Prototypes/_NF/Guidebook/shipyard.yml
   - ShipyardSwan
   - ShipyardUniform
-  - ShipyardVagabond # FrontierShip Resources/Prototypes/_NF/Guidebook/shipyard.yml
+
+- type: guideEntry
+  id: NFShipyard
+  name: guide-entry-civshipyard
+  text: "/ServerInfo/_WF/Guidebook/Shipyard/NFShipyard.xml"
+  priority: 7
+  children:
+  - ShipyardAdder
+  - ShipyardAegis
+  - ShipyardAkupara
+  - ShipyardAmbition
+  - ShipyardAnchor
+  - ShipyardApothecary
+  - ShipyardBarge
+  - ShipyardBaroness
+  - ShipyardBocadillo
+  - ShipyardBodkin
+  - ShipyardBookworm
+  - ShipyardBrigand
+  - ShipyardBroom
+  - ShipyardBulker
+  - ShipyardCaladrius
+  - ShipyardCamper
+  - ShipyardCeres
+  - ShipyardCharon
+  - ShipyardChisel
+  - ShipyardComet
+  - ShipyardConstruct
+  - ShipyardCopperhead
+  - ShipyardCourier
+  - ShipyardCrescent
+  - ShipyardCrossroads
+  - ShipyardDragoon
+  - ShipyardDragonfly
+  - ShipyardDruid
+  - ShipyardDove
+  - ShipyardEagle
+  - ShipyardFirefighter
+  - ShipyardGarden
+  - ShipyardGasbender
+  - ShipyardGaslight
+  - ShipyardGeode
+  - ShipyardHammer
+  - ShipyardHauler
+  - ShipyardHarbormaster
+  - ShipyardHonker
+  - ShipyardHound
+  - ShipyardInvestigator
+  - ShipyardIzakaya
+  - ShipyardKestrel
+  - ShipyardKilderkin
+  - ShipyardLanternMk2
+  - ShipyardLiquidator
+  - ShipyardLoader
+  - ShipyardLyrae
+  - ShipyardMcCargo
+  - ShipyardMcDelivery
+  - ShipyardNightlight
+  - ShipyardNook
+  - ShipyardPathfinder
+  - ShipyardPhoenix
+  - ShipyardPlacebo
+  - ShipyardProspector
+  - ShipyardPulsar
+  - ShipyardRetort
+  - ShipyardSearchlight
+  - ShipyardSkipper
+  - ShipyardSpirit
+  - ShipyardStasis
+  - ShipyardStellaris
+  - ShipyardStringer
+  - ShipyardStronghold
+  - ShipyardSurveyor
+  - ShipyardTide
+  - ShipyardTyne
+  - ShipyardVagabond
+  - ShipyardVitalis
 
 # syndicate shipyard commented out due to not knowing what to replace it name wise with.
 #- type: guideEntry

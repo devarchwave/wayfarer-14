@@ -28,6 +28,10 @@
   - NFAmmunitionBoxPistol45
   - NFAmmunitionBoxPistol45Overpressure
   - NFAmmunitionBoxPistol45Rubber
+  - NFMagazineGrenadeEmpty
+  - NFGrenadeFlash
+  - NFGrenadeEMP
+
   # Wayfarer: Pre-Loaded mags and colored mags QOL
   - WFMagazine35ExFilled
   - WFMagazine35ExFilledRubber
@@ -75,6 +79,7 @@
   - NFClothingNeckCardNfsdWrit
   - NFBaseClothingNeckHolsterThighNfsd
   - NFBaseClothingNeckSheathThighNfsd
+  - JetpackNfsd
   - NFPouchNfsd # Wayfarer
   - WFClothingOuterStraightjacket # Wayfarer
   - WFClothingMaskGasSheriff # Wayfarer
@@ -121,3 +126,12 @@
   recipes:
   - GyroscopeNfsdMachineCircuitboard
   - ThrusterNfsdMachineCircuitboard
+
+- type: latheRecipePack
+  id: NfsdReportingStatic
+  recipes:
+  - CassetteTape
+  - TapeRecorder
+  - ClothingNeckBodyCameraNFSD
+  - Gavel
+  - GavelBlock

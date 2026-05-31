@@ -9,7 +9,11 @@
     impactEffect: BulletImpactEffectOrangeDisabler
     damage:
       types:
+<<<<<<< HEAD
         Heat: 12
+=======
+        Heat: 10
+>>>>>>> frontier/master
 
 # Assault Rifles / Carbines
 - type: entity
@@ -38,7 +42,11 @@
     impactEffect: BulletImpactEffectOrangeDisabler
     damage:
       types:
+<<<<<<< HEAD
         Heat: 16
+=======
+        Heat: 15
+>>>>>>> frontier/master
 
 # Rifles
 - type: entity
@@ -50,7 +58,11 @@
     impactEffect: BulletImpactEffectOrangeDisabler
     damage:
       types:
+<<<<<<< HEAD
         Heat: 20
+=======
+        Heat: 17.5
+>>>>>>> frontier/master
 
 #region Disabler bolts
 - type: entity
@@ -113,7 +125,11 @@
     impactEffect: BulletImpactEffectKinetic
     damage:
       types:
+<<<<<<< HEAD
         Blunt: 14
+=======
+        Blunt: 12.5
+>>>>>>> frontier/master
         Structural: 30
   - type: Ammo
     muzzleFlash: HitscanEffect
@@ -136,7 +152,11 @@
     impactEffect: BulletImpactEffectKinetic
     damage:
       types:
+<<<<<<< HEAD
         Blunt: 18
+=======
+        Blunt: 16.25
+>>>>>>> frontier/master
         Structural: 30
 
 - type: entity
@@ -155,8 +175,13 @@
     impactEffect: BulletImpactEffectKinetic
     damage:
       types:
+<<<<<<< HEAD
         Blunt: 22
         Structural: 35 #Wayfarer 30 -> 35
+=======
+        Blunt: 22.5
+        Structural: 30
+>>>>>>> frontier/master
   - type: PointLight
     color: "#ffffff"
   - type: MiningGatheringHard

@@ -43,7 +43,8 @@
   loadouts:
   - NFPirateEarsClothingHeadsetFreelance
   subgroups:
-  - WFEars
+  - WFEars # Wayfarer
+  - NFPirateNFClothingWristsetPirateFreelancer
   fallbacks:
   - NFPirateEarsClothingHeadsetFreelance
 
@@ -124,7 +125,9 @@
   - NFPirateClothingOuterCoatVictorian
   - NFPirateClothingOuterCoatVictorianRed
   subgroups:
-  - WFOuterClothing
+  - WFOuterClothing # Wayfarer
+  - NFPirateClothingLongcoatBlack
+  - NFPirateClothingLongcoatBrown
   fallbacks:
   - NFPirateCaptainClothingOuterCoatPirate
 
@@ -153,7 +156,8 @@
   loadouts:
   - NFPirateCaptainEarsClothingHeadsetAltFreelancer
   subgroups:
-  - WFEars
+  - WFEars # Wayfarer
+  - NFPirateNFClothingWristsetPirateFreelancer
   fallbacks:
   - NFPirateCaptainEarsClothingHeadsetAltFreelancer
 
@@ -189,7 +193,9 @@
   - NFPirateClothingOuterCoatVictorian
   - NFPirateClothingOuterCoatVictorianRed
   subgroups:
-  - WFOuterClothing
+  - WFOuterClothing # Wayfarer
+  - NFPirateClothingLongcoatBlack
+  - NFPirateClothingLongcoatBrown
   fallbacks:
   - NFPirateFirstMateClothingOuterCoatGentle
 
