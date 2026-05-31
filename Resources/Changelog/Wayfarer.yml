@@ -4033,3 +4033,10 @@ Entries:
   id: 6959
   time: '2026-05-31T17:17:53.0000000+00:00'
   url: https://github.com/project-wayfarer/wayfarer-14/pull/1050
+- author: rivermyth
+  changes:
+    - type: Add
+      message: Added [form], [signature], and [check] paperwork tags.
+  id: 6960
+  time: '2026-05-31T17:18:37.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/1043
