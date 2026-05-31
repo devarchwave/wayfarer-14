@@ -105,7 +105,7 @@
       head-dog:
       - state: equipped-head-dog
       head-avali: #starlight
-      - state: equipped-head-light-avali
+      - state: equipped-head-avali # Wayfarer: fixed equipped-head-avali from equipped-head-light-avali
       head-cat:
       - state: equipped-head-cat
   - type: TemperatureProtection
