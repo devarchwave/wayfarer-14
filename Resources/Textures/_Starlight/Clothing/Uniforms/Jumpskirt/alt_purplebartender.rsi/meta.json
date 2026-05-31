@@ -1,11 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-<<<<<<<< HEAD:Resources/Textures/_Starlight/Clothing/Uniforms/Jumpskirt/alt_purplebartender.rsi/meta.json
   "copyright": "Made by @mishutka09 (discord:1152277579206774854)",
-========
-  "copyright": "Sprites done by Zalindae",
->>>>>>>> frontier/master:Resources/Textures/_NF/Objects/Specific/Kitchen/Equipment/cooking_bag.rsi/meta.json
   "size": {
     "x": 32,
     "y": 32
@@ -15,7 +11,7 @@
       "name": "icon"
     },
     {
-      "name": "equipped-BELT",
+      "name": "equipped-INNERCLOTHING",
       "directions": 4
     },
     {
