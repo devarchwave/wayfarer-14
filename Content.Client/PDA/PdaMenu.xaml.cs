@@ -254,28 +254,6 @@ namespace Content.Client.PDA
             LockUplinkButton.Visible = state.HasUplink;
         }
 
-        private void UpdateShiftEndTimeLabel()
-        {
-            if (_shiftEndTime.HasValue)
-            {
-                var timeRemaining = _shiftEndTime.Value - DateTime.UtcNow;
-                if (timeRemaining > TimeSpan.Zero)
-                {
-                    ShiftEndTimeLabel.SetMarkup(Loc.GetString("comp-pda-ui-shift-end-time",
-                        ("time", $"{timeRemaining.Days}d {timeRemaining.Hours:D2}h {timeRemaining.Minutes:D2}m {timeRemaining.Seconds:D2}s")));
-                    ShiftEndTimeLabel.Visible = true;
-                }
-                else
-                {
-                    ShiftEndTimeLabel.Visible = false;
-                }
-            }
-            else
-            {
-                ShiftEndTimeLabel.Visible = false;
-            }
-        }
-
         protected override void FrameUpdate(FrameEventArgs args)
         {
             base.FrameUpdate(args);
@@ -284,7 +262,6 @@ namespace Content.Client.PDA
             StationTimeLabel.SetMarkup(Loc.GetString("comp-pda-ui-station-time",
                 ("time", $"{stationTime.Days}d {stationTime.Hours:D2}h {stationTime.Minutes:D2}m {stationTime.Seconds:D2}s")));
 
-            UpdateShiftEndTimeLabel();
         }
 
         public void UpdateAvailablePrograms(List<(EntityUid, CartridgeComponent)> programs)

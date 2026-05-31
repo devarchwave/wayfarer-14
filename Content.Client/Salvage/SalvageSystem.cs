@@ -50,7 +50,7 @@ public sealed class SalvageSystem : SharedSalvageSystem
 
         ev.Cancelled = true;
     }
-
+    /* // Wayfarer: Guess we ain't using this?
     private void SetMusicVolume(float volume)
     {
         var expedQuery = EntityQueryEnumerator<SalvageExpeditionComponent>();
@@ -70,6 +70,7 @@ public sealed class SalvageSystem : SharedSalvageSystem
             ret = Math.Clamp(ret, SalvageExpeditionMinMusicVolume, SalvageExpeditionMaxMusicVolume);
         return ret;
     }
+    */
     // End Frontier: stop stream when destroying the expedition
 
     // Frontier: resolve expedition comp
