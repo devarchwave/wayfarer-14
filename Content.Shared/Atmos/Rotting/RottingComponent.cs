@@ -58,5 +58,5 @@ public sealed partial class RottingComponent : Component
     /// </summary>
     [DataField]
     public float TotalBluntDamageDealt = 0f;
-    // Wayfarer End
+    // End Wayfarer
 }

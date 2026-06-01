@@ -213,6 +213,26 @@
         color: "#bc7d3e"
 
 - type: marking
+  id: AurelianVoxTail
+  bodyPart: TailBehind
+  markingCategory: Tail
+  #speciesRestriction: [AurelianVox]
+  forcedColoring: false
+  sprites:
+  - sprite: _WF/Mobs/Species/AurelianVox/parts.rsi
+    state: tail
+
+- type: marking
+  id: AurelianVoxTailOS
+  bodyPart: TailOversuit
+  markingCategory: Tail
+  #speciesRestriction: [AurelianVox]
+  forcedColoring: false
+  sprites:
+  - sprite: _WF/Mobs/Species/AurelianVox/parts.rsi
+    state: tail
+
+- type: marking
   id: AurelianVoxRoboticArmRight
   bodyPart: RArm
   markingCategory: Arms
@@ -314,7 +334,17 @@
 
 - type: marking
   id: AurelianVoxRoboticTail
-  bodyPart: Tail
+  bodyPart: TailBehind
+  markingCategory: Tail
+  canBeDisplaced: false
+  #speciesRestriction: [AurelianVox]
+  sprites:
+    - sprite: _WF/Mobs/Customization/aurelian_markings.rsi
+      state: robotic_tail
+
+- type: marking
+  id: AurelianVoxRoboticTailOS
+  bodyPart: TailOversuit
   markingCategory: Tail
   canBeDisplaced: false
   #speciesRestriction: [AurelianVox]

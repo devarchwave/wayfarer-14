@@ -1,13 +1,3 @@
-// SPDX-FileCopyrightText: 2024 August Eymann <august.eymann@gmail.com>
-// SPDX-FileCopyrightText: 2024 Steve <marlumpy@gmail.com>
-// SPDX-FileCopyrightText: 2024 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
-//Wayfarer: Ported over from Goobstation https://github.com/Goob-Station/Goob-Station
-
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
@@ -26,12 +16,32 @@ public sealed class RCDConstructionGhostRotationEvent(NetEntity netEntity, Direc
     public readonly Direction Direction = direction;
 }
 
+// Starlight Start: RPD
 [Serializable, NetSerializable]
-public sealed class RCDConstructionGhostFlipEvent(NetEntity netEntity, bool useMirrorPrototype) : EntityEventArgs
+public sealed class RCDConstructionGhostFlipEvent : EntityEventArgs
 {
-    public readonly NetEntity NetEntity = netEntity;
-    public readonly bool UseMirrorPrototype = useMirrorPrototype;
+    public readonly NetEntity NetEntity;
+    public readonly bool UseMirrorPrototype;
+    public RCDConstructionGhostFlipEvent(NetEntity netEntity, bool useMirrorPrototype)
+    {
+        NetEntity = netEntity;
+        UseMirrorPrototype = useMirrorPrototype;
+    }
 }
+
+[Serializable, NetSerializable]
+public sealed class RPDSelectedLayerEvent : EntityEventArgs
+{
+    public readonly NetEntity NetEntity;
+    public readonly byte Layer;
+
+    public RPDSelectedLayerEvent(NetEntity netEntity, byte layer)
+    {
+        NetEntity = netEntity;
+        Layer = layer;
+    }
+}
+// Starlight End: RPD
 
 [Serializable, NetSerializable]
 public enum RcdUiKey : byte

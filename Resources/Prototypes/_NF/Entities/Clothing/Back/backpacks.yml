@@ -1,7 +1,7 @@
 - type: entity
   id: ClothingBackpackArcadia
   name: arcadia backpack
-  parent: [ NFClothingBackpack, BaseC3ContrabandNoValue, ContrabandClothing ]
+  parent: [ NFClothingBackpack ] # Wayfarer: Remove contraband
   description: A backpack produced by Arcadia Industries
   components:
   - type: Sprite
@@ -38,7 +38,7 @@
       collection: CatMeows
 
 - type: entity
-  parent: ClothingBackpackSecurity
+  parent: [ClothingBackpackSecurity, BaseCGPContraband] # Wayfarer: add BaseCGPContraband
   id: ClothingBackpackNfsdBrown
   name: CGP backpack
   components:

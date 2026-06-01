@@ -9,7 +9,6 @@
   - ClothingOuterEVASuitEngineer
   - ClothingOuterEVASuitAtmosTech
   - NFFlash
-  - RpdAtmosRecipe #Wayfarer: Add RPD recipe
 
 - type: latheRecipePack
   id: NFEngineeringStructureBoardsStatic
@@ -89,6 +88,7 @@
 - type: latheRecipePack
   id: NFEngineering
   recipes:
+  - ShipyardRPD # Wayfarer
   - ShipyardRCD
   - ShipyardRCDAmmo
   - ConstructionBagOfHolding
@@ -99,4 +99,4 @@
   - SuperMatterBinStockPart
   - PicoManipulatorStockPart
   - NFWeaponParticleDecelerator
-#  - NFWeaponParticleDecelerator
+  - RadiationBlockingProjector # Far Horizons

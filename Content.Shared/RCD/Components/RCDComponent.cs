@@ -1,20 +1,10 @@
-// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 deltanedas <@deltanedas:kde.org>
-// SPDX-FileCopyrightText: 2024 August Eymann <august.eymann@gmail.com>
-// SPDX-FileCopyrightText: 2024 Steve <marlumpy@gmail.com>
-// SPDX-FileCopyrightText: 2024 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-//
-// Wayfarer: Ported over from Goobstation https://github.com/Goob-Station/Goob-Station
-
 using Content.Shared.RCD.Systems;
+using Content.Shared.Atmos.Components; // Starlight-edit: RPD layered placement support
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Physics;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization; // Starlight
 
 namespace Content.Shared.RCD.Components;
 
@@ -45,6 +35,16 @@ public sealed partial class RCDComponent : Component
     [DataField, AutoNetworkedField]
     public ProtoId<RCDPrototype> ProtoId { get; set; } = "Invalid";
 
+    // Starlight Start
+    /// <summary>
+    /// A cached copy of currently selected RCD prototype
+    /// </summary>
+    /// <remarks>
+    /// If the ProtoId is changed, make sure to update the CachedPrototype as well
+    /// </remarks>
+    [ViewVariables(VVAccess.ReadOnly)]
+    public RCDPrototype CachedPrototype { get; set; } = default!;
+
     /// <summary>
     /// Indicates if a mirrored version of the construction prototype should be used (if available)
     /// </summary>
@@ -56,6 +56,7 @@ public sealed partial class RCDComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool IsRpd { get; set; } = false;
+    // Starlight End
 
     /// <summary>
     /// The direction constructed entities will face upon spawning
@@ -71,6 +72,12 @@ public sealed partial class RCDComponent : Component
         }
     }
 
+    /// <summary>
+    /// Mono - delay multiplier for the RCD
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public float DelayMultiplier = 1f;
+
     private Direction _constructionDirection = Direction.South;
 
     /// <summary>
@@ -81,4 +88,40 @@ public sealed partial class RCDComponent : Component
     /// </remarks>
     [ViewVariables(VVAccess.ReadOnly)]
     public Transform ConstructionTransform { get; private set; }
+
+    // Frontier: ship-based RCDs
+    /// <summary>
+    /// Frontier - Shipyard RCD
+    /// A flag that limits RCD to the authorized ships.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool IsShipyardRCD;
+    // End Frontier: ship-based RCDs
+
+    // Starlight Start
+    /// <summary>
+    /// Last free-mode layer selected on the client.
+    /// Used by the server as the authoritative layer when placing layered pipes in Free mode.
+    /// </summary>
+    [DataField]
+    public AtmosPipeLayer? LastSelectedLayer { get; set; } = null;
+
+    /// <summary>
+    /// Current pipe layer / build mode for RPD
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public RpdMode CurrentMode { get; set; } = RpdMode.Free;
+
+    [DataField]
+    public SoundSpecifier SoundSwitchMode { get; set; } = new SoundPathSpecifier("/Audio/Machines/quickbeep.ogg");
+}
+
+[Serializable, NetSerializable]
+public enum RpdMode : byte
+{
+    Primary = 0,
+    Secondary = 1,
+    Tertiary = 2,
+    Free = 3,
+    // Starlight End
 }

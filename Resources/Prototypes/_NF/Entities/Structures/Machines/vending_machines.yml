@@ -194,7 +194,7 @@
 - type: entity
   id: VendingMachineArcadia
   name: ArcadiaDrobe
-  parent: [ VendingMachine, BaseC3Contraband ]
+  parent: [ VendingMachine ] # Wayfarer: Removed contraband
   description: Selling clothes from another reality for cheap prices!
   components:
     - type: VendingMachine
@@ -843,9 +843,9 @@
   components:
   - type: VendingMachine
     pack: PickNPackPOIInventory
-  - type: AccessReader
-    access: [["Mercenary"], ["Security"], ["HeadOfPersonnel"], ["HeadOfSecurity"]]
-  - type: ActivatableUIRequiresAccess
+  #- type: AccessReader # Wayfarer: Commented out the access.
+  #  access: [["Mercenary"], ["Security"], ["HeadOfPersonnel"], ["HeadOfSecurity"]]
+  #- type: ActivatableUIRequiresAccess
 
 #region conjured MagiVend
 - type: entity

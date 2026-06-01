@@ -23,7 +23,7 @@
     materialComposition:
       Steel: 50
       Plastic: 20
-  # Wayfarer end
+  # End Wayfarer
 
 - type: entity
   parent: NFBaseCartridgeRocket
@@ -73,7 +73,7 @@
     materialComposition:
       Steel: 50
       Plastic: 20
-  # Wayfarer end
+  # End Wayfarer
 
 - type: entity
   parent: [ NFBaseGrenade40mm, GrenadeBaton ]

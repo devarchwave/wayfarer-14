@@ -1,26 +1,18 @@
-// SPDX-FileCopyrightText: 2024 August Eymann <august.eymann@gmail.com>
-// SPDX-FileCopyrightText: 2024 Steve <marlumpy@gmail.com>
-// SPDX-FileCopyrightText: 2024 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-//
-// Wayfarer: Ported from goobstation to wayfarer https://github.com/Goob-Station/Goob-Station
-
 using Content.Client.Hands.Systems;
-using Content.Shared.Hands.Components;
-using Content.Shared.Input;
 using Content.Shared.Interaction;
 using Content.Shared.RCD;
 using Content.Shared.RCD.Components;
 using Robust.Client.Placement;
 using Robust.Client.Player;
 using Robust.Shared.Enums;
-using Robust.Shared.Input;
-using Robust.Shared.Input.Binding;
 using Robust.Shared.Prototypes;
-
+// Starlight Start
+using Robust.Shared.Input;
+using Content.Client._Starlight.RCD;
+using Robust.Shared.Input.Binding;
+using Content.Client.Atmos;
+using Content.Shared.Input;
+// Starlight End
 
 namespace Content.Client.RCD;
 
@@ -30,6 +22,7 @@ namespace Content.Client.RCD;
 public sealed class RCDConstructionGhostSystem : EntitySystem
 {
     private const string PlacementMode = nameof(AlignRCDConstruction);
+    private const string RpdPlacementMode = nameof(AlignRPDAtmosPipeLayers); // Starlight RPD
 
     [Dependency] private readonly IPlayerManager _playerManager = default!;
     [Dependency] private readonly IPlacementManager _placementManager = default!;
@@ -37,6 +30,7 @@ public sealed class RCDConstructionGhostSystem : EntitySystem
     [Dependency] private readonly HandsSystem _hands = default!;
 
     private Direction _placementDirection = default;
+    // Starlight Start: RPD
     private bool _useMirrorPrototype = false;
     public event EventHandler? FlipConstructionPrototype;
 
@@ -66,17 +60,11 @@ public sealed class RCDConstructionGhostSystem : EntitySystem
 
             var placerEntity = _placementManager.CurrentPermission?.MobUid;
 
-            if (!TryComp<RCDComponent>(placerEntity, out var rcd))
-                return false;
-
-            var prototype = _protoManager.Index(rcd.ProtoId);
-            if (string.IsNullOrEmpty(prototype.MirrorPrototype))
+            if (!TryComp<RCDComponent>(placerEntity, out var rcd) ||
+                string.IsNullOrEmpty(rcd.CachedPrototype.MirrorPrototype))
                 return false;
 
             _useMirrorPrototype = !rcd.UseMirrorPrototype;
-
-            var useProto = _useMirrorPrototype ? prototype.MirrorPrototype : prototype.Prototype;
-            CreatePlacer(placerEntity.Value, rcd, useProto, prototype.Mode);
 
             // tell the server
 
@@ -85,7 +73,7 @@ public sealed class RCDConstructionGhostSystem : EntitySystem
 
         return true;
     }
-
+    // Starlight End: RPD
 
     public override void Update(float frameTime)
     {
@@ -114,7 +102,20 @@ public sealed class RCDConstructionGhostSystem : EntitySystem
 
             return;
         }
-        var prototype = _protoManager.Index(rcd.ProtoId);
+        // Starlight edit Start: RPD - use the mirrored prototype if the flip state is toggled on
+        // var prototype = _protoManager.Index(rcd.ProtoId);
+
+        // Determine if mirrored
+        var cachedProto = rcd.CachedPrototype;
+        var wantMirror = _useMirrorPrototype && !string.IsNullOrEmpty(cachedProto.MirrorPrototype);
+        var prototype = wantMirror ? cachedProto.MirrorPrototype : cachedProto.Prototype;
+
+        bool isLayered = rcd.IsRpd
+            && _protoManager.TryIndex<RCDPrototype>(cachedProto.ID, out var rcdProto)
+            && rcdProto.HasLayers;
+
+        var desiredMode = isLayered ? RpdPlacementMode : PlacementMode;
+        // Starlight edit End: RPD - use the mirrored prototype if the flip state is toggled on
 
         // Update the direction the RCD prototype based on the placer direction
         if (_placementDirection != _placementManager.Direction)
@@ -122,26 +123,23 @@ public sealed class RCDConstructionGhostSystem : EntitySystem
             _placementDirection = _placementManager.Direction;
             RaiseNetworkEvent(new RCDConstructionGhostRotationEvent(GetNetEntity(heldEntity.Value), _placementDirection));
         }
-        // If the placer has not changed build it.
-        var useProto = (_useMirrorPrototype && !string.IsNullOrEmpty(prototype.MirrorPrototype)) ? prototype.MirrorPrototype : prototype.Prototype;
-        if (heldEntity != placerEntity || useProto != placerProto)
-        {
-            CreatePlacer(heldEntity.Value, rcd, useProto, prototype.Mode);
-        }
 
+        // If the placer has not changed, exit
+        // Starlight edit Start
+        if (heldEntity == placerEntity &&
+            prototype == placerProto &&
+            _placementManager.CurrentPermission?.PlacementOption == desiredMode)
+        // Starlight edit End
+            return;
 
-    }
-
-    private void CreatePlacer(EntityUid uid, RCDComponent component, string? prototype, RcdMode mode)
-    {
         // Create a new placer
         var newObjInfo = new PlacementInformation
         {
-            MobUid = uid,
-            PlacementOption = PlacementMode,
-            EntityType = prototype,
-            Range = (int) Math.Ceiling(SharedInteractionSystem.InteractionRange),
-            IsTile = (mode == RcdMode.ConstructTile),
+            MobUid = heldEntity.Value,
+            PlacementOption = desiredMode, // Starlight Edit: PlacementMode -> desiredMode
+            EntityType = prototype, // Starlight Edit: prototype.Prototype -> prototype
+            Range = (int)Math.Ceiling(SharedInteractionSystem.InteractionRange),
+            IsTile = (cachedProto.Mode == RcdMode.ConstructTile), // Starlight Edit: prototype.Mode -> cachedProto.Mode
             UseEditorContext = false,
         };
 

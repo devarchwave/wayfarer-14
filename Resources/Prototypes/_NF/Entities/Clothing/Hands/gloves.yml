@@ -1,7 +1,7 @@
 - type: entity
   id: ClothingHandsGlovesArcadiaCombat
   name: arcadia combat gloves
-  parent: [ ClothingHandsGlovesCombat, BaseC3ContrabandNoValue, ContrabandClothing ]
+  parent: [ ClothingHandsGlovesCombat ] # Wayfarer: Remove contraband
   description: Combat gloves produced by Arcadia Industries.
   components:
   - type: Sprite
@@ -25,7 +25,7 @@
     fiberColor: fibers-brown # Wayfarer: fibers-cream<fibers-black
 
 - type: entity
-  parent: ClothingHandsGlovesCombat
+  parent: [ClothingHandsGlovesCombat, BaseCGPContraband] # Wayfarer: add BaseCGPContraband
   id: ClothingHandsGlovesCombatNfsdBrown
   name: CGP combat gloves
   description: Insulated gloves for a deputy sheriff.

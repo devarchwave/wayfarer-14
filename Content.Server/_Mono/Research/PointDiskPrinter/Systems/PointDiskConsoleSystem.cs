@@ -55,7 +55,7 @@ public sealed class PointDiskConsoleSystem : EntitySystem
             // Wayfarer
             if (printing.Disk50K)
                 Spawn(console.Disk50KPrototype, xform.Coordinates);
-            // Wayfarer end
+            // End Wayfarer
         }
     }
 
@@ -140,7 +140,7 @@ public sealed class PointDiskConsoleSystem : EntitySystem
           printing.FinishTime = _timing.CurTime + component.PrintDuration;
           UpdateUserInterface(uid, component);
     }
-    // Wayfarer end
+    // End Wayfarer
 
     private void OnPointsChanged(EntityUid uid, PointDiskConsoleComponent component, ref ResearchServerPointsChangedEvent args)
     {
@@ -180,7 +180,7 @@ public sealed class PointDiskConsoleSystem : EntitySystem
         // Wayfarer
         var canPrint50K = !(TryComp<PointDiskConsolePrintingComponent>(uid, out var printing50K) && printing50K.FinishTime >= _timing.CurTime) &&
                        totalPoints >= component.PricePer50KDisk;
-        // Wayfarer end
+        // End Wayfarer
 
         var state = new PointDiskConsoleBoundUserInterfaceState(totalPoints, component.PricePer1KDisk, component.PricePer5KDisk, component.PricePer10KDisk, component.PricePer50KDisk, canPrint1K, canPrint5K, canPrint10K, canPrint50K); // Wayfarer: add 50k research disks
         _ui.SetUiState(uid, PointDiskConsoleUiKey.Key, state);

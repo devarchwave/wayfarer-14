@@ -388,7 +388,7 @@
     materialComposition:
       Steel: 10
       Plastic: 5
-  # Wayfarer end
+  # End Wayfarer
 
 - type: entity
   parent: BaseSyringe

@@ -82,7 +82,7 @@
   # Wayfarer
   - type: StaticPrice
     price: 5000
-  # Wayfarer end
+  # End Wayfarer
 
 - type: entity
   parent: ResearchDisk
