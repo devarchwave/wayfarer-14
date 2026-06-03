@@ -45,10 +45,10 @@
   name: undetermined thieving toolbox
   description: This is where your favorite thief's supplies lie. Try to remember which ones.
   parent: [ BaseItem ] # Frontier: removed BaseMinorContraband
-  categories: [ HideSpawnMenu ] # Frontier
+  #categories: [ HideSpawnMenu ] # Frontier
   components:
   - type: Sprite
-    sprite: Objects/Tools/Toolboxes/toolbox_thief.rsi
+    sprite: _Impstation/Objects/Tools/Toolboxes/toolbox_thief.rsi # imp edit
     state: icon
   - type: ThiefUndeterminedBackpack
     possibleSets:
