@@ -42,6 +42,7 @@
             prefixCreator: '14'
         - type: StationJobs
           availableJobs:
-            Contractor: [ 0, 0 ]
-            Pilot: [ 0, 0 ]
-            Mercenary: [ 0, 0 ]
+            Wayfarer: [ 0, 0 ] # Wayfarer edit
+            #Contractor: [ 0, 0 ]
+            #Pilot: [ 0, 0 ]
+            #Mercenary: [ 0, 0 ]
