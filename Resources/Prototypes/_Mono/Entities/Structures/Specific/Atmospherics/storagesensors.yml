@@ -17,10 +17,14 @@
         Ammonia: stationAmmonia
         NitrousOxide: stationNO
         Frezon: danger
-        BZ: danger
-        Healium: stationNO
-        Nitrium: danger
-        Pluoxium: ignore
+        # Wayfarer Start
+        Respiron: ignore
+        Helium: danger
+        #BZ: danger
+        #Healium: stationNO
+        #Nitrium: danger
+        #Pluoxium: ignore
+        # Wayfarer End
 
 - type: entity
   abstract: true
