@@ -4226,3 +4226,10 @@ Entries:
   id: 6981
   time: '2026-06-04T01:49:45.0000000+00:00'
   url: https://github.com/project-wayfarer/wayfarer-14/pull/1086
+- author: Possumongus
+  changes:
+    - type: Add
+      message: New CGP RoE, go read it at the rules
+  id: 6982
+  time: '2026-06-04T01:50:41.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/1084
