@@ -4240,3 +4240,10 @@ Entries:
   id: 6983
   time: '2026-06-04T01:57:10.0000000+00:00'
   url: https://github.com/project-wayfarer/wayfarer-14/pull/1067
+- author: DevArchwave
+  changes:
+    - type: Add
+      message: Added the UW Takeaway ship, the first one with a drive-thru!
+  id: 6984
+  time: '2026-06-04T02:10:37.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/1079
