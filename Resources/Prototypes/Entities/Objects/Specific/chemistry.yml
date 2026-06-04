@@ -96,6 +96,16 @@
   - type: DnaSubstanceTrace
   - type: TrashOnSolutionEmpty # Frontier
     solution: beaker # Frontier
+  # Wayfarer Start
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_Goobstation/Items/handling/drinkglass_pickup.ogg
+      params:
+        volume: -7
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/_Goobstation/Items/handling/drinkglass_drop.ogg
+  # Wayfarer End
 
 - type: entity
   parent: BaseItem
@@ -617,11 +627,11 @@
       tags:
       - Pill
   - type: Dumpable
-  # Goobstation edit start
+  # Wayfarer Start
   - type: EmitSoundOnPickup
     sound:
       path: /Audio/_Goobstation/Items/handling/pillbottle_pickup.ogg
   - type: EmitSoundOnDrop
     sound:
       path: /Audio/_Goobstation/Items/handling/pillbottle_drop.ogg
-  # Goobstation edit end
+  # Wayfarer End
