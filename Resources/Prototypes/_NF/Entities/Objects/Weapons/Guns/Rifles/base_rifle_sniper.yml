@@ -27,7 +27,7 @@
     pvsIncrease: 1
   - type: NFWeaponDetails
     class: weapon-details-class-sniper
-  # Goobstation edit start
+  # Wayfarer Start
   - type: EmitSoundOnPickup
     sound:
       collection: SnipersPickUp
@@ -37,7 +37,7 @@
   - type: EmitSoundOnLand
     sound:
       collection: SnipersDrop
-  # Goobstation edit end
+  # Wayfarer End
 
 #region manufacturer
 - type: entity

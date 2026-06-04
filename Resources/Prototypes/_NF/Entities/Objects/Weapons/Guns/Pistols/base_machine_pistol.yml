@@ -21,7 +21,7 @@
     - Burst
   - type: NFWeaponDetails
     class: weapon-details-class-machine-pistol
-  # Goobstation edit start
+  # Wayfarer Start
   - type: EmitSoundOnPickup
     sound:
       collection: SMGPickUp
@@ -31,7 +31,7 @@
   - type: EmitSoundOnLand
     sound:
       collection: SMGDrop
-  # Goobstation edit end
+  # Wayfarer End
 
 #region manufacturer
 - type: entity

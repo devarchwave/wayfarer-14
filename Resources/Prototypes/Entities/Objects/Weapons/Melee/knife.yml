@@ -19,7 +19,7 @@
         Slash: 10
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
-  # Goobstation edit start
+  # Wayfarer Start
   - type: EmitSoundOnPickup
     sound:
       path: /Audio/_Goobstation/Items/handling/knife_pickup.ogg
@@ -35,7 +35,7 @@
       path: /Audio/_Goobstation/Items/handling/knife_drop.ogg
       params:
         volume: -8
-  # Goobstation edit end
+  # Wayfarer End
   - type: Sprite
   - type: Item
     size: Small

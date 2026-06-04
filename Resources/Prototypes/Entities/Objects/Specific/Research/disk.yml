@@ -19,7 +19,7 @@
     - Science
   - type: StaticPrice # Frontier
     price: 200 # Frontier
-  # Goobstation edit start
+  # Wayfarer Start
   - type: EmitSoundOnPickup
     sound:
       path: /Audio/_Goobstation/Items/handling/disk_pickup.ogg
@@ -35,7 +35,7 @@
       path: /Audio/_Goobstation/Items/handling/disk_drop.ogg
       params:
         volume: -6
-  # Goobstation edit end
+  # Wayfarer End
 
 - type: entity
   parent: ResearchDisk

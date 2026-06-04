@@ -84,7 +84,7 @@
         type: PaperBoundUserInterface
   - type: FaxableObject
   - type: PaperVisuals
-  # Goobstation edit start
+  # Wayfarer Start
   - type: EmitSoundOnPickup
     sound:
       path: /Audio/_Goobstation/Items/handling/paper_pickup.ogg
@@ -110,7 +110,7 @@
       path: /Audio/_Goobstation/Items/handling/paper_throw.ogg
       params:
         volume: -6
-  # Goobstation edit end
+  # Wayfarer End
 
 - type: entity
   name: paper scrap

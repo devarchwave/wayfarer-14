@@ -4,7 +4,7 @@
   id: Handcuffs
   parent: BaseItem # Frontier: BaseSecurityCommandContraband<BaseC1Contraband # Wayfarer: Removed contraband
   components:
-  # Goobstation edit start
+  # Wayfarer Start
   - type: EmitSoundOnPickup
     sound:
       path: /Audio/_Goobstation/Items/other/Handcuffs/pickup.ogg
@@ -15,7 +15,7 @@
       path: /Audio/_Goobstation/Items/other/Handcuffs/drop.ogg
       params:
         volume: -4
-  # Goobstation edit end
+  # Wayfarer End
   - type: Item
     size: Small
     storedRotation: 90

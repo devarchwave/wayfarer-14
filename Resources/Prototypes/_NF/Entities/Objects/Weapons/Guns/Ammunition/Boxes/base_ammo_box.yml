@@ -19,7 +19,7 @@
     steps: 6
     zeroVisible: true
   - type: Appearance
-  # Goobstation: Ammo Box Sounds
+  # Wayfarer: Ammo Box Sounds
   - type: EmitSoundOnPickup
     sound:
       path: /Audio/_Goobstation/Items/handling/ammobox_pickup.ogg
@@ -29,4 +29,4 @@
   - type: EmitSoundOnLand
     sound:
       path: /Audio/_Goobstation/Items/handling/ammobox_drop.ogg
-  # End Goobstation
+  # Wayfarer End

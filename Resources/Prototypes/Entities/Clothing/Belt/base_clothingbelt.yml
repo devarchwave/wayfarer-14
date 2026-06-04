@@ -3,7 +3,7 @@
   parent: [Clothing, RecyclableItemClothBasic] # Frontier: added RecyclableItemClothBasic
   id: ClothingBeltBase
   components:
-  # Goobstation edit start
+  # Wayfarer Start
   - type: EmitSoundOnPickup
     sound:
       path: /Audio/_Goobstation/Items/handling/toolbelt_pickup.ogg
@@ -19,7 +19,7 @@
       path: /Audio/_Goobstation/Items/handling/toolbelt_drop.ogg
       params:
         volume: -4
-  # Goobstation edit end
+  # Wayfarer End
   - type: Sprite
     state: icon
   - type: Item

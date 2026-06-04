@@ -3,7 +3,7 @@
   parent: [ Clothing, AllowSuitStorageClothing, RecyclableItemClothDurable ] # Frontier: added AllowSuitStorageClothing and RecyclableItemClothDurable
   id: ClothingOuterBase
   components:
-  # Goobstation edit start
+  # Wayfarer Start
   - type: EmitSoundOnPickup
     sound:
       collection: GenericPickup
@@ -19,14 +19,14 @@
       collection: GenericDrop
       params:
         volume: -9
-  # Goobstation edit end
+  # Wayfarer End
   - type: Clothing
     slots:
     - outerClothing
-  # Goobstation edit start
+  # Wayfarer Start
     equipSound:
       collection: GenericEquip
-  # Goobstation edit end
+  # Wayfarer End
   - type: Sprite
     state: icon
   - type: StaticPrice # Frontier: setting base price to make material arbitrage happier
@@ -174,7 +174,7 @@
       flatReductions:
         Heat: 10 # the average lightbulb only does around four damage!
     slots: OUTERCLOTHING
-  # Goobstation edit start
+  # Wayfarer Start
   - type: EmitSoundOnPickup
     sound:
       path: /Audio/_Goobstation/Items/handling/backpack_pickup.ogg
@@ -190,7 +190,7 @@
       path: /Audio/_Goobstation/Items/handling/backpack_drop.ogg
       params:
         volume: -4
-  # Goobstation edit end
+  # Wayfarer End
   - type: HarpyHideWings # Frontier, needed for Harpies
   - type: StaticPrice # Frontier
     price: 20 # Frontier

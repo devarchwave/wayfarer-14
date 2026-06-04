@@ -7,7 +7,7 @@
   - type: PhysicalComposition # Frontier
     materialComposition: # Frontier
       Paper: 50 # Frontier
-  # Goobstation edit start
+  # Wayfarer Start
   - type: EmitSoundOnPickup
     sound:
       path: /Audio/_Goobstation/Items/handling/book_pickup.ogg
@@ -23,7 +23,7 @@
       path: /Audio/_Goobstation/Items/handling/book_drop.ogg
       params:
         volume: -4
-  # Goobstation edit end
+  # Wayfarer End
   - type: Sprite
     sprite: Objects/Misc/books.rsi
     layers:

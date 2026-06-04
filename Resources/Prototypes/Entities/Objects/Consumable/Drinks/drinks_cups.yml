@@ -6,14 +6,14 @@
   name: base cup
   abstract: true
   components:
-  # Goobstation edit start
+  # Wayfarer Start
   - type: EmitSoundOnPickup
     sound:
       path: /Audio/_Goobstation/Items/other/Cup/pickup.ogg
   - type: EmitSoundOnDrop
     sound:
       path: /Audio/_Goobstation/Items/other/Cup/drop.ogg
-  # Goobstation edit end
+  # Wayfarer End
   - type: SolutionContainerManager
     solutions:
       drink:

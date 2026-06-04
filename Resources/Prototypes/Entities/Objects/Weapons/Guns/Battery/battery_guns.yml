@@ -26,7 +26,7 @@
     startingCharge: 1000
   - type: StaticPrice
     price: 500
-  # Goobstation edit start
+  # Wayfarer Start
   - type: EmitSoundOnPickup
     sound:
       collection: LasersPickUp
@@ -36,7 +36,7 @@
   - type: EmitSoundOnLand
     sound:
       collection: LasersDrop
-  # Goobstation edit end
+  # Wayfarer End
 
 - type: entity
   id: BaseWeaponPowerCell

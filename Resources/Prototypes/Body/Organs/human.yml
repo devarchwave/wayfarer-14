@@ -3,7 +3,7 @@
   parent: BaseItem
   abstract: true
   components:
-  # Goobstation edit start
+  # Wayfarer Start
   - type: EmitSoundOnPickup
     sound:
       collection: OrganInteraction
@@ -13,7 +13,7 @@
   - type: EmitSoundOnLand
     sound:
       collection: OrganInteraction
-  # Goobstation edit end
+  # Wayfarer End
   - type: Sprite
     sprite: Mobs/Species/Human/organs.rsi
   - type: Organ

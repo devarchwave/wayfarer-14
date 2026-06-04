@@ -6,10 +6,10 @@
   - type: Clothing
     slots:
     - HEAD
-  # Goobstation edit start
+  # Wayfarer Start
     equipSound:
       collection: GenericEquip
-  # Goobstation edit end
+  # Wayfarer End
   - type: Sprite
     state: icon
   - type: Item

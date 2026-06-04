@@ -47,7 +47,7 @@
   id: DrinkGlassBase
   abstract: true
   components:
-  # Goobstation edit start
+  # Wayfarer Start
   - type: EmitSoundOnPickup
     sound:
       path: /Audio/_Goobstation/Items/handling/drinkglass_pickup.ogg
@@ -56,7 +56,7 @@
   - type: EmitSoundOnDrop
     sound:
       path: /Audio/_Goobstation/Items/handling/drinkglass_drop.ogg
-  # Goobstation edit end
+  # Wayfarer End
   - type: Damageable
     damageContainer: Inorganic
     damageModifierSet: Glass

@@ -72,7 +72,7 @@
   id: Matchbox
   description: A small box of Almost But Not Quite Plasma Premium Matches.
   components:
-  # Goobstation edit start
+  # Wayfarer Start
   - type: EmitSoundOnPickup
     sound:
       path: /Audio/_Goobstation/Items/handling/matchbox_pickup.ogg
@@ -85,7 +85,7 @@
   - type: EmitSoundOnUse
     sound:
       path: /Audio/_Goobstation/Items/handling/matchbox_use.ogg
-  # Goobstation edit end
+  # Wayfarer End
   - type: EmitSoundOnLand
     sound:
       path: /Audio/Items/matchbox_drop.ogg
@@ -131,7 +131,7 @@
   - type: SpaceGarbage
   - type: HelmetAccessory # Wayfarer :>
     rsi:
-      sprite: _WF/Clothing/Helmetaddons/Smoking/matches.rsi 
+      sprite: _WF/Clothing/Helmetaddons/Smoking/matches.rsi
       state: helmet
 
 

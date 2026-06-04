@@ -8,7 +8,7 @@
   - type: Item
     size: Tiny
   # End Den additions
-  # Goobstation edit start
+  # Wayfarer Start
   - type: EmitSoundOnPickup
     sound:
       path: /Audio/_Goobstation/Items/handling/disk_pickup.ogg
@@ -24,7 +24,7 @@
       path: /Audio/_Goobstation/Items/handling/disk_drop.ogg
       params:
         volume: -7
-  # Goobstation edit end
+  # Wayfarer End
   - type: NukeDisk
   - type: SpecialRespawn
     prototype: NukeDisk
@@ -65,7 +65,7 @@
   - type: Item
     size: Tiny
   # End Den additions
-  # Goobstation edit start
+  # Wayfarer Start
   - type: EmitSoundOnPickup
     sound:
       path: /Audio/_Goobstation/Items/handling/disk_pickup.ogg
@@ -81,7 +81,7 @@
       path: /Audio/_Goobstation/Items/handling/disk_drop.ogg
       params:
         volume: -7
-  # Goobstation edit end
+  # Wayfarer End
   - type: Sprite
     sprite: Objects/Misc/nukedisk.rsi
     state: icon

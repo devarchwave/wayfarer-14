@@ -3,7 +3,7 @@
   id: BaseItem
   abstract: true
   components:
-  # Goobstation edit start
+  # Wayfarer Start
   - type: EmitSoundOnPickup
     sound:
       collection: GenericPickup
@@ -14,7 +14,7 @@
       collection: GenericDrop
       params:
         volume: -7
-  # Goobstation edit end
+  # Wayfarer End
   - type: Item
     size: Small
   - type: Animateable

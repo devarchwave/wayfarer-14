@@ -25,7 +25,7 @@
     price: 200
   - type: NFWeaponDetails
     class: weapon-details-class-revolver
-  # Goobstation edit start
+  # Wayfarer Start
   - type: EmitSoundOnPickup
     sound:
       collection: RevolversPickUp
@@ -35,7 +35,7 @@
   - type: EmitSoundOnLand
     sound:
       collection: RevolversDrop
-  # Goobstation edit end
+  # Wayfarer End
 
 #region manufacturer
 - type: entity

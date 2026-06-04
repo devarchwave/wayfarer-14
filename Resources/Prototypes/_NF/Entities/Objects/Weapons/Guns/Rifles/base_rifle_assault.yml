@@ -28,7 +28,7 @@
     # pvsIncrease: 0.25
   - type: NFWeaponDetails
     class: weapon-details-class-assault-rifle
-  # Goobstation edit start
+  # Wayfarer Start
   - type: EmitSoundOnPickup
     sound:
       collection: RiflesPickUp
@@ -38,7 +38,7 @@
   - type: EmitSoundOnLand
     sound:
       collection: RiflesDrop
-  # Goobstation edit end
+  # Wayfarer End
 
 #region manufacturer
 - type: entity

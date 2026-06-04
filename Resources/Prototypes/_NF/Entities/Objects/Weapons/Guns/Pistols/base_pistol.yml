@@ -20,7 +20,7 @@
   - type: NFWeaponDetails
     class: weapon-details-class-pistol
   - type: FireOnLand # DeltaV - gun safety
-  # Goobstation edit start
+  # Wayfarer Start
   - type: EmitSoundOnPickup
     sound:
       collection: PistolsPickUp
@@ -30,7 +30,7 @@
   - type: EmitSoundOnLand
     sound:
       collection: PistolsDrop
-  # Goobstation edit end
+  # Wayfarer End
 
 #region manufacturer
 - type: entity

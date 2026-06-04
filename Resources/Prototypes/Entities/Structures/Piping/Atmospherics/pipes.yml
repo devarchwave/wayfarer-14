@@ -72,7 +72,7 @@
     fx: EffectRCDDeconstruct2
     rpd: true
   # Starlight End
-  # Goobstation edit start
+  # Wayfarer Start
   - type: EmitSoundOnPickup
     sound:
       path: /Audio/_Goobstation/Items/handling/wrench_pickup.ogg
@@ -86,7 +86,7 @@
   - type: EmitSoundOnLand
     sound:
       collection: PipeDrop
-  # Goobstation edit end
+  # Wayfarer End
 
 - type: entity
   abstract: true
