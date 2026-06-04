@@ -52,10 +52,12 @@
     sound:
       path: /Audio/_Goobstation/Items/handling/drinkglass_pickup.ogg
       params:
-        volume: -7
+        volume: -10
   - type: EmitSoundOnDrop
     sound:
       path: /Audio/_Goobstation/Items/handling/drinkglass_drop.ogg
+      params:
+        volume: -4
   # Wayfarer End
   - type: Damageable
     damageContainer: Inorganic
