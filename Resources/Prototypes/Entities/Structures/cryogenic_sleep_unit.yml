@@ -59,6 +59,9 @@
         base:
           True: { state: sleeper_1 }
           False: { state: sleeper_0 }
+        overlay: # imp
+          True: { state: sleeper_1-overlay }
+          False: { state: sleeper_0-overlay }
 
 # This one handles all spawns, latejoin and roundstart.
 - type: entity
