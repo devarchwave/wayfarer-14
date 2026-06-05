@@ -1,8 +1,10 @@
 using Content.Server.Administration;
+using Content.Server.Atmos.Piping.Components;
 using Content.Server.Power.Components;
 using Content.Shared.Administration;
 using Content.Shared.Construction;
 using Content.Shared.Tag;
+using Content.Shared.Wall;
 using Robust.Shared.Console;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Prototypes;
@@ -77,6 +79,13 @@ public sealed class FixRotationsCommand : IConsoleCommand
             {
                 continue;
             }
+            // Wayfarer Start
+            //Atmos devices. We shouldn't rotate these.
+            if (_entManager.HasComponent<AtmosDeviceComponent>(child))
+            {
+                continue;
+            }
+            // Wayfarer End
 
             var valid = false;
 
