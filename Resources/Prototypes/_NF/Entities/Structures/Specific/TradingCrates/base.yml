@@ -99,7 +99,7 @@
   - CrateTradeBaseSecure
   - BaseBMContraband # Wayfarer: BaseC3SyndicateContraband<BaseBMContraband
   id: CrateTradeBaseSecureContraband
-  name: Black Market contraband crate # Wayfarer: Syndicate contraband crate < Black Market Contraband Crate
+  name: Syndicate contraband crate
   description: Contains goods made in the Spinward sector, ready to be smuggled to a cargo depot for profit. MAKE SURE THE CRATE IS INTACT.
   abstract: true
   components:
