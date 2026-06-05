@@ -2,7 +2,7 @@
   id: RMCLizardChestDragonwings
   bodyPart: Tail
   markingCategory: Chest
-  speciesRestriction: [Reptilian]
+  #speciesRestriction: [Reptilian] # WF
   sprites:
   - sprite: _RMC14/Mobs/Customization/reptilian.rsi
     state: body_dragonwings
