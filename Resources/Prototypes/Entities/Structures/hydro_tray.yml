@@ -21,7 +21,7 @@
   - type: Sprite
     layers:
       - sprite: _Impstation/Structures/Hydroponics/containers.rsi # imp
-        state: hydrotray3 # Imp: hydrotray3<hydrotray
+        state: hydrotray # Imp: hydrotray3<hydrotray
       - sprite: Structures/Hydroponics/overlays.rsi
         state: lowhealth3
         map: [ "health_alert" ]
