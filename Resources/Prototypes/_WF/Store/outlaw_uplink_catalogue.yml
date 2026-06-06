@@ -1388,21 +1388,23 @@
       tags:
       - OutlawUplinkBase
 
-# Syndie Card
-#- type: listing
-#  id: UplinkOutlawSyndicateBusinessCard
-#  name: uplink-outlaw-card-name
-#  description: uplink-outlaw-card-desc
-#  productEntity: SyndicateBusinessCard
-#  cost:
-#    Doubloon: 0
-#  categories:
-#  - UplinkOutlawMisc
-#  conditions:
-#  - !type:StoreWhitelistCondition
-#    whitelist:
-#      tags:
-#      - OutlawUplinkBase
+# Business Card
+- type: listing
+  id: UplinkOutlawSyndicateBusinessCard
+  name: uplink-outlaw-card-name
+  description: uplink-outlaw-card-desc
+  productEntity: SyndicateBusinessCard
+  cost:
+    Doubloon: 0
+  categories:
+  - UplinkOutlawMisc
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 10
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - OutlawUplinkBase
 
 # Pirate Hoverbike
 - type: listing
