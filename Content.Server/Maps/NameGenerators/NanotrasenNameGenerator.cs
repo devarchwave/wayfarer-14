@@ -12,7 +12,7 @@ public sealed partial class NanotrasenNameGenerator : StationNameGenerator
     [DataField("prefixCreator")] public string PrefixCreator = default!;
 
     private string Prefix => "ZKW"; // Wayfarer: NT<ZKW
-    private string[] SuffixCodes => new []{ "CIV" };
+    private string[] SuffixCodes => new []{ "CIV" }; // Wayfarer: { "LV", "NX", "EV", "QT", "PR" }<{ "CIV" }
 
     public override string FormatName(string input)
     {
