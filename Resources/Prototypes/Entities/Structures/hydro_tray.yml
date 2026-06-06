@@ -20,26 +20,26 @@
   - type: Pullable
   - type: Sprite
     layers:
-      - sprite: _Impstation/Structures/Hydroponics/containers.rsi # Imp
-        state: hydrotray # Imp: hydrotray3<hydrotray
-      - sprite: _Impstation/Structures/Hydroponics/overlays.rsi # Imp
-        state: lowhealth # Imp: lowhealth3<lowhealth
+      - sprite: _Impstation/Structures/Hydroponics/containers.rsi # imp
+        state: hydrotray3 # Imp: hydrotray3<hydrotray
+      - sprite: Structures/Hydroponics/overlays.rsi
+        state: lowhealth3
         map: [ "health_alert" ]
         visible: false
-      - sprite: _Impstation/Structures/Hydroponics/overlays.rsi # Imp
-        state: lowwater # Imp: lowwater3<lowwater
+      - sprite: Structures/Hydroponics/overlays.rsi
+        state: lowwater3
         map: [ "water_alert" ]
         visible: false
-      - sprite: _Impstation/Structures/Hydroponics/overlays.rsi # Imp
-        state: lownutri # Imp: lownutri3<lownutri
+      - sprite: Structures/Hydroponics/overlays.rsi
+        state: lownutri3
         map: [ "nutri_alert" ]
         visible: false
-      - sprite: _Impstation/Structures/Hydroponics/overlays.rsi # Imp
-        state: alert # Imp: alert3<alert
+      - sprite: Structures/Hydroponics/overlays.rsi
+        state: alert3
         map: [ "undefined_alert" ]
         visible: false
-      - sprite: _Impstation/Structures/Hydroponics/overlays.rsi # Imp
-        state: harvest # Imp: harvest3<harvest
+      - sprite: Structures/Hydroponics/overlays.rsi
+        state: harvest3
         map: [ "harvest_alert" ]
         visible: false
   - type: Appearance
