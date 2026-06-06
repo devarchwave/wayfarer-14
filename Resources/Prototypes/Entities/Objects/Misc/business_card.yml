@@ -1,6 +1,6 @@
 - type: entity
   id: SyndicateBusinessCard
-  name: outlaw business card
+  name: outlaw business card # Wayfarer: Renamed
   parent: [ Paper ] # Wayfarer: Removed Contraband
   description: A black card. Smells of crime. There's something written on the back. # Wayfarer: Changed Description
   components:
