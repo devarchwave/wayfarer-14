@@ -14,6 +14,46 @@ namespace Content.Shared._Mono.CCVar;
 [CVarDefs]
 public sealed partial class MonoCVars
 {
+    #region Cleanup
+
+    /// <summary>
+    ///     Whether to enable cleanup debug mode, making it run much more often.
+    /// </summary>
+    public static readonly CVarDef<bool> CleanupDebug =
+        CVarDef.Create("mono.cleanup.debug", false, CVar.SERVERONLY);
+
+    /// <summary>
+    ///     Whether to log every single entity cleanup deletes.
+    /// </summary>
+    public static readonly CVarDef<bool> CleanupLog =
+        CVarDef.Create("mono.cleanup.log", true, CVar.SERVERONLY);
+
+    /// <summary>
+    ///     Don't delete non-grids at most this close to a grid.
+    /// </summary>
+    public static readonly CVarDef<float> CleanupMaxGridDistance =
+        CVarDef.Create("mono.cleanup.max_grid_distance", 30.0f, CVar.SERVERONLY);
+
+    /// <summary>
+    ///     How far away from any players can a mob be until it gets cleaned up.
+    /// </summary>
+    public static readonly CVarDef<float> MobCleanupDistance =
+        CVarDef.Create("mono.cleanup.mob.distance", 1280.0f, CVar.SERVERONLY);
+
+    /// <summary>
+    ///     How far away from any players does a spaced entity have to be in order to get cleaned up.
+    /// </summary>
+    public static readonly CVarDef<float> SpaceCleanupDistance =
+        CVarDef.Create("mono.cleanup.space.distance", 628f, CVar.SERVERONLY);
+
+    /// <summary>
+    ///     How much can a spaced entity at most be worth for it to be cleaned up.
+    /// </summary>
+    public static readonly CVarDef<float> SpaceCleanupMaxValue =
+        CVarDef.Create("mono.cleanup.space.max_value", 3000.0f, CVar.SERVERONLY);
+
+    #endregion
+
     #region Audio
 
     /// <summary>
