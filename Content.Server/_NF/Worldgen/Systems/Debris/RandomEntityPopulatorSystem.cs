@@ -68,12 +68,7 @@ public sealed class RandomEntityPopulatorSystem : BaseWorldSystem
         if (tileIndices == null)
         {
             var tileIterator = _map.GetAllTiles(gridUid, mapComp, true);
-            tileIndices = new List<Vector2i>();
-
-            foreach (var tile in tileIterator)
-            {
-                tileIndices.Add(tile.GridIndices);
-            }
+            tileIndices = tileIterator.Select(tile => tile.GridIndices).ToList();
         }
 
         var found = false;
@@ -88,11 +83,7 @@ public sealed class RandomEntityPopulatorSystem : BaseWorldSystem
 
             found = true;
             targetCoords = _map.GridTileToLocal(gridUid, mapComp, tileIndices[idx]);
-
-            // Swap-remove keeps random selection behavior while avoiding O(n) shifts.
-            var lastIndex = tileIndices.Count - 1;
-            tileIndices[idx] = tileIndices[lastIndex];
-            tileIndices.RemoveAt(lastIndex);
+            tileIndices.RemoveAt(idx);
             break;
         }
 
