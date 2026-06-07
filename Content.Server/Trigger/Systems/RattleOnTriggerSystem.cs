@@ -83,7 +83,7 @@ public sealed class RattleOnTriggerSystem : EntitySystem
     }
 
     // Wayfarer Start
-private void StartStillDeadTimer(EntityUid entity, ProtoId<RadioChannelPrototype> channel, TimeSpan delay)
+    private void StartStillDeadTimer(EntityUid entity, ProtoId<RadioChannelPrototype> channel, TimeSpan delay)
     {
         if (_stillDeadTimers.TryGetValue(entity, out var existingCts))
             existingCts.Cancel();
