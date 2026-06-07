@@ -5,6 +5,8 @@ using Content.Shared.Mobs;
 using Content.Shared.Popups;
 using Content.Shared.Trigger.Components.Triggers;
 
+using Content.Shared.Verbs; // Wayfarer
+
 namespace Content.Shared.Trigger.Systems;
 
 public sealed partial class TriggerOnMobstateChangeSystem : EntitySystem
@@ -21,6 +23,7 @@ public sealed partial class TriggerOnMobstateChangeSystem : EntitySystem
 
         SubscribeLocalEvent<TriggerOnMobstateChangeComponent, ImplantRelayEvent<MobStateChangedEvent>>(OnMobStateRelay);
         SubscribeLocalEvent<TriggerOnMobstateChangeComponent, ImplantRelayEvent<SuicideEvent>>(OnSuicideRelay);
+        SubscribeLocalEvent<TriggerOnMobstateChangeComponent, ImplantRelayEvent<GetVerbsEvent<Verb>>>(OnVerbRelay); // Wayfarer
     }
 
     private void OnMobStateChanged(EntityUid uid, TriggerOnMobstateChangeComponent component, MobStateChangedEvent args)
@@ -38,6 +41,9 @@ public sealed partial class TriggerOnMobstateChangeSystem : EntitySystem
 
         if (component.PreventVore && HasComp<VoredComponent>(args.ImplantedEntity))
             return;
+
+        if (!component.Enabled)
+            return; // Wayfarer
 
         _trigger.Trigger(uid, component.TargetMobstateEntity ? args.ImplantedEntity : args.Event.Origin, component.KeyOut);
     }
