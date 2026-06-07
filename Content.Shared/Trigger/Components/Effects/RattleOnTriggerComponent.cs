@@ -32,6 +32,7 @@ public sealed partial class RattleOnTriggerComponent : BaseXOnTriggerComponent
     /// <summary>
     /// The delay before the deathrattle implant sends the message again
     /// </summary>
+    [ViewVariables]
     [DataField]
     public TimeSpan RattleRefireDelay = TimeSpan.FromMinutes(20);
     // Wayfarer End
