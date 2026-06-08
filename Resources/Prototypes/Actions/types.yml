@@ -136,7 +136,6 @@
   components:
   # Wayfarer Start
   - type: ConfirmableAction
-    event: !type:ActivateImplantEvent
     popup: confirm-action-popup
   # Wayfarer End
   - type: LimitedCharges
