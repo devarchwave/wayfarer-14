@@ -4360,3 +4360,10 @@ Entries:
   id: 6999
   time: '2026-06-08T02:04:34.0000000+00:00'
   url: https://github.com/project-wayfarer/wayfarer-14/pull/1058
+- author: Rellu225
+  changes:
+    - type: Add
+      message: Added RAEWS Array POI.
+  id: 7000
+  time: '2026-06-08T02:29:14.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/1104
