@@ -35,6 +35,7 @@ public sealed partial class CleanupHelperSystem : EntitySystem
     /// </summary>
     public bool HasNearbyPlayers(EntityCoordinates coord, float radius)
     {
+        if (radius <= 0) return false; // Wayfarer
         var minds = _lookup.GetEntitiesInRange<MindContainerComponent>(coord, radius);
 
         foreach (var (uid, comp) in minds)
@@ -60,6 +61,7 @@ public sealed partial class CleanupHelperSystem : EntitySystem
     /// </summary>
     public bool HasNearbyGrids(EntityCoordinates coord, float radius)
     {
+        if (radius <= 0) return false; // Wayfarer
         var rangeVec = new Vector2(radius, radius);
         var mapPos = _transform.ToMapCoordinates(coord);
         var pos = mapPos.Position;

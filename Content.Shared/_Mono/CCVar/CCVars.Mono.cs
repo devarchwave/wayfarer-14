@@ -32,7 +32,7 @@ public sealed partial class MonoCVars
     ///     Don't delete non-grids at most this close to a grid.
     /// </summary>
     public static readonly CVarDef<float> CleanupMaxGridDistance =
-        CVarDef.Create("mono.cleanup.max_grid_distance", 45.0f, CVar.SERVERONLY); // Wayfarer: 30.0f<45.0f
+        CVarDef.Create("mono.cleanup.max_grid_distance", 60.0f, CVar.SERVERONLY); // Wayfarer: 30.0f<60.0f
 
     /// <summary>
     ///     How far away from any players can a mob be until it gets cleaned up.
@@ -50,7 +50,7 @@ public sealed partial class MonoCVars
     ///     How much can a spaced entity at most be worth for it to be cleaned up.
     /// </summary>
     public static readonly CVarDef<float> SpaceCleanupMaxValue =
-        CVarDef.Create("mono.cleanup.space.max_value", 3000.0f, CVar.SERVERONLY);
+        CVarDef.Create("mono.cleanup.space.max_value", 20000.0f, CVar.SERVERONLY); // Wayfarer: 3000.0f<20000.0f
 
     #endregion
 
@@ -114,18 +114,15 @@ public sealed partial class MonoCVars
     public static readonly CVarDef<float> AreaEchoStepFidelity =
         CVarDef.Create("mono.area_echo.step_fidelity", 5f, CVar.CLIENTONLY);
 
-    /// <summary>
-    ///     Interval between updates for every audio entity.
-    /// </summary>
-    public static readonly CVarDef<float> SpaceGarbageCleanupInterval =
-        CVarDef.Create("mono.space_garbage_cleanup_interval", 1800.0f, CVar.SERVERONLY);
-
 	/// <summary>
     ///     Whether to play radio static/noise sounds when receiving radio messages on headsets.
     /// </summary>
     public static readonly CVarDef<bool> RadioNoiseEnabled =
         CVarDef.Create("mono.radio_noise_enabled", true, CVar.ARCHIVE | CVar.CLIENTONLY);
 
+    /// <summary>
+    ///     Interval between updates for every audio entity.
+    /// </summary>
     /// <seealso cref="AreaEchoSystem"/>
     public static readonly CVarDef<TimeSpan> AreaEchoRecalculationInterval =
         CVarDef.Create("mono.area_echo.recalculation_interval", TimeSpan.FromSeconds(15), CVar.ARCHIVE | CVar.CLIENTONLY);

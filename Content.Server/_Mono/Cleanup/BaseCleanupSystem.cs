@@ -11,7 +11,7 @@ public abstract partial class BaseCleanupSystem<TComp> : EntitySystem
     [Dependency] private IGameTiming _timing = default!;
     [Dependency] private SharedTransformSystem _transform = default!;
 
-    protected TimeSpan _cleanupInterval = TimeSpan.FromSeconds(300);
+    protected TimeSpan _cleanupInterval = TimeSpan.FromSeconds(900); // Wayfarer: 300<900
     protected TimeSpan _debugCleanupInterval = TimeSpan.FromSeconds(15);
     protected bool _doDebug;
     protected bool _doLog;

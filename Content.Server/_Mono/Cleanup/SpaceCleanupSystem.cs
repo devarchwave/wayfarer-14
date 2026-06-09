@@ -51,7 +51,7 @@ public sealed partial class SpaceCleanupSystem : BaseCleanupSystem<PhysicsCompon
         base.Initialize();
 
         // this queries over literally everything with PhysicsComponent so has to have big interval
-        _cleanupInterval = TimeSpan.FromSeconds(600);
+        _cleanupInterval = TimeSpan.FromSeconds(900); // Wayfarer: 600<900
 
         _immuneQuery = GetEntityQuery<CleanupImmuneComponent>();
         _fixQuery = GetEntityQuery<FixturesComponent>();
@@ -82,7 +82,7 @@ public sealed partial class SpaceCleanupSystem : BaseCleanupSystem<PhysicsCompon
     private bool ShouldEntityCleanup(EntityUid uid, float aggression)
     {
         var xform = Transform(uid);
-
+        /* // Wayfarer: Old logic. Has an edge case and I think it could be a little better, so... Let's order it.
         var isStuck = false;
 
         var price = 0f;
@@ -97,6 +97,64 @@ public sealed partial class SpaceCleanupSystem : BaseCleanupSystem<PhysicsCompon
             && (isStuck
                 || !_cleanup.HasNearbyGrids(xform.Coordinates, _maxGridDistance * aggression * MathF.Sqrt(price / _maxPrice))
                     && !_cleanup.HasNearbyPlayers(xform.Coordinates, _maxDistance * aggression * MathF.Sqrt(price / _maxPrice)));
+        */
+
+        // Wayfarer Start
+        // Experimental, but I avoided an edge case here and also tried ordering things based on how I expensive I -THINK- certain checks are. No data backs this up.
+        // 1. Component lookups - these are probably faster, I think. So we should probably check them first, to deny it faster.
+        if (_gridQuery.HasComp(uid)      // never delete if on grid.
+            || _htnQuery.HasComp(uid)    // handled by MobCleanupSystem.
+            || _immuneQuery.HasComp(uid) // handled by GridCleanupSystem.
+            || _mindQuery.HasComp(uid))  // anything that could have a mind.
+        {
+            return false;
+        }
+
+        // 2. Location eligibility – entity must be on a map OR wall‑stuck
+        bool isStuck = false;
+        bool eligibleLocation;
+        if (xform.ParentUid == xform.MapUid)
+        {
+            eligibleLocation = true;
+        }
+        else
+        {
+            // GetWallStuck seems like a performance intensive method...
+            isStuck = GetWallStuck((uid, xform));
+            eligibleLocation = isStuck;
+        }
+
+        if (!eligibleLocation)
+            return false;
+
+        // 3. Price check
+        var price = (float)_pricing.GetPrice(uid);
+        if (price > _maxPrice && _maxPrice > 0f) // if no price limit, everything passes
+            return false;
+
+        // 4. If stuck, we don’t care about nearby players/grids – clean it up. Physics lag bad.
+        if (isStuck)
+            return true;
+
+        // 5. Handle edge cases where radius would be less or equal 0, we don't want to divide by zero now, do we?
+        // If maxPrice is 0 (no limit) or price is 0, use full radius, as I don't know if certain really important things have 0 price.
+        if (_maxPrice <= 0f || price <= 0f)
+        {
+            bool hasPlayers = _cleanup.HasNearbyPlayers(xform.Coordinates, _maxDistance * aggression);
+            bool hasGrids = _cleanup.HasNearbyGrids(xform.Coordinates, _maxGridDistance * aggression);
+            return !hasGrids && !hasPlayers;
+        }
+
+        // 6. Calculate scaled radii (EXPENSIVE)
+        var scale = MathF.Sqrt(price / _maxPrice);
+        var playerRadius = _maxDistance * aggression * scale;
+        var gridRadius = _maxGridDistance * aggression * scale;
+
+        // 7. Proximity checks (VERY EXPENSIVE CHECK, GOES LAST.)
+        bool hasNearbyPlayers = playerRadius > 0f && _cleanup.HasNearbyPlayers(xform.Coordinates, playerRadius);
+        bool hasNearbyGrids = gridRadius > 0f && _cleanup.HasNearbyGrids(xform.Coordinates, gridRadius);
+        return !hasNearbyGrids && !hasNearbyPlayers;
+        // Wayfarer End
     }
 
     private bool GetWallStuck(Entity<TransformComponent> ent)
