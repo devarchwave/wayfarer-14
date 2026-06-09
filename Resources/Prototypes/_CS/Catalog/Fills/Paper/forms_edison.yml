@@ -17,11 +17,11 @@
       [color=#E47A1F] [head=3][bold]Electra Dynamics™[/bold][/head][/color]  [color=gray][italic]                   Technical Specifications[/italic][/color]
       [color=#F9B34F][/color] [head=4][color=#F9B34F][bold]Edison Shipyard     [/color][/bold][/head] [color=gray][italic]                       For plant manager use only[/bolditalic][/head][/color]
       [color=#134975]──────────────────────────────────────[/color]
-      Sector:     [color=#BC0B17][italic]              Coyote Sector[/italic][/color]
+      Sector:     [color=#BC0B17][italic]              Zekke Sector[/italic][/color]
                                     ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
       Chief Architect:   [color=#BC0B17][italic]   Sophie Ilya[/italic][/color]
                                     ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
-      Station:   [color=#BC0B17][italic]                Edison Power Plant[/italic][/color]
+      Station:   [color=#BC0B17][italic]                Edison Shipyard[/italic][/color]
                                     ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
       [head=2][color=#F9B34F]New Design: Edison Shipyard[/color][/head]
       [color=#E47A1F][italic]Servicing Ships since 2526[/italic][/color]
@@ -33,11 +33,9 @@
       [head=3][color=#F9B34F][bold]The station has the following features:[/bold][/color][/head]
       [bullet] Renovated lobby area
       [bullet] Dynamic gas deposits (all docks marked 6 deposit to storage)
-      [bullet] Miners for oxygen and nitrogen
       [bullet] Additional burn chambers for gas synthesis
-      [bullet] Gas sale rate adjustment (now x1.5 market price)
       [bullet] Tesla and singularity containment (inspection pending)
-      [bullet] Supermatter containment (crystal included)
+      [bullet] Supermatter containment (crystal not included)
       [bullet] Full ship drydock and equipment
       [bullet] Dedicated lathe to service ships from shift start
 

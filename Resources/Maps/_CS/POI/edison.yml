@@ -71863,7 +71863,7 @@ entities:
                                       ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
         Chief Architect:   [color=#BC0B17][italic]   Sophie Ilya[/italic][/color]
                                       ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
-        Station:   [color=#BC0B17][italic]                Edison Power Plant[/italic][/color]
+        Station:   [color=#BC0B17][italic]                Edison Shipyard[/italic][/color]
                                       ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
         [head=2][color=#F9B34F]New Design: Edison Shipyard[/color][/head]
 
@@ -88415,7 +88415,7 @@ entities:
   - uid: 13612
     components:
     - type: MetaData
-      name: Edison Power Plant
+      name: Edison Shipyard
     - type: Transform
       pos: 2.5,14.5
       parent: 1
