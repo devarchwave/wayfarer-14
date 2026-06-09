@@ -20,7 +20,7 @@ public sealed partial class MonoCVars
     ///     Whether to enable cleanup debug mode, making it run much more often.
     /// </summary>
     public static readonly CVarDef<bool> CleanupDebug =
-        CVarDef.Create("mono.cleanup.debug", true, CVar.SERVERONLY);
+        CVarDef.Create("mono.cleanup.debug", false, CVar.SERVERONLY);
 
     /// <summary>
     ///     Whether to log every single entity cleanup deletes.
