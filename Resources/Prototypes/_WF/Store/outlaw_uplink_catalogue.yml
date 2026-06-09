@@ -472,22 +472,22 @@
       tags:
       - OutlawUplinkBase
 
-# IFF Board / Disabled until rules around them are cemented in
-#- type: listing
-#  id: UplinkOutlawIFF
-#  name: uplink-outlaw-iff-name
-#  description: uplink-outlaw-iff-desc
-#  productEntity: ComputerIFFFlatpack
-#  icon: { sprite: _NF/Objects/Devices/flatpack.rsi, state: pirate_lathe }
-#  cost:
-#    Doubloon: 15
-#  categories:
-#  - UplinkOutlawUtility
-#  conditions:
-#  - !type:StoreWhitelistCondition
-#    whitelist:
-#      tags:
-#      - OutlawUplinkBase
+# IFF Board
+- type: listing
+  id: UplinkOutlawIFF
+  name: uplink-outlaw-iff-name
+  description: uplink-outlaw-iff-desc
+  productEntity: ComputerIFFFlatpack
+  icon: { sprite: _NF/Objects/Devices/flatpack.rsi, state: pirate_lathe }
+  cost:
+    Doubloon: 8
+  categories:
+  - UplinkOutlawUtility
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - OutlawUplinkBase
 
 # Stitcher
 - type: listing
@@ -1388,7 +1388,7 @@
       tags:
       - OutlawUplinkBase
 
-# Syndie Card
+# Business Card
 - type: listing
   id: UplinkOutlawSyndicateBusinessCard
   name: uplink-outlaw-card-name
@@ -1399,6 +1399,8 @@
   categories:
   - UplinkOutlawMisc
   conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 10
   - !type:StoreWhitelistCondition
     whitelist:
       tags:

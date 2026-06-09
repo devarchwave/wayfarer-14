@@ -479,6 +479,7 @@
   - WFClothingBackpack
   - WFClothingBackpackDuffel
   - WFClothingBackpackSatchel
+  - WFClothingBackpackSmugglerSatchel
   - WFClothingBackpackMessenger
   - WFClothingBackpackSatchelClear
   - WFClothingBackpackCaptain
@@ -1044,6 +1045,7 @@
   - WFClothingHeadsetAltEngineeringCommon
   - WFClothingHeadsetAltMedicalCommon
   - WFClothingHeadsetAltScienceCommon
+  - WFClothingHeadsetAltBloodCommon
   fallbacks:
   - WFClothingHeadsetGreyCommon
 
@@ -1359,6 +1361,7 @@
   - WFSoapNT
   - PlushieLizard
   - PlushieVox # SKREEEEEEEEEEEE!
+  - PlushieExperiment # Wayfarer: EXPIEEEEEEEEE
   - WehfarerPlushie
   - WFPlushieSharkGrey
   - WFPlushieSharkBlue
