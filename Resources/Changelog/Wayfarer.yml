@@ -4489,3 +4489,10 @@ Entries:
   id: 7016
   time: '2026-06-09T19:58:47.0000000+00:00'
   url: https://github.com/project-wayfarer/wayfarer-14/pull/1139
+- author: Rellu225
+  changes:
+    - type: Add
+      message: Added gas selling point to Dusk.
+  id: 7017
+  time: '2026-06-09T19:59:21.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/1140
