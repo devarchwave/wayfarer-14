@@ -168,7 +168,7 @@
     sprite: Clothing/Shoes/Specific/swat.rsi
 
 - type: entity
-  parent: [ClothingShoesBaseButcherable, BaseC3WizardContraband] # Frontier: added BaseC3WizardContraband
+  parent: [ClothingShoesBaseButcherable, BaseC1WizardContraband] # Frontier: added BaseC3WizardContraband # Wayfarer: BaseC3WizardContraband<BaseC1WizardContraband
   id: ClothingShoesWizard
   name: wizard shoes
   description: A pair of magic shoes.
