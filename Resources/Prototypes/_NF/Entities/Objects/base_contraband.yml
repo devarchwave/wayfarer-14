@@ -9,7 +9,7 @@
   - type: Contraband
     severity: Class1
     # Pretty much everyone.
-    allowedDepartments: [ Civilian, Security, Command, Frontier, CentralCommand, Wayfarer] # Wayfarer: Add Wayfarer
+    allowedDepartments: [ Civilian, Security, Command, Frontier, CentralCommand ]
 
 - type: entity
   parent: BaseC1Contraband

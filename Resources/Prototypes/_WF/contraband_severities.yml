@@ -37,9 +37,5 @@
 
 # Magic
 - type: contrabandSeverity
-  id: Class1Wizard
-  examineText: contraband-examine-text-MagicCommon
-
-- type: contrabandSeverity
   id: Class2Wizard
   examineText: contraband-examine-text-MagicRestricted
