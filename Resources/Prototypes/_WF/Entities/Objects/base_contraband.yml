@@ -83,8 +83,7 @@
   components:
   - type: Contraband
     severity: Class1Wizard
-    # Same as C1
-    allowedDepartments: [ Civilian, Security, Command, Frontier, CentralCommand ]
+    hideCarryStatus: true
 
 - type: entity
   id: BaseC2WizardContraband
