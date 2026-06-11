@@ -624,7 +624,7 @@
     modifier: 0.001
 
 - type: entity
-  parent: [PonderingOrb, BaseC1WizardContraband] # Frontier: add BaseC3WizardContraband # Wayfarer: BaseC3WizardContraband<BaseC1WizardContraband
+  parent: [PonderingOrb, BaseC3WizardContraband] # Frontier: add BaseC3WizardContraband
   id: PonderingOrbWizard
   name: pondering orb
   description: Ponderous, man... Really ponderous. Magically shows the station's camera network.

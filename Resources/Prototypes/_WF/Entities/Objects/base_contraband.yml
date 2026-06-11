@@ -77,15 +77,6 @@
 
 # Magic
 - type: entity
-  parent: BaseC1Contraband
-  id: BaseC1WizardContraband
-  abstract: true
-  components:
-  - type: Contraband
-    severity: Class1Wizard
-    hideCarryStatus: true
-
-- type: entity
   id: BaseC2WizardContraband
   abstract: true
   components:

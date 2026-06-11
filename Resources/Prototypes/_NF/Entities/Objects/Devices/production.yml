@@ -400,7 +400,7 @@
 
 # Wizards and cultists
 - type: entity
-  parent: [ BaseC1WizardContraband, BaseMachineCircuitboard ] # Wayfarer: BaseC3WizardContraband<BaseC1WizardContraband
+  parent: [ BaseMachineCircuitboard ] # Wayfarer: Removed BaseC3WizardContraband
   id: ScrollWizardStaffRechargerAltar
   name: wizard staff altar binding scroll
   description: An odd amalgamation of wizardry and circuitry. Somehow it has a number of ports matching a standard NanoTrasen machine frame.

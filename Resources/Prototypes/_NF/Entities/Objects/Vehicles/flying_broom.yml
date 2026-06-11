@@ -1,6 +1,6 @@
 #region vehicle
 - type: entity
-  parent: [ NFVehicleHoverbikeKeys, BaseC1WizardContraband ] # Wayfarer: BaseC3WizardContraband<BaseC1WizardContraband
+  parent: [ NFVehicleHoverbikeKeys ] # Wayfarer: Removed BaseC3WizardContraband
   id: NFVehicleFlyingBroomWithKey
   name: flying broom
   suffix: With key

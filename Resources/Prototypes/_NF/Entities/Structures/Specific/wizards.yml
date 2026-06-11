@@ -97,7 +97,7 @@
 
 #region singing rock
 - type: entity
-  parent: [ BaseMachine, BaseC1WizardContraband ] # Wayfarer: BaseC3WizardContraband<BaseC1WizardContraband
+  parent: [ BaseMachine ] # Wayfarer: Removed BaseC3WizardContraband
   id: SingingRock
   name: singing rock
   description: A rock with charming, melodic voice.
@@ -161,7 +161,7 @@
 
 #region Inf. canisters
 - type: entity
-  parent: [ GasCanister, BaseC1WizardContraband ] # Wayfarer: BaseC3WizardContraband<BaseC1WizardContraband
+  parent: [ GasCanister ] # Wayfarer: Removed BaseC3WizardContraband
   id: WizardGasCanisterBottomlessOxygen
   name: bottomless canister
   suffix: Filled, Oxygen
@@ -191,7 +191,7 @@
       price: 1250
 
 - type: entity
-  parent: [ GasCanister, BaseC1WizardContraband ] # Wayfarer: BaseC3WizardContraband<BaseC1WizardContraband
+  parent: [ GasCanister ] # Wayfarer: Removed BaseC3WizardContraband
   id: WizardGasCanisterBottomlessNitrogen
   name: bottomless canister
   suffix: Filled, Nitrogen
