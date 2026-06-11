@@ -239,7 +239,7 @@
 
 #region cloak of holding
 - type: entity
-  parent: [ ClothingNeckBase, BaseC2WizardContraband ] # Wayfarer: BaseC3WizardContraband<BaseC2WizardContraband
+  parent: [ ClothingNeckBase, BaseC3WizardContraband ]
   id: ClothingNeckCloakWizardHolding
   name: wizard's portal cloak of holding
   description: What happens when your wizardry instructor forbids portal conjuring, yet you do it anyway and attempt to conceal it under your cloak when they are back to check on you?
