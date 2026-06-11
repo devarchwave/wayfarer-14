@@ -7,7 +7,7 @@ contraband-examine-text-commandorcgp = [color=red]This item is restricted to com
 contraband-examine-text-commandonly = [color=red]This item is restricted to Zekke Sector command staff only, is turbo-illegal to possess, and is quite likely to get their employers after it.[/color]
 
 # Magic
-contraband-examine-text-MagicRestricted = [color=purple]The magic inherent to this item is potentially exceedingly harmful or not understood, and its usage is generally restricted without permits.[/color]
+contraband-examine-text-MagicRestricted = [color=purple]The magic inherent to this item is potentially exceedingly harmful or not understood, and is illegal to possess without a permit.[/color]
 contraband-examine-text-MagicDangerous = [color=crimson]The magic inherent to this item is considered incredibly dangerous, and its possession is highly illegal.[/color]
 
 contraband-examine-text-notreal = h
