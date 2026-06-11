@@ -74,3 +74,31 @@
     severity: NotContraband
     hideValues: true
     hideCarryStatus: true
+
+# Magic
+- type: entity
+  parent: BaseC1Contraband
+  id: BaseC1WizardContraband
+  abstract: true
+  components:
+  - type: Contraband
+    severity: Class1Wizard
+    # Same as C1
+    allowedDepartments: [ Civilian, Security, Command, Frontier, CentralCommand ]
+
+- type: entity
+  id: BaseC2WizardContraband
+  abstract: true
+  components:
+  - type: Contraband
+    severity: Class2Wizard
+    turnInValues:
+      FrontierUplinkCoin: 1
+
+- type: entity
+  parent: BaseC2ContrabandUnredeemable
+  id: BaseC2WizardContrabandUnredeemable
+  abstract: true
+  components:
+  - type: Contraband
+    severity: Class2Wizard
