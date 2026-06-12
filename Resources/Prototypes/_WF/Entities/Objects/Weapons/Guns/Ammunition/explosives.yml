@@ -1,0 +1,8 @@
+- type: entity
+  parent: [ NFBaseGrenade40mm, GrenadeFrag ]
+  abstract: true
+  id: WFGrenadeHEAT
+  name: HEAT grenade
+  components:
+  - type: CartridgeAmmo
+    proto: WFBulletGrenadeHEAT
