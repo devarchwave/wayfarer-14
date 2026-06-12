@@ -4551,3 +4551,10 @@ Entries:
   id: 7024
   time: '2026-06-12T05:38:31.0000000+00:00'
   url: https://github.com/project-wayfarer/wayfarer-14/pull/1152
+- author: VVersengt
+  changes:
+    - type: Remove
+      message: Removed gas mutations from plants.
+  id: 7025
+  time: '2026-06-12T15:14:00.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/1162
