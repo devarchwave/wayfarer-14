@@ -4590,3 +4590,10 @@ Entries:
   id: 7029
   time: '2026-06-12T17:31:09.0000000+00:00'
   url: https://github.com/project-wayfarer/wayfarer-14/pull/1160
+- author: Khaomi
+  changes:
+    - type: Fix
+      message: Fixed the tips for having incorrect information
+  id: 7030
+  time: '2026-06-15T17:34:49.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/1168
