@@ -4604,3 +4604,10 @@ Entries:
   id: 7031
   time: '2026-06-15T17:42:40.0000000+00:00'
   url: https://github.com/project-wayfarer/wayfarer-14/pull/1170
+- author: DevArchwave
+  changes:
+    - type: Tweak
+      message: Character descriptions can now benefit from markup formatting. Go nuts.
+  id: 7032
+  time: '2026-06-15T18:48:10.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/1174
