@@ -23036,7 +23036,7 @@ entities:
     - type: Transform
       pos: -3.5,-12.5
       parent: 1
-- proto: WirelessCameraMovableEntertainment
+- proto: SurveillanceWirelessCameraMovableEntertainment
   entities:
   - uid: 3081
     components:
