@@ -4604,3 +4604,81 @@ Entries:
   id: 7031
   time: '2026-06-15T17:42:40.0000000+00:00'
   url: https://github.com/project-wayfarer/wayfarer-14/pull/1170
+- author: DevArchwave
+  changes:
+    - type: Tweak
+      message: Character descriptions can now benefit from markup formatting. Go nuts.
+  id: 7032
+  time: '2026-06-15T18:48:10.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/1174
+- author: noel573
+  changes:
+    - type: Add
+      message: More glasses now have vision correction.
+  id: 7033
+  time: '2026-06-15T22:28:02.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/1175
+- author: Toriate
+  changes:
+    - type: Add
+      message: >-
+        Added new sprites for the disabler, laser pistol, holoflare, disabler
+        SMG, and Laser SMG
+  id: 7034
+  time: '2026-06-16T02:43:36.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/1164
+- author: Toriate
+  changes:
+    - type: Add
+      message: Added new RCD and RPD sprites.
+    - type: Fix
+      message: Fixed the base RCD sprite that had the old RCD underlayed beneath it.
+  id: 7035
+  time: '2026-06-16T02:47:37.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/1167
+- author: Nnelg
+  changes:
+    - type: Add
+      message: Add all current "Maid" dresses to (hacked) Janidrobe.
+    - type: Tweak
+      message: Standardize all hacked/emagged "Maid" clothing count to 2.
+  id: 7036
+  time: '2026-06-16T02:54:10.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/1169
+- author: TheSlapper
+  changes:
+    - type: Tweak
+      message: (Miles) Even more weather optimisations
+  id: 7037
+  time: '2026-06-18T00:34:34.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/1183
+- author: VVersengt
+  changes:
+    - type: Add
+      message: Added separate whitelist to CGP Commodore
+  id: 7038
+  time: '2026-06-18T00:34:48.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/1184
+- author: TheSlapper
+  changes:
+    - type: Fix
+      message: (Miles) intercom pilot bug
+  id: 7039
+  time: '2026-06-18T00:35:18.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/1185
+- author: VVersengt
+  changes:
+    - type: Add
+      message: >-
+        Added faction specific airlocks and docking airlocks to their respective
+        RCDs.
+  id: 7040
+  time: '2026-06-18T00:38:59.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/1177
+- author: DevArchwave
+  changes:
+    - type: Add
+      message: Topical Healing Damage Caps, per request.
+  id: 7041
+  time: '2026-06-18T00:39:46.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/1181
