@@ -371,7 +371,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 26
+        maxVol: 34 # Frontier
         reagents:
         - ReagentId: Nutriment
           Quantity: 7
@@ -409,7 +409,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 20
+        maxVol: 26 # Frontier
         reagents:
         - ReagentId: Nutriment
           Quantity: 5
@@ -566,7 +566,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 20
+        maxVol: 30 # Frontier
         reagents:
         - ReagentId: Nutriment
           Quantity: 15
