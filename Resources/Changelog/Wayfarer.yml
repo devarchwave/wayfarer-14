@@ -4698,3 +4698,10 @@ Entries:
   id: 7043
   time: '2026-06-19T18:41:39.0000000+00:00'
   url: https://github.com/project-wayfarer/wayfarer-14/pull/1047
+- author: Rellu225
+  changes:
+    - type: Add
+      message: Added Baristavend and restocks to cargo.
+  id: 7044
+  time: '2026-06-20T06:31:12.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/1186
