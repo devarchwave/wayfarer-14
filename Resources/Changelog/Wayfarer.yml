@@ -4712,3 +4712,10 @@ Entries:
   id: 7045
   time: '2026-06-20T06:35:18.0000000+00:00'
   url: https://github.com/project-wayfarer/wayfarer-14/pull/1188
+- author: gaywolfgirl6
+  changes:
+    - type: Add
+      message: DIRE Kobold, Guidebook for DIRE Kobold.
+  id: 7046
+  time: '2026-06-20T12:31:42.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/1122
