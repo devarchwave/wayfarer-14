@@ -272,7 +272,7 @@ namespace Content.Client.PDA
                 var timeRemaining = _shiftEndTime.Value - DateTime.UtcNow;
                 if (timeRemaining > TimeSpan.Zero)
                 {
-                    ShiftEndTimeLabel.SetMarkup(Loc.GetString("comp-pda-ui-shift-end-time",
+                    ShiftEndTimeLabel.SetMarkup(Loc.GetString("comp-pda-ui-remaining-time",
                         ("time", $"{timeRemaining.Days}d {timeRemaining.Hours:D2}h {timeRemaining.Minutes:D2}m {timeRemaining.Seconds:D2}s")));
                     ShiftEndTimeLabel.Visible = true;
                 }
@@ -445,7 +445,7 @@ namespace Content.Client.PDA
             var stationTime = _gameTiming.CurTime.Subtract(_gameTicker.RoundStartTimeSpan);
 
             StationTimeLabel.SetMarkup(Loc.GetString("comp-pda-ui-station-time",
-                ("time", stationTime.ToString("d\\:hh\\:mm\\:ss")))); // Wayfarer: "hh\\:mm\\:ss"<"d\\:hh\\:mm\\:ss"
+                ("time", stationTime.ToString("hh\\:mm\\:ss"))));
 
             // Frontier
             if (_roundEndTime is not null)
