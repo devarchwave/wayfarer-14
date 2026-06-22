@@ -38,6 +38,8 @@ namespace Content.Client.PDA
         private string _shuttleDeed = Loc.GetString("comp-pda-ui-unknown"); // Frontier
         private string _currentDate = Loc.GetString("comp-pda-ui-unknown"); // DeltaV - PDA date
         private TimeSpan? _roundEndTime = null; // Frontier
+        private DateTime? _shiftEndTime = null; // Wayfarer: Absolute UTC wall-clock time when the shift ends
+
         private int _currentView;
 
         public event Action<EntityUid>? OnProgramItemPressed;
@@ -199,8 +201,9 @@ namespace Content.Client.PDA
             var stationTime = _gameTiming.CurTime.Subtract(_gameTicker.RoundStartTimeSpan);
 
             StationTimeLabel.SetMarkup(Loc.GetString("comp-pda-ui-station-time",
-                ("time", $"{stationTime.Days}d {stationTime.Hours:D2}h {stationTime.Minutes:D2}m {stationTime.Seconds:D2}s")));
-
+                //("time", $"{stationTime.Days}d {stationTime.Hours:D2}h {stationTime.Minutes:D2}m {stationTime.Seconds:D2}s")));
+                ("time", stationTime.ToString("d\\:hh\\:mm\\:ss")))); // Wayfarer
+            /*
             // Frontier
             if (state.RoundEndTime is not null)
             {
@@ -219,6 +222,14 @@ namespace Content.Client.PDA
 
             RemainingTimeLabel.Visible = _roundEndTime is not null;
             // End Frontier
+            */ // Wayfarer: Commented for the code below.
+            // Wayfarer Start
+            // Store the absolute UTC end time received from the server.
+            // The label is kept live by FrameUpdate() using DateTime.UtcNow (OS clock),
+            // so it counts down accurately regardless of server or game-tick slowdowns.
+            _shiftEndTime = state.ShiftEndTime;
+            UpdateShiftEndTimeLabel();
+            // End Wayfarer
 
             var alertLevel = state.PdaOwnerInfo.StationAlertLevel;
             var alertColor = state.PdaOwnerInfo.StationAlertColor;
@@ -253,6 +264,28 @@ namespace Content.Client.PDA
             ShowUplinkButton.Visible = state.HasUplink;
             LockUplinkButton.Visible = state.HasUplink;
         }
+        // Wayfarer Start
+        private void UpdateShiftEndTimeLabel()
+        {
+            if (_shiftEndTime.HasValue)
+            {
+                var timeRemaining = _shiftEndTime.Value - DateTime.UtcNow;
+                if (timeRemaining > TimeSpan.Zero)
+                {
+                    ShiftEndTimeLabel.SetMarkup(Loc.GetString("comp-pda-ui-remaining-time",
+                        ("time", $"{timeRemaining.Days}d {timeRemaining.Hours:D2}h {timeRemaining.Minutes:D2}m {timeRemaining.Seconds:D2}s")));
+                    ShiftEndTimeLabel.Visible = true;
+                }
+                else
+                {
+                    ShiftEndTimeLabel.Visible = false;
+                }
+            }
+            else
+            {
+                ShiftEndTimeLabel.Visible = false;
+            }
+        }
 
         protected override void FrameUpdate(FrameEventArgs args)
         {
@@ -262,7 +295,9 @@ namespace Content.Client.PDA
             StationTimeLabel.SetMarkup(Loc.GetString("comp-pda-ui-station-time",
                 ("time", $"{stationTime.Days}d {stationTime.Hours:D2}h {stationTime.Minutes:D2}m {stationTime.Seconds:D2}s")));
 
+            UpdateShiftEndTimeLabel();
         }
+        // End Wayfarer
 
         public void UpdateAvailablePrograms(List<(EntityUid, CartridgeComponent)> programs)
         {
@@ -406,7 +441,7 @@ namespace Content.Client.PDA
         protected override void Draw(DrawingHandleScreen handle)
         {
             base.Draw(handle);
-
+            /*
             var stationTime = _gameTiming.CurTime.Subtract(_gameTicker.RoundStartTimeSpan);
 
             StationTimeLabel.SetMarkup(Loc.GetString("comp-pda-ui-station-time",
@@ -424,6 +459,7 @@ namespace Content.Client.PDA
                 }
             }
             // End Frontier
+            */ // Wayfarer: Commented out.
         }
     }
 }

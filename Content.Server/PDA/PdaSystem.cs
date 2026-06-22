@@ -250,7 +250,7 @@ namespace Content.Server.PDA
             if (TryComp<ShuttleDeedComponent>(pda.ContainedId, out var shuttleDeedComp))
                 ownedShipName = ShipyardSystem.GetFullName(shuttleDeedComp);
             // End Frontier: balance & ship deeds
-
+            // Wayfarer Start
             // Send the absolute UTC wall-clock time when the shift ends.
             // Using DateTime.UtcNow (OS time) avoids any game-tick drift that occurs
             // when the server runs slower than real-time under heavy load.
@@ -263,6 +263,7 @@ namespace Content.Server.PDA
                     shiftEndTime = DateTime.UtcNow + timeRemaining;
                 }
             }
+            // End Wayfarer
 
             var state = new PdaUpdateState(
                 programs,
