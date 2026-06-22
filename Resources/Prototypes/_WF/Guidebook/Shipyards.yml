@@ -98,6 +98,7 @@
   - ShipyardPathfinder # FrontierShip Resources/Prototypes/_NF/Guidebook/shipyard.yml
   - ShipyardBehir
   - ShipyardScryer
+  - ShipyardKobold
 
 - type: guideEntry
   id: MedShipyard
@@ -295,3 +296,8 @@
   id: ShipyardMoppet
   name: guide-entry-shipyard-moppet
   text: "/ServerInfo/_WF/Guidebook/Shipyard/StaffShipyard/Moppet.xml"
+
+- type: guideEntry
+  id: ShipyardKobold
+  name: guide-entry-shipyard-kobold
+  text: "/ServerInfo/_WF/Guidebook/Shipyard/ExpedShipyard/Kobold.xml"
