@@ -194,8 +194,8 @@
   id: NuclearReactorCrew
   abstract: true
   components:
-  - type: AccessReader # You got a permit for that meltdown?
-    access: [["Engineering"]]
+  #- type: AccessReader # You got a permit for that meltdown? # Wayfarer: Access Lock Removal
+  #  access: [["Engineering"]]
   - type: Lock
     unlockOnClick: false
   - type: WarpPoint

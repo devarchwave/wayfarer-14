@@ -154,8 +154,8 @@
   id: GasTurbineCrew
   abstract: true
   components:
-  - type: AccessReader # Keeps some random tider from blowing up the turbine
-    access: [["Engineering"]]
+  #- type: AccessReader # Keeps some random tider from blowing up the turbine # Wayfarer: Access Lock Removal
+  #  access: [["Engineering"]]
   - type: Lock
     unlockOnClick: false
 
