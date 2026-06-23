@@ -1,9 +1,3 @@
-// SPDX-FileCopyrightText: 2025 jhrushbe <capnmerry@gmail.com>
-// SPDX-FileCopyrightText: 2025 rottenheadphones <juaelwe@outlook.com>
-// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
-//
-// SPDX-License-Identifier: CC-BY-NC-SA-3.0
-
 using Content.Server.Administration.Logs;
 using Content.Server.AlertLevel;
 using Content.Server.Atmos.EntitySystems;
@@ -54,10 +48,8 @@ namespace Content.Server._FarHorizons.Power.Generation.FissionGenerator;
 // Ported and modified from goonstation by Jhrushbe.
 // CC-BY-NC-SA-3.0
 // https://github.com/goonstation/goonstation/blob/ff86b044/code/obj/nuclearreactor/nuclearreactor.dm
-// Performance optimizations adapted from Far-Horizons-SS14/Far-Horizons-SS14#1000
-// and ss14Starlight/space-station-14#3967.
 
-public sealed class NuclearReactorSystem : EntitySystem
+public sealed partial class NuclearReactorSystem : EntitySystem // Wayfarer: Add Partial
 {
     // The great wall of dependencies
     [Dependency] private readonly AlertLevelSystem _alertLevel = default!;
@@ -94,9 +86,6 @@ public sealed class NuclearReactorSystem : EntitySystem
     }
 
     private readonly Dictionary<KeyValuePair<EntityUid, EntityUid>, LogData> _logQueue = [];
-    private static readonly ReactorPartComponent?[] _neighborBuffer = new ReactorPartComponent?[4];
-
-    private static readonly ReactorPartComponent?[] _neighborBuffer = new ReactorPartComponent?[4];
 
     public override void Initialize()
     {
@@ -144,7 +133,6 @@ public sealed class NuclearReactorSystem : EntitySystem
 
         comp.ComponentGrid = new ReactorPartComponent[gridWidth, gridHeight];
         comp.FluxGrid = new List<ReactorNeutron>[gridWidth, gridHeight];
-        comp.FluxGridScratch = new List<ReactorNeutron>[gridWidth, gridHeight];
         comp.NeutronGrid = new int[gridWidth, gridHeight];
 
         ApplyPrefab(uid, comp);
@@ -169,7 +157,6 @@ public sealed class NuclearReactorSystem : EntitySystem
             {
                 comp.ComponentGrid[x, y] = prefab.TryGetValue(new Vector2i(x, y), out var part) ? new ReactorPartComponent(part) : null;
                 comp.FluxGrid[x, y] = [];
-                comp.FluxGridScratch[x, y] = [];
             }
 
         UpdateGasVolume(comp);
@@ -299,9 +286,8 @@ public sealed class NuclearReactorSystem : EntitySystem
             comp.ApplyPrefab = false;
         }
 
-        _appearance.SetData(uid, ReactorVisuals.Input, inlet.Air.TotalMoles > 20);
-        _appearance.SetData(uid, ReactorVisuals.Output, outlet.Air.TotalMoles > 20);
-
+        _appearance.SetData(uid, ReactorVisuals.Input, inlet.Air.Moles.Sum() > 20);
+        _appearance.SetData(uid, ReactorVisuals.Output, outlet.Air.Moles.Sum() > 20);
 
         var TempRads = 0;
         var ControlRods = 0;
@@ -324,7 +310,8 @@ public sealed class NuclearReactorSystem : EntitySystem
         if (comp.RetractPortState == SignalState.Momentary)
             comp.RetractPortState = SignalState.Low;
 
-        comp.SimTime.Restart();
+        // Record of neutron movement for this tick
+        var flux = new List<(ReactorNeutron neutron, Vector2i source, Vector2i? destination)>();
         for (var x = 0; x < gridWidth; x++)
         {
             for (var y = 0; y < gridHeight; y++)
@@ -339,7 +326,7 @@ public sealed class NuclearReactorSystem : EntitySystem
                     if (gas != null)
                         _atmosphereSystem.Merge(outlet.Air, gas);
 
-                    _partSystem.ProcessHeat(ReactorComp, (uid, comp), GetGridNeighbors(comp, x, y, _neighborBuffer), this);
+                    _partSystem.ProcessHeat(ReactorComp, (uid, comp), GetGridNeighbors(comp, x, y), this);
 
                     if (ReactorComp.HasRodType(ReactorPartComponent.RodTypes.ControlRod) && ReactorComp.IsControlRod)
                     {
@@ -355,9 +342,6 @@ public sealed class NuclearReactorSystem : EntitySystem
                         AvgControlRodInsertion += ReactorComp.NeutronCrossSection;
                 }
 
-                // Move neutrons using double-buffer: build into scratch, then swap. Eliminates O(n) List.Remove
-                // and the full flux snapshot copy. Scratch lists are cleared from previous tick.
-                var scratch = comp.FluxGridScratch;
                 foreach (var neutron in comp.FluxGrid[x, y])
                 {
                     var dir = neutron.dir.AsFlag();
@@ -368,30 +352,27 @@ public sealed class NuclearReactorSystem : EntitySystem
                     if (x + xmod >= 0 && y + ymod >= 0 && x + xmod <= gridWidth - 1
                         && y + ymod <= gridHeight - 1)
                     {
-                        scratch[x + xmod, y + ymod].Add(neutron);
+                        flux.Add((neutron, new Vector2i(x, y), new Vector2i(x + xmod, y + ymod)));
                     }
                     else
                     {
-                        TempRads++; // neutrons hitting the casing get blasted in to the room
+                        flux.Add((neutron, new Vector2i(x, y), null));
+                        TempRads++; // neutrons hitting the casing get blasted in to the room - have fun with that engineers!
                     }
                 }
 
                 comp.NeutronGrid[x, y] = comp.FluxGrid[x, y].Count;
-
-                if(comp.SimTime.Elapsed.TotalMilliseconds > 500)
-                {
-                    QueueDel(uid);
-                    _adminLog.Add(LogType.EntityDelete, LogImpact.Extreme, $"{ToPrettyString(uid):reactor} simulation took too long ({comp.SimTime.Elapsed.TotalMilliseconds} ms).");
-                    return;
-                }
             }
         }
 
-        // Swap grids and clear scratch for next tick
-        (comp.FluxGrid, comp.FluxGridScratch) = (comp.FluxGridScratch, comp.FluxGrid);
-        for (var x = 0; x < gridWidth; x++)
-            for (var y = 0; y < gridHeight; y++)
-                comp.FluxGridScratch[x, y].Clear();
+        // Move neutrons
+        foreach (var (neutron, source, destination) in flux)
+        {
+            comp.FluxGrid[source.X, source.Y].Remove(neutron);
+
+            if (destination.HasValue)
+                comp.FluxGrid[destination.Value.X, destination.Value.Y].Add(neutron);
+        }
 
         AvgControlRodInsertion /= ControlRods;
 
@@ -436,13 +417,26 @@ public sealed class NuclearReactorSystem : EntitySystem
         reactor.RadiationLevel /= Math.Max(reactor.RadiationStability, 1);
     }
 
-    private static ReactorPartComponent?[] GetGridNeighbors(NuclearReactorComponent reactor, int x, int y, ReactorPartComponent?[] buffer)
+    private static List<ReactorPartComponent?> GetGridNeighbors(NuclearReactorComponent reactor, int x, int y)
     {
-        buffer[0] = x - 1 < 0 ? null : reactor.ComponentGrid[x - 1, y];
-        buffer[1] = x + 1 >= reactor.ReactorGridWidth ? null : reactor.ComponentGrid[x + 1, y];
-        buffer[2] = y - 1 < 0 ? null : reactor.ComponentGrid[x, y - 1];
-        buffer[3] = y + 1 >= reactor.ReactorGridHeight ? null : reactor.ComponentGrid[x, y + 1];
-        return buffer;
+        var neighbors = new List<ReactorPartComponent?>();
+        if (x - 1 < 0)
+            neighbors.Add(null);
+        else
+            neighbors.Add(reactor.ComponentGrid[x - 1, y]);
+        if (x + 1 >= reactor.ReactorGridWidth)
+            neighbors.Add(null);
+        else
+            neighbors.Add(reactor.ComponentGrid[x + 1, y]);
+        if (y - 1 < 0)
+            neighbors.Add(null);
+        else
+            neighbors.Add(reactor.ComponentGrid[x, y - 1]);
+        if (y + 1 >= reactor.ReactorGridHeight)
+            neighbors.Add(null);
+        else
+            neighbors.Add(reactor.ComponentGrid[x, y + 1]);
+        return neighbors;
     }
 
     private void UpdateGasVolume(NuclearReactorComponent reactor)
@@ -532,14 +526,11 @@ public sealed class NuclearReactorSystem : EntitySystem
         if (stationUid != null)
             _alertLevel.SetLevel(stationUid.Value, comp.MeltdownAlertLevel, true, true, true);
 
-        string stationName = GetReactorLocation(uid); // Wayfarer
-        //var announcement = Loc.GetString("reactor-meltdown-announcement"); // Wayfarer: Edited for the one below
-        var announcement = Loc.GetString("reactor-meltdown-announcement-wf", ("station", stationName));
+        var announcement = Loc.GetString("reactor-meltdown-announcement");
         var sender = Loc.GetString("reactor-meltdown-announcement-sender");
         _chatSystem.DispatchStationAnnouncement(stationUid ?? uid, announcement, sender, false, null, Color.Orange);
 
-        //_soundSystem.PlayGlobalOnStation(uid, _audio.ResolveSound(comp.MeltdownSound)); // Wayfarer: Commented for the one below
-        _audio.PlayGlobal(comp.MeltdownSound, Filter.Broadcast(), true);
+        _soundSystem.PlayGlobalOnStation(uid, _audio.ResolveSound(comp.MeltdownSound));
 
         comp.Melted = true;
         var MeltdownBadness = 0f;
@@ -566,6 +557,7 @@ public sealed class NuclearReactorSystem : EntitySystem
                     comp.ComponentGrid[x, y] = null;
                     comp.NeutronGrid[x, y] = 0;
                     comp.FluxGrid[x, y] = [];
+                    QueueDel(comp.GridEntities[new(x, y)]);
                 }
             }
         }
@@ -577,7 +569,7 @@ public sealed class NuclearReactorSystem : EntitySystem
         if (T != null)
             _atmosphereSystem.Merge(T, comp.AirContents);
 
-        _adminLog.Add(LogType.Explosion, LogImpact.Extreme, $"{ToPrettyString(uid):reactor} catastrophically overloads, meltdown badness: {MeltdownBadness}");
+        _adminLog.Add(LogType.Explosion, LogImpact.High, $"{ToPrettyString(uid):reactor} catastrophically overloads, meltdown badness: {MeltdownBadness}");
 
         // You did not see graphite on the roof. You're in shock. Report to medical.
         for (var i = 0; i < _random.Next(10, 30); i++)
@@ -858,26 +850,16 @@ public sealed class NuclearReactorSystem : EntitySystem
                     continue;
                 }
 
-                // There's quite a few edge cases where this could go wrong, so this try-catch is to stop it from taking the server down with it
-                // Known cases: deletion of reactor, changing of prefab, deletion of a rod
-                try
+                dict.Add(new(x, y), new ReactorSlotBUIData
                 {
-                    dict.Add(new(x, y), new ReactorSlotBUIData
-                    {
-                        Temperature = reactorPart.Temperature,
-                        NeutronCount = reactor.NeutronGrid[x, y],
-                        IconName = reactorPart.IconStateInserted,
-                        PartName = Identity.Name(reactor.GridEntities[new(x, y)], _entityManager),
-                        NeutronRadioactivity = reactorPart.Properties.NeutronRadioactivity,
-                        Radioactivity = reactorPart.Properties.Radioactivity,
-                        SpentFuel = reactorPart.Properties.FissileIsotopes
-                    });
-                }
-                catch
-                {
-                    _uiSystem.CloseUi(uid, NuclearReactorUiKey.Key);
-                    return;
-                }
+                    Temperature = reactorPart.Temperature,
+                    NeutronCount = reactor.NeutronGrid[x, y],
+                    IconName = reactorPart.IconStateInserted,
+                    PartName = Identity.Name(reactor.GridEntities[new(x, y)], _entityManager),
+                    NeutronRadioactivity = reactorPart.Properties.NeutronRadioactivity,
+                    Radioactivity = reactorPart.Properties.Radioactivity,
+                    SpentFuel = reactorPart.Properties.FissileIsotopes
+                });
             }
         }
 

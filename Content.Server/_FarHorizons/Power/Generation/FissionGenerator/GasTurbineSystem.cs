@@ -1,10 +1,3 @@
-// SPDX-FileCopyrightText: 2025 jhrushbe <capnmerry@gmail.com>
-// SPDX-FileCopyrightText: 2025 rottenheadphones <juaelwe@outlook.com>
-// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
-//
-// SPDX-License-Identifier: CC-BY-NC-SA-3.0
-
-
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Atmos.Piping.Components;
 using Content.Server.Audio;
@@ -22,6 +15,7 @@ using Content.Shared.Atmos;
 using Content.Shared.Audio;
 using Content.Shared.Construction.Components;
 using Content.Shared.Containers.ItemSlots;
+using Content.Shared.Damage; // Wayfarer
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Database;
@@ -32,6 +26,7 @@ using Content.Shared.Electrocution;
 using Content.Shared.Examine;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
+using Content.Shared.Rejuvenate;
 using Content.Shared.Repairable;
 using Robust.Server.Audio;
 using Robust.Server.GameObjects;
@@ -94,6 +89,7 @@ public sealed class GasTurbineSystem : EntitySystem
         SubscribeLocalEvent<GasTurbineComponent, ComponentShutdown>(OnShutdown);
 
         SubscribeLocalEvent<GasTurbineComponent, DamageChangedEvent>(OnDamaged);
+        SubscribeLocalEvent<GasTurbineComponent, RejuvenateEvent>(OnRejuvenate);
 
         SubscribeLocalEvent<GasTurbineComponent, ItemSlotInsertAttemptEvent>(OnInsertAttempt);
         SubscribeLocalEvent<GasTurbineComponent, ItemSlotEjectAttemptEvent>(OnEjectAttempt);
@@ -633,6 +629,19 @@ public sealed class GasTurbineSystem : EntitySystem
             comp.CurrentStator = null;
         }
         comp.Ruined = true;
+    }
+
+    private void OnRejuvenate(EntityUid uid, GasTurbineComponent comp, ref RejuvenateEvent args)
+    {
+        comp.RPM = 0;
+        comp.CurrentBlade ??= SpawnInContainerOrDrop("SteelGasTurbineBlade", uid, BladeContainer);
+        comp.CurrentStator ??= SpawnInContainerOrDrop("SteelGasTurbineStator", uid, StatorContainer);
+        UpdatePartValues(comp);
+        comp.Ruined = false;
+        comp.FlowRate = 200;
+        comp.StatorLoad = 35000;
+        comp.IsSmoking = false;
+        comp.IsSparking = false;
     }
 
     private void OnEjectAttempt(EntityUid uid, GasTurbineComponent comp, ref ItemSlotEjectAttemptEvent args)

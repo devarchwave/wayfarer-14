@@ -129,6 +129,10 @@ public sealed partial class ReactorPartSystem
 
     private void OnAtmosExposed(EntityUid uid, ReactorPartComponent component, ref AtmosExposedUpdateEvent args)
     {
+        // Stops it from cooking the room while in the reactor
+        if(!TryComp(uid, out MetaDataComponent? metaData) || (metaData.Flags & MetaDataFlags.InContainer) == MetaDataFlags.InContainer)
+            return;
+
         // Can't use args.GasMixture because then it wouldn't excite the tile
         var gasMix = _atmosphereSystem.GetContainingMixture(uid, false, true) ?? GasMixture.SpaceGas;
         if(gasMix.TotalMoles < Atmospherics.GasMinMoles)

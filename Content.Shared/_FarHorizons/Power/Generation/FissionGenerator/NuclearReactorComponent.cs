@@ -9,7 +9,6 @@ using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
-using Robust.Shared.Timing;
 using System.Numerics;
 
 namespace Content.Shared._FarHorizons.Power.Generation.FissionGenerator;
@@ -17,8 +16,6 @@ namespace Content.Shared._FarHorizons.Power.Generation.FissionGenerator;
 // Ported and modified from goonstation by Jhrushbe.
 // CC-BY-NC-SA-3.0
 // https://github.com/goonstation/goonstation/blob/ff86b044/code/obj/nuclearreactor/nuclearreactor.dm
-// Performance optimizations adapted from Far-Horizons-SS14/Far-Horizons-SS14#1000
-// and ss14Starlight/space-station-14#3967.
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class NuclearReactorComponent : Component
@@ -63,11 +60,6 @@ public sealed partial class NuclearReactorComponent : Component
     /// 2D grid of lists of neutrons in each grid slot of the component grid
     /// </summary>
     public List<ReactorNeutron>[,] FluxGrid;
-
-    /// <summary>
-    /// Scratch buffer for neutron movement. Avoids List.Remove and flux snapshot allocs.
-    /// </summary>
-    public List<ReactorNeutron>[,] FluxGridScratch;
 
     /// <summary>
     /// Number of neutrons that hit the edge of the reactor grid last tick
@@ -229,6 +221,7 @@ public sealed partial class NuclearReactorComponent : Component
     /// The selected prefab
     /// </summary>
     [DataField]
+    /*
     public string Prefab
     {
         get;
@@ -238,6 +231,8 @@ public sealed partial class NuclearReactorComponent : Component
             field = value;
         }
     } = "ReactorPrefab7x7Normal";
+    */ // Wayfarer: Not yet suported
+    public string Prefab = "ReactorPrefab7x7Normal"; // Wayfarer: Replacement
 
     /// <summary>
     /// Flag indicating the reactor should apply the selected prefab
@@ -350,13 +345,6 @@ public sealed partial class NuclearReactorComponent : Component
     [ViewVariables(VVAccess.ReadWrite)]
     public SignalState InsertPortState = SignalState.Low;
     #endregion
-
-    /// <summary>
-    /// Stopwatch that keeps track of how long the reactor is taking to process
-    /// </summary>
-    /// <remarks>This is so the reactor will delete itself if it starts hogging too many resources</remarks>
-    [ViewVariables]
-    public readonly Stopwatch SimTime = new();
 }
 
 [Serializable, NetSerializable, DataDefinition]

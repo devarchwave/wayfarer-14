@@ -5,7 +5,7 @@ namespace Content.Shared._FarHorizons.CCVar;
 [CVarDefs]
 public sealed partial class FHCCVars
 {
-    
+
     public static readonly CVarDef<string> ServerName =
         CVarDef.Create("lobby.server_name", "Far Horizons", CVar.SERVER | CVar.REPLICATED);
 

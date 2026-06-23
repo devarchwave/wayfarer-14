@@ -1,18 +1,6 @@
-// SPDX-FileCopyrightText: 2025 jhrushbe <capnmerry@gmail.com>
-// SPDX-FileCopyrightText: 2025 rottenheadphones <juaelwe@outlook.com>
-// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
-//
-// SPDX-License-Identifier: CC-BY-NC-SA-3.0
-
-using System.Numerics;
-using Content.Client.UserInterface;
-using Content.Shared._FarHorizons.Power.Generation.FissionGenerator;
-using Content.Shared.Atmos.Piping.Binary.Components;
-using Content.Shared.Atmos.Piping.Unary.Components;
-using Content.Shared.IdentityManagement;
-using JetBrains.Annotations;
-using Robust.Client.Timing;
 using Robust.Client.UserInterface;
+using JetBrains.Annotations;
+using Content.Shared._FarHorizons.Power.Generation.FissionGenerator;
 
 namespace Content.Client._FarHorizons.Power.UI;
 

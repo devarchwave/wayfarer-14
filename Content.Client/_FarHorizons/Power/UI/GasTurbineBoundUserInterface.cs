@@ -1,14 +1,8 @@
-// SPDX-FileCopyrightText: 2025 jhrushbe <capnmerry@gmail.com>
-// SPDX-FileCopyrightText: 2025 rottenheadphones <juaelwe@outlook.com>
-// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
-//
-// SPDX-License-Identifier: CC-BY-NC-SA-3.0
-
-using Content.Client.UserInterface;
-using Content.Shared._FarHorizons.Power.Generation.FissionGenerator;
-using JetBrains.Annotations;
-using Robust.Client.Timing;
 using Robust.Client.UserInterface;
+using Robust.Client.Timing;
+using JetBrains.Annotations;
+using Content.Shared._FarHorizons.Power.Generation.FissionGenerator;
+using Content.Client.UserInterface;
 using System.Diagnostics.CodeAnalysis;
 
 namespace Content.Client._FarHorizons.Power.UI;
@@ -26,6 +20,8 @@ public sealed class GasTurbineBoundUserInterface : BoundUserInterface, IBuiPreTi
     private GasTurbineWindow? _window;
 
     private BuiPredictionState? _pred;
+    private InputCoalescer<float> _flowRateCoalescer;
+    private InputCoalescer<float> _statorLoadCoalescer;
 
     public GasTurbineBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey) => IoCManager.InjectDependencies(this);
 
@@ -47,14 +43,8 @@ public sealed class GasTurbineBoundUserInterface : BoundUserInterface, IBuiPreTi
         else
             _window.SetEntity(Owner);
 
-        _window.TurbineFlowRateChanged += val =>
-        {
-            _pred?.SendMessage(new TurbineChangeFlowRateMessage(val));
-        };
-        _window.TurbineStatorLoadChanged += val =>
-        {
-            _pred?.SendMessage(new TurbineChangeStatorLoadMessage(val));
-        };
+        _window.TurbineFlowRateChanged += val => _flowRateCoalescer.Set(val);
+        _window.TurbineStatorLoadChanged += val => _statorLoadCoalescer.Set(val);
         Update();
     }
 

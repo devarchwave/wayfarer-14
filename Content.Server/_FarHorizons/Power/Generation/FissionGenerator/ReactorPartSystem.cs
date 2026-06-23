@@ -1,9 +1,3 @@
-// SPDX-FileCopyrightText: 2025 jhrushbe <capnmerry@gmail.com>
-// SPDX-FileCopyrightText: 2025 rottenheadphones <juaelwe@outlook.com>
-// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
-//
-// SPDX-License-Identifier: CC-BY-NC-SA-3.0
-
 using Content.Server.Atmos.EntitySystems;
 using Content.Shared._FarHorizons.Materials.Systems;
 using Content.Shared._FarHorizons.Power.Generation.FissionGenerator;
@@ -15,9 +9,7 @@ namespace Content.Server._FarHorizons.Power.Generation.FissionGenerator;
 
 // Ported and modified from goonstation by Jhrushbe.
 // CC-BY-NC-SA-3.0
-// https://github.com/goonstation/goonstation/blob/master/code/obj/nuclearreactor/reactorcomponents.dm
-// Performance optimizations adapted from Far-Horizons-SS14/Far-Horizons-SS14#1000
-// and ss14Starlight/space-station-14#3967.
+// https://github.com/goonstation/goonstation/blob/ff86b044/code/obj/nuclearreactor/reactorcomponents.dm
 
 public sealed partial class ReactorPartSystem : SharedReactorPartSystem
 {
@@ -112,7 +104,7 @@ public sealed partial class ReactorPartSystem : SharedReactorPartSystem
     /// <param name="AdjacentComponents">List of reactor parts next to the reactorPart.</param>
     /// <param name="reactorSystem">The SharedNuclearReactorSystem.</param>
     /// <exception cref="Exception">Calculations resulted in a sub-zero value.</exception>
-    public void ProcessHeat(ReactorPartComponent reactorPart, Entity<NuclearReactorComponent> reactorEnt, ReactorPartComponent?[] AdjacentComponents, NuclearReactorSystem reactorSystem)
+    public void ProcessHeat(ReactorPartComponent reactorPart, Entity<NuclearReactorComponent> reactorEnt, List<ReactorPartComponent?> AdjacentComponents, NuclearReactorSystem reactorSystem)
     {
         var reactor = reactorEnt.Comp;
 
@@ -223,9 +215,9 @@ public sealed partial class ReactorPartSystem : SharedReactorPartSystem
     public List<ReactorNeutron> ProcessNeutrons(ReactorPartComponent reactorPart, List<ReactorNeutron> neutrons, out float thermalEnergy)
     {
         var preCalcTemp = reactorPart.Temperature;
-        var result = new List<ReactorNeutron>(neutrons.Count); // Avoid Remove: build new list
+        var flux = new List<ReactorNeutron>(neutrons);
 
-        foreach (var neutron in neutrons)
+        foreach (var neutron in flux)
         {
             if (Prob(reactorPart.Properties.Density * ReactionRate * reactorPart.NeutronCrossSection * NeutronReactionBias))
             {
@@ -235,8 +227,9 @@ public sealed partial class ReactorPartSystem : SharedReactorPartSystem
                     reactorPart.Properties.Radioactivity += ReactionProduct;
                     for (var i = 0; i < _random.Next(1, 5 + 1); i++)
                     {
-                        result.Add(new() { dir = _random.NextAngle().GetDir(), velocity = _random.Next(2, 3 + 1) });
+                        neutrons.Add(new() { dir = _random.NextAngle().GetDir(), velocity = _random.Next(2, 3 + 1) });
                     }
+                    neutrons.Remove(neutron);
                     reactorPart.Temperature += 50f * StimulatedHeatingFactor;
                 }
                 else if (neutron.velocity <= 5 && Prob(ReactionRate * reactorPart.Properties.Radioactivity * NeutronReactionBias)) // stimulated emission
@@ -245,8 +238,9 @@ public sealed partial class ReactorPartSystem : SharedReactorPartSystem
                     reactorPart.Properties.FissileIsotopes += ReactionProduct;
                     for (var i = 0; i < _random.Next(1, 5 + 1); i++)
                     {
-                        result.Add(new() { dir = _random.NextAngle().GetDir(), velocity = _random.Next(1, 3 + 1) });
+                        neutrons.Add(new() { dir = _random.NextAngle().GetDir(), velocity = _random.Next(1, 3 + 1) });
                     }
+                    neutrons.Remove(neutron);
                     reactorPart.Temperature += 25f * StimulatedHeatingFactor;
                 }
                 else
@@ -259,22 +253,19 @@ public sealed partial class ReactorPartSystem : SharedReactorPartSystem
                     else
                         neutron.velocity--;
 
-                    if (neutron.velocity > 0)
-                        result.Add(neutron);
+                    if (neutron.velocity <= 0)
+                        neutrons.Remove(neutron);
 
-                    reactorPart.Temperature += 1f * StimulatedHeatingFactor;
+                    reactorPart.Temperature += 1f; // ... not worth the adjustment
                 }
-            }
-            else
-            {
-                result.Add(neutron);
             }
         }
         if (Prob(reactorPart.Properties.NeutronRadioactivity * ReactionRate * reactorPart.NeutronCrossSection))
         {
-            for (var i = 0; i < _random.Next(1, 3 + 1); i++)
+            var count = _random.Next(1, 3 + 1);
+            for (var i = 0; i < count; i++)
             {
-                result.Add(new() { dir = _random.NextAngle().GetDir(), velocity = 3 });
+                neutrons.Add(new() { dir = _random.NextAngle().GetDir(), velocity = 3 });
             }
             reactorPart.Properties.NeutronRadioactivity -= ReactionReactant * SpontaneousReactionConsumptionMultiplier;
             reactorPart.Properties.Radioactivity += ReactionProduct * SpontaneousReactionConsumptionMultiplier;
@@ -282,9 +273,10 @@ public sealed partial class ReactorPartSystem : SharedReactorPartSystem
         }
         if (Prob(reactorPart.Properties.Radioactivity * ReactionRate * reactorPart.NeutronCrossSection))
         {
-            for (var i = 0; i < _random.Next(1, 3 + 1); i++)
+            var count = _random.Next(1, 3 + 1);
+            for (var i = 0; i < count; i++)
             {
-                result.Add(new() { dir = _random.NextAngle().GetDir(), velocity = _random.Next(1, 3 + 1) });
+                neutrons.Add(new() { dir = _random.NextAngle().GetDir(), velocity = _random.Next(1, 3 + 1) });
             }
             reactorPart.Properties.Radioactivity -= ReactionReactant * SpontaneousReactionConsumptionMultiplier;
             reactorPart.Properties.FissileIsotopes += ReactionProduct * SpontaneousReactionConsumptionMultiplier;
@@ -303,10 +295,11 @@ public sealed partial class ReactorPartSystem : SharedReactorPartSystem
         }
 
         if (reactorPart.HasRodType(ReactorPartComponent.RodTypes.GasChannel))
-            result = ProcessNeutronsGas(reactorPart, result);
+            neutrons = ProcessNeutronsGas(reactorPart, neutrons);
 
+        neutrons ??= [];
         thermalEnergy = (reactorPart.Temperature - preCalcTemp) * reactorPart.ThermalMass;
-        return result;
+        return neutrons;
     }
 
     /// <summary>
@@ -319,25 +312,21 @@ public sealed partial class ReactorPartSystem : SharedReactorPartSystem
     {
         if (reactorPart.AirContents == null) return neutrons;
 
-        var result = new List<ReactorNeutron>(neutrons.Count + 8);
-        foreach (var neutron in neutrons)
+        var flux = new List<ReactorNeutron>(neutrons);
+        foreach (var neutron in flux)
         {
-            if (neutron.velocity <= 0)
-                continue;
-
-            var neutronCount = GasNeutronInteract(reactorPart);
-            if (neutronCount > 1)
+            if (neutron.velocity > 0)
             {
-                for (var i = 0; i < neutronCount; i++)
-                    result.Add(new() { dir = _random.NextAngle().GetDir(), velocity = _random.Next(1, 3 + 1) });
-            }
-            else if (neutronCount >= 1)
-            {
-                result.Add(neutron);
+                var neutronCount = GasNeutronInteract(reactorPart);
+                if (neutronCount > 1)
+                    for (var i = 0; i < neutronCount; i++)
+                        neutrons.Add(new() { dir = _random.NextAngle().GetDir(), velocity = _random.Next(1, 3 + 1) });
+                else if (neutronCount < 1)
+                    neutrons.Remove(neutron);
             }
         }
 
-        return result;
+        return neutrons;
     }
 
     /// <summary>

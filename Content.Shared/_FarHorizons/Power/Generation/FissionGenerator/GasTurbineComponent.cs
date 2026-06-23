@@ -1,4 +1,3 @@
-
 using Robust.Shared.Prototypes;
 using Robust.Shared.GameStates;
 using Content.Shared.Tools;
@@ -33,7 +32,7 @@ public sealed partial class GasTurbineComponent : Component
     /// Maximum setting of stator load
     /// </summary>
     // [DataField]
-    // public float StatorLoadMax = 500000; 
+    // public float StatorLoadMax = 500000;
 
     /// <summary>
     /// Current RPM of turbine
