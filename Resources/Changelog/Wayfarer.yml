@@ -4737,3 +4737,10 @@ Entries:
   id: 7048
   time: '2026-06-25T21:15:32.0000000+00:00'
   url: https://github.com/project-wayfarer/wayfarer-14/pull/1232
+- author: DevArchwave
+  changes:
+    - type: Fix
+      message: Fixed the logprobe's inability to print logs.
+  id: 7049
+  time: '2026-06-25T21:25:28.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/1229
