@@ -150,6 +150,7 @@
   - type: ShipyardSellCondition # Frontier: Teleport to shipyard console on sale
     preserveOnSale: true
   - type: BlipCartridge
+  - type: CleanupImmune # Wayfarer
 
 - type: entity
   parent: BasePDA
