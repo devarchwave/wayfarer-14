@@ -4728,3 +4728,12 @@ Entries:
   id: 7047
   time: '2026-06-25T21:08:09.0000000+00:00'
   url: https://github.com/project-wayfarer/wayfarer-14/pull/1218
+- author: DevArchwave
+  changes:
+    - type: Add
+      message: >-
+        All upstream changes from Frontier until the 31st of May have been
+        added.
+  id: 7048
+  time: '2026-06-25T21:15:32.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/1232
