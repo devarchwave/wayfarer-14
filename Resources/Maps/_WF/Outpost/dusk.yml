@@ -4,7 +4,7 @@ meta:
   engineVersion: 267.3.0
   forkId: ""
   forkVersion: ""
-  time: 06/23/2026 17:40:06
+  time: 06/26/2026 04:13:21
   entityCount: 20474
 maps:
 - 1
@@ -19276,16 +19276,12 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 23.5,-6.5
       parent: 2
-    - type: Docking
-      dockType: None
   - uid: 454
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 23.5,-8.5
       parent: 2
-    - type: Docking
-      dockType: None
   - uid: 455
     components:
     - type: Transform
@@ -19293,7 +19289,6 @@ entities:
       pos: 23.5,-7.5
       parent: 2
     - type: Docking
-      dockType: None
       name: dock-label-medical
 - proto: AirSensorVox
   entities:
@@ -118007,7 +118002,6 @@ entities:
   - uid: 16375
     components:
     - type: Transform
-      anchored: False
       pos: 0.5,-55.7
       parent: 2
     - type: Fixtures
@@ -118032,7 +118026,6 @@ entities:
   - uid: 16378
     components:
     - type: Transform
-      anchored: False
       pos: -0.5,-61.3
       parent: 2
     - type: Fixtures
@@ -118040,7 +118033,6 @@ entities:
   - uid: 16379
     components:
     - type: Transform
-      anchored: False
       pos: 6.5,-96.7
       parent: 2
     - type: Fixtures
@@ -118050,7 +118042,6 @@ entities:
   - uid: 16380
     components:
     - type: Transform
-      anchored: False
       rot: 3.141592653589793 rad
       pos: 6.5,-96.3
       parent: 2
@@ -118059,7 +118050,6 @@ entities:
   - uid: 16381
     components:
     - type: Transform
-      anchored: False
       rot: -1.5707963267948966 rad
       pos: 23.5,-55.3
       parent: 2
@@ -118068,7 +118058,6 @@ entities:
   - uid: 16382
     components:
     - type: Transform
-      anchored: False
       rot: 3.141592653589793 rad
       pos: 0.5,-55.3
       parent: 2
@@ -118077,7 +118066,6 @@ entities:
   - uid: 16383
     components:
     - type: Transform
-      anchored: False
       rot: 1.5707963267948966 rad
       pos: 7.5,-40.7
       parent: 2
@@ -118097,7 +118085,6 @@ entities:
   - uid: 16385
     components:
     - type: Transform
-      anchored: False
       rot: 3.141592653589793 rad
       pos: 1.5,-55.7
       parent: 2
@@ -118108,7 +118095,6 @@ entities:
   - uid: 16386
     components:
     - type: Transform
-      anchored: False
       rot: -1.5707963267948966 rad
       pos: 23.5,-55.7
       parent: 2
@@ -118236,7 +118222,6 @@ entities:
   - uid: 16401
     components:
     - type: Transform
-      anchored: False
       rot: 3.141592653589793 rad
       pos: 1.5,-55.3
       parent: 2
@@ -118245,7 +118230,6 @@ entities:
   - uid: 16402
     components:
     - type: Transform
-      anchored: False
       rot: 3.141592653589793 rad
       pos: 7.5,-40.3
       parent: 2
