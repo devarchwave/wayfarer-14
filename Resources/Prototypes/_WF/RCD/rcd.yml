@@ -73,7 +73,7 @@
   rotation: Fixed
   fx: EffectRCDConstruct2
 
-# Walls
+# Reinforced Walls
 - type: rcd
   id: WallReinforced
   category: WallsAndFlooring
@@ -102,23 +102,8 @@
   collisionBounds: "-0.23,-0.49,0.23,-0.36"
   rotation: User
   fx: EffectRCDConstruct2
-#
-- type: rcd
-  id: WallReinforcedWindow
-  category: WindowsAndGrilles
-  sprite:
-    sprite: /Textures/Structures/Windows/reinforced_window.rsi
-    state: full
-  mode: ConstructObject
-  prototype: ReinforcedWindow
-  cost: 6
-  delay: 2
-  collisionMask: Impassable
-  rules:
-  - IsWindow
-  rotation: Fixed
-  fx: EffectRCDConstruct2
 
+# Reinforced Windows
 - type: rcd
   id: ReinforcedWindowDiagonal
   category: WindowsAndGrilles
@@ -135,7 +120,8 @@
   collisionBounds: "-0.23,-0.49,0.23,-0.36"
   rotation: User
   fx: EffectRCDConstruct2
-#
+
+# Shuttle Walls
 - type: rcd
   id: WallShuttle
   category: WallsAndFlooring
@@ -164,7 +150,8 @@
   collisionBounds: "-0.23,-0.49,0.23,-0.36"
   rotation: User
   fx: EffectRCDConstruct2
-#
+
+# Shuttle Windows
 - type: rcd
   id: ShuttleWindow
   category: WindowsAndGrilles
@@ -198,8 +185,71 @@
   rotation: User
   fx: EffectRCDConstruct2
 
+# Plastitanium Walls
+- type: rcd
+  id: WallPlastitanium
+  category: WallsAndFlooring
+  sprite:
+    sprite: /Textures/Structures/Walls/plastitanium.rsi
+    state: full
+  mode: ConstructObject
+  prototype: WallPlastitanium
+  cost: 8
+  delay: 2
+  collisionMask: FullTileMask
+  rotation: Fixed
+  fx: EffectRCDConstruct2
 
-# Docking
+- type: rcd
+  id: WallPlastitaniumDiagonal
+  category: WallsAndFlooring
+  sprite:
+    sprite: /Textures/Structures/Walls/plastitanium_diagonal.rsi
+    state: state0
+  mode: ConstructObject
+  prototype: WallPlastitaniumDiagonal
+  cost: 6
+  delay: 2
+  collisionMask: FullTileMask
+  collisionBounds: "-0.23,-0.49,0.23,-0.36"
+  rotation: User
+  fx: EffectRCDConstruct2
+
+# Plastitanium Windows
+- type: rcd
+  id: PlastitaniumWindow
+  category: WindowsAndGrilles
+  sprite:
+    sprite: /Textures/Structures/Windows/plastitanium_window.rsi
+    state: full
+  mode: ConstructObject
+  prototype: PlastitaniumWindow
+  cost: 6
+  delay: 2
+  collisionMask: Impassable
+  rules:
+  - IsWindow
+  rotation: Fixed
+  fx: EffectRCDConstruct2
+
+- type: rcd
+  id: PlastitaniumWindowDiagonal
+  category: WindowsAndGrilles
+  sprite:
+    sprite: /Textures/Structures/Windows/plastitanium_window_diagonal.rsi
+    state: state0
+  mode: ConstructObject
+  prototype: PlastitaniumWindowDiagonal
+  cost: 3
+  delay: 2
+  collisionMask: Impassable
+  collisionBounds: "-0.23,-0.49,0.23,-0.36"
+  rules:
+  - IsWindow
+  rotation: User
+  fx: EffectRCDConstruct2
+
+# Airlocks
 
 - type: rcd
   id: AirlockShuttle
@@ -239,6 +289,64 @@
   rotation: User
   fx: EffectRCDConstruct4
 
+# CGP
+
+- type: rcd
+  id: AirlockNfsdLocked
+  category: Airlocks
+  sprite:
+    sprite: /Textures/_WF/Structures/Doors/Airlocks/Standard/cgp.rsi
+    state: closed
+  mode: ConstructObject
+  prototype: AirlockNfsdLocked
+  cost: 4
+  delay: 4
+  collisionMask: FullTileMask
+  rotation: User
+  fx: EffectRCDConstruct4
+
+- type: rcd
+  id: AirlockNfsdGlassLocked
+  category: Airlocks
+  sprite:
+    sprite: /Textures/_WF/Structures/Doors/Airlocks/Glass/cgp.rsi
+    state: closed
+  mode: ConstructObject
+  prototype: AirlockNfsdGlassLocked
+  cost: 4
+  delay: 4
+  collisionMask: FullTileMask
+  rotation: User
+  fx: EffectRCDConstruct4
+
+- type: rcd
+  id: AirlockShuttleNfsdLocked
+  category: Airlocks
+  sprite:
+    sprite: /Textures/_WF/Structures/Doors/Airlocks/Standard/dockcgp.rsi
+    state: closed
+  mode: ConstructObject
+  prototype: AirlockShuttleNfsdLocked
+  cost: 25
+  delay: 15
+  collisionMask: FullTileMask
+  rotation: User
+  fx: EffectRCDConstruct4
+
+- type: rcd
+  id: AirlockGlassShuttleNfsdLocked
+  category: Airlocks
+  sprite:
+    sprite: /Textures/_WF/Structures/Doors/Airlocks/Glass/dockcgp.rsi
+    state: closed
+  mode: ConstructObject
+  prototype: AirlockGlassShuttleNfsdLocked
+  cost: 25
+  delay: 15
+  collisionMask: FullTileMask
+  rotation: User
+  fx: EffectRCDConstruct4
+
 # idk
 
 - type: rcd
@@ -247,8 +355,8 @@
   sprite: /Textures/_WF/Interface/Radial/RCD/directionalfan.png
   mode: ConstructObject
   prototype: AtmosDeviceFanDirectional
-  cost: 25
-  delay: 15
+  cost: 10
+  delay: 4
   collisionMask: Impassable
   rotation: User
   fx: EffectRCDConstruct4
