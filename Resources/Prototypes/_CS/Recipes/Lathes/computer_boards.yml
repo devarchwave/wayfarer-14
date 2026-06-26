@@ -1,5 +1,0 @@
-# Engineering
-- type: latheRecipe
-  parent: [ BaseCircuitboardRecipe, BaseEngineeringComputerRecipeCategory ]
-  id: PowerComputerCircuitboard
-  result: PowerComputerCircuitboard
