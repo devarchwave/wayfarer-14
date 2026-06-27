@@ -134,7 +134,7 @@ public sealed class InnerBodyAnomalySystem : SharedInnerBodyAnomalySystem
         if (!TryComp<BodyComponent>(ent, out var body))
             return;
 
-        _body.GibBody(ent, true, body, splatModifier: 5f);
+        //_body.GibBody(ent, true, body, splatModifier: 5f); // Wayfarer
     }
 
     private void OnSeverityChanged(Entity<InnerBodyAnomalyComponent> ent, ref AnomalySeverityChangedEvent args)
