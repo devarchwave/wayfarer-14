@@ -4869,3 +4869,10 @@ Entries:
   id: 7064
   time: '2026-06-28T21:00:05.0000000+00:00'
   url: https://github.com/project-wayfarer/wayfarer-14/pull/1249
+- author: VVersengt
+  changes:
+    - type: Tweak
+      message: Adjusted Svalinn laser pistol stats.
+  id: 7065
+  time: '2026-06-28T21:01:56.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/1247
