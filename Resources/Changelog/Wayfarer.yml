@@ -4858,3 +4858,14 @@ Entries:
   id: 7063
   time: '2026-06-28T20:58:33.0000000+00:00'
   url: https://github.com/project-wayfarer/wayfarer-14/pull/1250
+- author: DevArchwave
+  changes:
+    - type: Tweak
+      message: >-
+        Added a magnet to the cooking bag and a new set of sprites, courtesy of
+        Roy.
+    - type: Fix
+      message: Fixed the cooking bag. Now it can actually pick up food items.
+  id: 7064
+  time: '2026-06-28T21:00:05.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/1249
