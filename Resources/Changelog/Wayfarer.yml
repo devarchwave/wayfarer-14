@@ -4824,3 +4824,12 @@ Entries:
   id: 7059
   time: '2026-06-27T08:22:57.0000000+00:00'
   url: https://github.com/project-wayfarer/wayfarer-14/pull/1245
+- author: DevArchwave
+  changes:
+    - type: Tweak
+      message: Stamina damage projectiles have been tweaked slightly to do more damage.
+    - type: Tweak
+      message: The esword was tweaked to do a little less damage.
+  id: 7060
+  time: '2026-06-28T20:55:18.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/1255
