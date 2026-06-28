@@ -2,7 +2,7 @@
   name: cooking bag
   id: NFCookingBag
   parent: NFBaseClothingBeltStorageBag
-  description: A bag for Cheffs to Keep their food and drinks off the floor. # Wayfarer: Changed desc
+  description: A bag for storing foods, beverages, dishes and utensils. Self-cooled, too! # Wayfarer: Changed desc
   components:
   - type: Sprite
     sprite: _WF/Objects/Specific/Kitchen/Equipment/cooking_bag.rsi # Wayfarer: _NF < _WF
@@ -31,6 +31,8 @@
         # Wayfarer: Food doesn't work anymore for these things. Edible component is the way to go.
         - Edible # Wayfarer
         - Drink # Wayfarer
+        - NFCookware # Wayfarer
+        - Utensil # Wayfarer
       tags:
         - Ingredient
     blacklist:
