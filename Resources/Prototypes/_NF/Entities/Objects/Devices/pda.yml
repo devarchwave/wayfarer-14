@@ -412,7 +412,7 @@
   suffix: Frontier
   components:
   - type: Pda
-    id: NFPirateIDCard
+    id: ContractorIDCard # Wayfarer NFPirateIDCard<ContractorIDCard
   - type: Appearance
     appearanceDataInit:
       enum.PdaVisuals.PdaType:
@@ -432,7 +432,7 @@
   suffix: Frontier
   components:
   - type: Pda
-    id: NFPirateCaptainIDCard
+    id: ContractorIDCard # Wayfarer NFPirateCaptainIDCard<ContractorIDCard
   - type: Appearance
     appearanceDataInit:
       enum.PdaVisuals.PdaType:
