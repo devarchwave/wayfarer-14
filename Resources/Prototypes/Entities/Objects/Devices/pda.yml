@@ -1169,7 +1169,7 @@
   description: Be honest... you probably stole this. # Ok, time to be a productive member of- oh cool I'm a bad guy time to kill people! # Wayfarer
   components:
   - type: Pda
-    id: ContractorIDCard # Wayfarer SyndicateIDCard<ContractorIDCard
+    id: SyndicateIDCard
   - type: Appearance
     appearanceDataInit:
      enum.PdaVisuals.PdaType:
@@ -1565,7 +1565,7 @@
   description: Even Coldlight needs medics. #For those days when healing normal syndicates aren't enough, try healing nuclear operatives instead! # Wayfarer
   components:
   - type: Pda
-    id: ContractorIDCard # Wayfarer SyndicateIDCard<ContractorIDCard
+    id: SyndicateIDCard
   - type: Appearance
     appearanceDataInit:
      enum.PdaVisuals.PdaType:
