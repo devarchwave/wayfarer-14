@@ -1,5 +1,6 @@
 department-Cargo = Cargo
-department-Civilian = Civilian
+# Wayfarer: Renamed
+department-Civilian = Wayfarers
 # department-Command = Command # Frontier: redefined in _NF
 department-CentralCommand = Central Command
 department-Engineering = Engineering
