@@ -4849,3 +4849,12 @@ Entries:
   id: 7062
   time: '2026-06-28T20:56:56.0000000+00:00'
   url: https://github.com/project-wayfarer/wayfarer-14/pull/1251
+- author: Luweth
+  changes:
+    - type: Add
+      message: Added Cracked and Pirate PDAs to loadouts.
+    - type: Tweak
+      message: Changed Red PDA vales slightly and updated descriptions.
+  id: 7063
+  time: '2026-06-28T20:58:33.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/1250
