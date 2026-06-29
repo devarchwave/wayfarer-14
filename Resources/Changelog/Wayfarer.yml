@@ -4923,3 +4923,16 @@ Entries:
   id: 7070
   time: '2026-06-28T23:30:10.0000000+00:00'
   url: https://github.com/project-wayfarer/wayfarer-14/pull/1258
+- author: VVersengt
+  changes:
+    - type: Add
+      message: Added new bounties, machines and content for Outlaws
+    - type: Tweak
+      message: >-
+        Changed smuggling alert to be equal for both sides with a few minutes of
+        variance in-between.
+    - type: Tweak
+      message: Changed some flavor text related to dead drops.
+  id: 7071
+  time: '2026-06-29T05:45:08.0000000+00:00'
+  url: https://github.com/project-wayfarer/wayfarer-14/pull/1259
