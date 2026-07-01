@@ -11,7 +11,7 @@ namespace Content.Shared.SSDIndicator;
 
 public sealed partial class SSDIndicatorSystem : EntitySystem
 {
-    private float _jobReopenMinutes = 60f;
+    private float _jobReopenMinutes = 120f;
     private TimeSpan _nextJobReopenCheck = TimeSpan.Zero;
     private static readonly TimeSpan JobReopenCheckInterval = TimeSpan.FromSeconds(45);
     [Dependency] private readonly INetManager _net = default!; // Wayfarer
